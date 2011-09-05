@@ -1,0 +1,15 @@
+libopenocl_base-1.0.1
+libopenocl_security-1.0.1
+libopenocl_util-1.0.1
+libopenocl_io_psa-1.0.1
+
+libopenocl_io.lib
+libopenocl_io.so
+libopenocl_io.so.1
+libopenocl_io.a
+openocl_io.dll
+openocl_io.exp
+openocl_io.lib
+openocl_io.ilk
+openocl_io.pdb
+

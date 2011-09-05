@@ -1,0 +1,542 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		653B3CEB14120416006C43A1 /* io.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CA414120416006C43A1 /* io.h */; };
+		653B3CEC14120416006C43A1 /* io_exceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CA514120416006C43A1 /* io_exceptions.h */; };
+		653B3CED14120416006C43A1 /* Device.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CA714120416006C43A1 /* Device.h */; };
+		653B3CEE14120416006C43A1 /* Directory.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CA814120416006C43A1 /* Directory.h */; };
+		653B3CEF14120416006C43A1 /* File.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CA914120416006C43A1 /* File.h */; };
+		653B3CF014120416006C43A1 /* FileInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CAA14120416006C43A1 /* FileInputStream.h */; };
+		653B3CF114120416006C43A1 /* FileOutputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CAB14120416006C43A1 /* FileOutputStream.h */; };
+		653B3CF214120416006C43A1 /* IAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CAC14120416006C43A1 /* IAddress.h */; };
+		653B3CF314120416006C43A1 /* IEndPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CAD14120416006C43A1 /* IEndPoint.h */; };
+		653B3CF414120416006C43A1 /* IOBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CAE14120416006C43A1 /* IOBuffer.h */; };
+		653B3CF514120416006C43A1 /* InputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CAF14120416006C43A1 /* InputStream.h */; };
+		653B3CF614120416006C43A1 /* InputStreamReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CB014120416006C43A1 /* InputStreamReader.h */; };
+		653B3CF714120416006C43A1 /* LineParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CB114120416006C43A1 /* LineParser.h */; };
+		653B3CF814120416006C43A1 /* OutputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CB214120416006C43A1 /* OutputStream.h */; };
+		653B3CF914120416006C43A1 /* Path.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CB314120416006C43A1 /* Path.h */; };
+		653B3CFA14120416006C43A1 /* PrintWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CB414120416006C43A1 /* PrintWriter.h */; };
+		653B3CFB14120416006C43A1 /* Printer.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CB514120416006C43A1 /* Printer.h */; };
+		653B3CFC14120416006C43A1 /* PushbackReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CB614120416006C43A1 /* PushbackReader.h */; };
+		653B3CFD14120416006C43A1 /* Reader.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CB714120416006C43A1 /* Reader.h */; };
+		653B3CFE14120416006C43A1 /* Writer.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CB814120416006C43A1 /* Writer.h */; };
+		653B3CFF14120416006C43A1 /* FileAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CBA14120416006C43A1 /* FileAddress.h */; };
+		653B3D0014120416006C43A1 /* FileDescriptorPSA.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CBB14120416006C43A1 /* FileDescriptorPSA.h */; };
+		653B3D0114120416006C43A1 /* FileSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CBC14120416006C43A1 /* FileSystem.h */; };
+		653B3D0214120416006C43A1 /* IO.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CBD14120416006C43A1 /* IO.h */; };
+		653B3D0314120416006C43A1 /* OutputStreamWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CBE14120416006C43A1 /* OutputStreamWriter.h */; };
+		653B3D0414120416006C43A1 /* PushbackInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CBF14120416006C43A1 /* PushbackInputStream.h */; };
+		653B3D0514120416006C43A1 /* Statistics.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CC014120416006C43A1 /* Statistics.h */; };
+		653B3D0614120416006C43A1 /* UndeletablePrintWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CC114120416006C43A1 /* UndeletablePrintWriter.h */; };
+		653B3D0714120416006C43A1 /* openxds.io.constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CC214120416006C43A1 /* openxds.io.constants.h */; };
+		653B3D0814120416006C43A1 /* FileAlreadyExistsException.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CC414120416006C43A1 /* FileAlreadyExistsException.h */; };
+		653B3D0914120416006C43A1 /* FileNotFoundException.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CC514120416006C43A1 /* FileNotFoundException.h */; };
+		653B3D0A14120416006C43A1 /* IOException.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CC614120416006C43A1 /* IOException.h */; };
+		653B3D0B14120416006C43A1 /* RaceConditionException.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CC714120416006C43A1 /* RaceConditionException.h */; };
+		653B3D0C14120416006C43A1 /* WouldBlockException.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CC814120416006C43A1 /* WouldBlockException.h */; };
+		653B3D0D14120416006C43A1 /* openxds.io.exceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CC914120416006C43A1 /* openxds.io.exceptions.h */; };
+		653B3D0E14120416006C43A1 /* openxds.io.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3CCA14120416006C43A1 /* openxds.io.h */; };
+		653B3D0F14120416006C43A1 /* Device.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CCD14120416006C43A1 /* Device.cpp */; };
+		653B3D1014120416006C43A1 /* Directory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CCE14120416006C43A1 /* Directory.cpp */; };
+		653B3D1114120416006C43A1 /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CCF14120416006C43A1 /* File.cpp */; };
+		653B3D1214120416006C43A1 /* FileInputStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD014120416006C43A1 /* FileInputStream.cpp */; };
+		653B3D1314120416006C43A1 /* FileOutputStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD114120416006C43A1 /* FileOutputStream.cpp */; };
+		653B3D1414120416006C43A1 /* IOBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD214120416006C43A1 /* IOBuffer.cpp */; };
+		653B3D1514120416006C43A1 /* InputStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD314120416006C43A1 /* InputStream.cpp */; };
+		653B3D1614120416006C43A1 /* InputStreamReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD414120416006C43A1 /* InputStreamReader.cpp */; };
+		653B3D1714120416006C43A1 /* LineParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD514120416006C43A1 /* LineParser.cpp */; };
+		653B3D1814120416006C43A1 /* OutputStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD614120416006C43A1 /* OutputStream.cpp */; };
+		653B3D1914120416006C43A1 /* Path.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD714120416006C43A1 /* Path.cpp */; };
+		653B3D1A14120416006C43A1 /* PrintWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD814120416006C43A1 /* PrintWriter.cpp */; };
+		653B3D1B14120416006C43A1 /* Printer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CD914120416006C43A1 /* Printer.cpp */; };
+		653B3D1C14120416006C43A1 /* PushbackReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CDA14120416006C43A1 /* PushbackReader.cpp */; };
+		653B3D1D14120416006C43A1 /* Reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CDB14120416006C43A1 /* Reader.cpp */; };
+		653B3D1E14120416006C43A1 /* Writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3CDC14120416006C43A1 /* Writer.cpp */; };
+		653B3D331412042A006C43A1 /* libopenxds_adt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D2A1412042A006C43A1 /* libopenxds_adt.dylib */; };
+		653B3D341412042A006C43A1 /* libopenxds_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D2B1412042A006C43A1 /* libopenxds_base.dylib */; };
+		653B3D351412042A006C43A1 /* libopenxds_core_adt_std.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D2C1412042A006C43A1 /* libopenxds_core_adt_std.dylib */; };
+		653B3D361412042A006C43A1 /* libopenxds_core_adt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D2D1412042A006C43A1 /* libopenxds_core_adt.dylib */; };
+		653B3D371412042A006C43A1 /* libopenxds_core_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D2E1412042A006C43A1 /* libopenxds_core_base.dylib */; };
+		653B3D381412042A006C43A1 /* libopenxds_core_io.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D2F1412042A006C43A1 /* libopenxds_core_io.dylib */; };
+		653B3D391412042A006C43A1 /* libopenxds_core_threads.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D301412042A006C43A1 /* libopenxds_core_threads.dylib */; };
+		655FC8B81414649000AE5A9F /* libopenxds_adt_std.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 655FC8B71414649000AE5A9F /* libopenxds_adt_std.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		653B3C9114120357006C43A1 /* libopenxds_io.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libopenxds_io.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		653B3C9914120416006C43A1 /* .cvsignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .cvsignore; sourceTree = "<group>"; };
+		653B3C9A14120416006C43A1 /* libopenxds_adt.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_adt.link; sourceTree = "<group>"; };
+		653B3C9B14120416006C43A1 /* libopenxds_adt_std.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_adt_std.link; sourceTree = "<group>"; };
+		653B3C9C14120416006C43A1 /* libopenxds_base.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_base.link; sourceTree = "<group>"; };
+		653B3C9D14120416006C43A1 /* libopenxds_core_adt.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_adt.link; sourceTree = "<group>"; };
+		653B3C9E14120416006C43A1 /* libopenxds_core_adt_std.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_adt_std.link; sourceTree = "<group>"; };
+		653B3C9F14120416006C43A1 /* libopenxds_core_base.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_base.link; sourceTree = "<group>"; };
+		653B3CA014120416006C43A1 /* libopenxds_core_io.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_io.link; sourceTree = "<group>"; };
+		653B3CA114120416006C43A1 /* libopenxds_core_threads.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_threads.link; sourceTree = "<group>"; };
+		653B3CA214120416006C43A1 /* libopenxds_security.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_security.link; sourceTree = "<group>"; };
+		653B3CA414120416006C43A1 /* io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = io.h; sourceTree = "<group>"; };
+		653B3CA514120416006C43A1 /* io_exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = io_exceptions.h; sourceTree = "<group>"; };
+		653B3CA714120416006C43A1 /* Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Device.h; sourceTree = "<group>"; };
+		653B3CA814120416006C43A1 /* Directory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Directory.h; sourceTree = "<group>"; };
+		653B3CA914120416006C43A1 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		653B3CAA14120416006C43A1 /* FileInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileInputStream.h; sourceTree = "<group>"; };
+		653B3CAB14120416006C43A1 /* FileOutputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileOutputStream.h; sourceTree = "<group>"; };
+		653B3CAC14120416006C43A1 /* IAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAddress.h; sourceTree = "<group>"; };
+		653B3CAD14120416006C43A1 /* IEndPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEndPoint.h; sourceTree = "<group>"; };
+		653B3CAE14120416006C43A1 /* IOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBuffer.h; sourceTree = "<group>"; };
+		653B3CAF14120416006C43A1 /* InputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputStream.h; sourceTree = "<group>"; };
+		653B3CB014120416006C43A1 /* InputStreamReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputStreamReader.h; sourceTree = "<group>"; };
+		653B3CB114120416006C43A1 /* LineParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineParser.h; sourceTree = "<group>"; };
+		653B3CB214120416006C43A1 /* OutputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputStream.h; sourceTree = "<group>"; };
+		653B3CB314120416006C43A1 /* Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
+		653B3CB414120416006C43A1 /* PrintWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintWriter.h; sourceTree = "<group>"; };
+		653B3CB514120416006C43A1 /* Printer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Printer.h; sourceTree = "<group>"; };
+		653B3CB614120416006C43A1 /* PushbackReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushbackReader.h; sourceTree = "<group>"; };
+		653B3CB714120416006C43A1 /* Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reader.h; sourceTree = "<group>"; };
+		653B3CB814120416006C43A1 /* Writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Writer.h; sourceTree = "<group>"; };
+		653B3CBA14120416006C43A1 /* FileAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAddress.h; sourceTree = "<group>"; };
+		653B3CBB14120416006C43A1 /* FileDescriptorPSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDescriptorPSA.h; sourceTree = "<group>"; };
+		653B3CBC14120416006C43A1 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
+		653B3CBD14120416006C43A1 /* IO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IO.h; sourceTree = "<group>"; };
+		653B3CBE14120416006C43A1 /* OutputStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputStreamWriter.h; sourceTree = "<group>"; };
+		653B3CBF14120416006C43A1 /* PushbackInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushbackInputStream.h; sourceTree = "<group>"; };
+		653B3CC014120416006C43A1 /* Statistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statistics.h; sourceTree = "<group>"; };
+		653B3CC114120416006C43A1 /* UndeletablePrintWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UndeletablePrintWriter.h; sourceTree = "<group>"; };
+		653B3CC214120416006C43A1 /* openxds.io.constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openxds.io.constants.h; sourceTree = "<group>"; };
+		653B3CC414120416006C43A1 /* FileAlreadyExistsException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAlreadyExistsException.h; sourceTree = "<group>"; };
+		653B3CC514120416006C43A1 /* FileNotFoundException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileNotFoundException.h; sourceTree = "<group>"; };
+		653B3CC614120416006C43A1 /* IOException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOException.h; sourceTree = "<group>"; };
+		653B3CC714120416006C43A1 /* RaceConditionException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceConditionException.h; sourceTree = "<group>"; };
+		653B3CC814120416006C43A1 /* WouldBlockException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WouldBlockException.h; sourceTree = "<group>"; };
+		653B3CC914120416006C43A1 /* openxds.io.exceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openxds.io.exceptions.h; sourceTree = "<group>"; };
+		653B3CCA14120416006C43A1 /* openxds.io.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openxds.io.h; sourceTree = "<group>"; };
+		653B3CCD14120416006C43A1 /* Device.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Device.cpp; sourceTree = "<group>"; };
+		653B3CCE14120416006C43A1 /* Directory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Directory.cpp; sourceTree = "<group>"; };
+		653B3CCF14120416006C43A1 /* File.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = File.cpp; sourceTree = "<group>"; };
+		653B3CD014120416006C43A1 /* FileInputStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileInputStream.cpp; sourceTree = "<group>"; };
+		653B3CD114120416006C43A1 /* FileOutputStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileOutputStream.cpp; sourceTree = "<group>"; };
+		653B3CD214120416006C43A1 /* IOBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOBuffer.cpp; sourceTree = "<group>"; };
+		653B3CD314120416006C43A1 /* InputStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputStream.cpp; sourceTree = "<group>"; };
+		653B3CD414120416006C43A1 /* InputStreamReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputStreamReader.cpp; sourceTree = "<group>"; };
+		653B3CD514120416006C43A1 /* LineParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LineParser.cpp; sourceTree = "<group>"; };
+		653B3CD614120416006C43A1 /* OutputStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutputStream.cpp; sourceTree = "<group>"; };
+		653B3CD714120416006C43A1 /* Path.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Path.cpp; sourceTree = "<group>"; };
+		653B3CD814120416006C43A1 /* PrintWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PrintWriter.cpp; sourceTree = "<group>"; };
+		653B3CD914120416006C43A1 /* Printer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Printer.cpp; sourceTree = "<group>"; };
+		653B3CDA14120416006C43A1 /* PushbackReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PushbackReader.cpp; sourceTree = "<group>"; };
+		653B3CDB14120416006C43A1 /* Reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Reader.cpp; sourceTree = "<group>"; };
+		653B3CDC14120416006C43A1 /* Writer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Writer.cpp; sourceTree = "<group>"; };
+		653B3D2A1412042A006C43A1 /* libopenxds_adt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_adt.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_adt.dylib"; sourceTree = "<group>"; };
+		653B3D2B1412042A006C43A1 /* libopenxds_base.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_base.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_base.dylib"; sourceTree = "<group>"; };
+		653B3D2C1412042A006C43A1 /* libopenxds_core_adt_std.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_adt_std.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_adt_std.dylib"; sourceTree = "<group>"; };
+		653B3D2D1412042A006C43A1 /* libopenxds_core_adt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_adt.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_adt.dylib"; sourceTree = "<group>"; };
+		653B3D2E1412042A006C43A1 /* libopenxds_core_base.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_base.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_base.dylib"; sourceTree = "<group>"; };
+		653B3D2F1412042A006C43A1 /* libopenxds_core_io.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_io.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_io.dylib"; sourceTree = "<group>"; };
+		653B3D301412042A006C43A1 /* libopenxds_core_threads.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_threads.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_threads.dylib"; sourceTree = "<group>"; };
+		655FC8B71414649000AE5A9F /* libopenxds_adt_std.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_adt_std.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/Codex-gvclkrawamqdtsbihzqlucdjntjw/Build/Products/Debug/libopenxds_adt_std.dylib"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		653B3C8E14120357006C43A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				655FC8B81414649000AE5A9F /* libopenxds_adt_std.dylib in Frameworks */,
+				653B3D331412042A006C43A1 /* libopenxds_adt.dylib in Frameworks */,
+				653B3D341412042A006C43A1 /* libopenxds_base.dylib in Frameworks */,
+				653B3D351412042A006C43A1 /* libopenxds_core_adt_std.dylib in Frameworks */,
+				653B3D361412042A006C43A1 /* libopenxds_core_adt.dylib in Frameworks */,
+				653B3D371412042A006C43A1 /* libopenxds_core_base.dylib in Frameworks */,
+				653B3D381412042A006C43A1 /* libopenxds_core_io.dylib in Frameworks */,
+				653B3D391412042A006C43A1 /* libopenxds_core_threads.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		653B3C8614120356006C43A1 = {
+			isa = PBXGroup;
+			children = (
+				655FC8B71414649000AE5A9F /* libopenxds_adt_std.dylib */,
+				653B3D2A1412042A006C43A1 /* libopenxds_adt.dylib */,
+				653B3D2B1412042A006C43A1 /* libopenxds_base.dylib */,
+				653B3D2C1412042A006C43A1 /* libopenxds_core_adt_std.dylib */,
+				653B3D2D1412042A006C43A1 /* libopenxds_core_adt.dylib */,
+				653B3D2E1412042A006C43A1 /* libopenxds_core_base.dylib */,
+				653B3D2F1412042A006C43A1 /* libopenxds_core_io.dylib */,
+				653B3D301412042A006C43A1 /* libopenxds_core_threads.dylib */,
+				653B3C9814120416006C43A1 /* dep */,
+				653B3CA314120416006C43A1 /* include */,
+				653B3CCB14120416006C43A1 /* source */,
+				653B3C9214120357006C43A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		653B3C9214120357006C43A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				653B3C9114120357006C43A1 /* libopenxds_io.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		653B3C9814120416006C43A1 /* dep */ = {
+			isa = PBXGroup;
+			children = (
+				653B3C9914120416006C43A1 /* .cvsignore */,
+				653B3C9A14120416006C43A1 /* libopenxds_adt.link */,
+				653B3C9B14120416006C43A1 /* libopenxds_adt_std.link */,
+				653B3C9C14120416006C43A1 /* libopenxds_base.link */,
+				653B3C9D14120416006C43A1 /* libopenxds_core_adt.link */,
+				653B3C9E14120416006C43A1 /* libopenxds_core_adt_std.link */,
+				653B3C9F14120416006C43A1 /* libopenxds_core_base.link */,
+				653B3CA014120416006C43A1 /* libopenxds_core_io.link */,
+				653B3CA114120416006C43A1 /* libopenxds_core_threads.link */,
+				653B3CA214120416006C43A1 /* libopenxds_security.link */,
+			);
+			path = dep;
+			sourceTree = "<group>";
+		};
+		653B3CA314120416006C43A1 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				653B3CA414120416006C43A1 /* io.h */,
+				653B3CA514120416006C43A1 /* io_exceptions.h */,
+				653B3CA614120416006C43A1 /* openxds.io */,
+				653B3CC214120416006C43A1 /* openxds.io.constants.h */,
+				653B3CC314120416006C43A1 /* openxds.io.exceptions */,
+				653B3CC914120416006C43A1 /* openxds.io.exceptions.h */,
+				653B3CCA14120416006C43A1 /* openxds.io.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		653B3CA614120416006C43A1 /* openxds.io */ = {
+			isa = PBXGroup;
+			children = (
+				653B3CA714120416006C43A1 /* Device.h */,
+				653B3CA814120416006C43A1 /* Directory.h */,
+				653B3CA914120416006C43A1 /* File.h */,
+				653B3CAA14120416006C43A1 /* FileInputStream.h */,
+				653B3CAB14120416006C43A1 /* FileOutputStream.h */,
+				653B3CAC14120416006C43A1 /* IAddress.h */,
+				653B3CAD14120416006C43A1 /* IEndPoint.h */,
+				653B3CAE14120416006C43A1 /* IOBuffer.h */,
+				653B3CAF14120416006C43A1 /* InputStream.h */,
+				653B3CB014120416006C43A1 /* InputStreamReader.h */,
+				653B3CB114120416006C43A1 /* LineParser.h */,
+				653B3CB214120416006C43A1 /* OutputStream.h */,
+				653B3CB314120416006C43A1 /* Path.h */,
+				653B3CB414120416006C43A1 /* PrintWriter.h */,
+				653B3CB514120416006C43A1 /* Printer.h */,
+				653B3CB614120416006C43A1 /* PushbackReader.h */,
+				653B3CB714120416006C43A1 /* Reader.h */,
+				653B3CB814120416006C43A1 /* Writer.h */,
+				653B3CB914120416006C43A1 /* xxx */,
+			);
+			path = openxds.io;
+			sourceTree = "<group>";
+		};
+		653B3CB914120416006C43A1 /* xxx */ = {
+			isa = PBXGroup;
+			children = (
+				653B3CBA14120416006C43A1 /* FileAddress.h */,
+				653B3CBB14120416006C43A1 /* FileDescriptorPSA.h */,
+				653B3CBC14120416006C43A1 /* FileSystem.h */,
+				653B3CBD14120416006C43A1 /* IO.h */,
+				653B3CBE14120416006C43A1 /* OutputStreamWriter.h */,
+				653B3CBF14120416006C43A1 /* PushbackInputStream.h */,
+				653B3CC014120416006C43A1 /* Statistics.h */,
+				653B3CC114120416006C43A1 /* UndeletablePrintWriter.h */,
+			);
+			path = xxx;
+			sourceTree = "<group>";
+		};
+		653B3CC314120416006C43A1 /* openxds.io.exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				653B3CC414120416006C43A1 /* FileAlreadyExistsException.h */,
+				653B3CC514120416006C43A1 /* FileNotFoundException.h */,
+				653B3CC614120416006C43A1 /* IOException.h */,
+				653B3CC714120416006C43A1 /* RaceConditionException.h */,
+				653B3CC814120416006C43A1 /* WouldBlockException.h */,
+			);
+			path = openxds.io.exceptions;
+			sourceTree = "<group>";
+		};
+		653B3CCB14120416006C43A1 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				653B3CCC14120416006C43A1 /* cplusplus */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		653B3CCC14120416006C43A1 /* cplusplus */ = {
+			isa = PBXGroup;
+			children = (
+				653B3CCD14120416006C43A1 /* Device.cpp */,
+				653B3CCE14120416006C43A1 /* Directory.cpp */,
+				653B3CCF14120416006C43A1 /* File.cpp */,
+				653B3CD014120416006C43A1 /* FileInputStream.cpp */,
+				653B3CD114120416006C43A1 /* FileOutputStream.cpp */,
+				653B3CD214120416006C43A1 /* IOBuffer.cpp */,
+				653B3CD314120416006C43A1 /* InputStream.cpp */,
+				653B3CD414120416006C43A1 /* InputStreamReader.cpp */,
+				653B3CD514120416006C43A1 /* LineParser.cpp */,
+				653B3CD614120416006C43A1 /* OutputStream.cpp */,
+				653B3CD714120416006C43A1 /* Path.cpp */,
+				653B3CD814120416006C43A1 /* PrintWriter.cpp */,
+				653B3CD914120416006C43A1 /* Printer.cpp */,
+				653B3CDA14120416006C43A1 /* PushbackReader.cpp */,
+				653B3CDB14120416006C43A1 /* Reader.cpp */,
+				653B3CDC14120416006C43A1 /* Writer.cpp */,
+			);
+			path = cplusplus;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		653B3C8F14120357006C43A1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				653B3CEB14120416006C43A1 /* io.h in Headers */,
+				653B3CEC14120416006C43A1 /* io_exceptions.h in Headers */,
+				653B3CED14120416006C43A1 /* Device.h in Headers */,
+				653B3CEE14120416006C43A1 /* Directory.h in Headers */,
+				653B3CEF14120416006C43A1 /* File.h in Headers */,
+				653B3CF014120416006C43A1 /* FileInputStream.h in Headers */,
+				653B3CF114120416006C43A1 /* FileOutputStream.h in Headers */,
+				653B3CF214120416006C43A1 /* IAddress.h in Headers */,
+				653B3CF314120416006C43A1 /* IEndPoint.h in Headers */,
+				653B3CF414120416006C43A1 /* IOBuffer.h in Headers */,
+				653B3CF514120416006C43A1 /* InputStream.h in Headers */,
+				653B3CF614120416006C43A1 /* InputStreamReader.h in Headers */,
+				653B3CF714120416006C43A1 /* LineParser.h in Headers */,
+				653B3CF814120416006C43A1 /* OutputStream.h in Headers */,
+				653B3CF914120416006C43A1 /* Path.h in Headers */,
+				653B3CFA14120416006C43A1 /* PrintWriter.h in Headers */,
+				653B3CFB14120416006C43A1 /* Printer.h in Headers */,
+				653B3CFC14120416006C43A1 /* PushbackReader.h in Headers */,
+				653B3CFD14120416006C43A1 /* Reader.h in Headers */,
+				653B3CFE14120416006C43A1 /* Writer.h in Headers */,
+				653B3CFF14120416006C43A1 /* FileAddress.h in Headers */,
+				653B3D0014120416006C43A1 /* FileDescriptorPSA.h in Headers */,
+				653B3D0114120416006C43A1 /* FileSystem.h in Headers */,
+				653B3D0214120416006C43A1 /* IO.h in Headers */,
+				653B3D0314120416006C43A1 /* OutputStreamWriter.h in Headers */,
+				653B3D0414120416006C43A1 /* PushbackInputStream.h in Headers */,
+				653B3D0514120416006C43A1 /* Statistics.h in Headers */,
+				653B3D0614120416006C43A1 /* UndeletablePrintWriter.h in Headers */,
+				653B3D0714120416006C43A1 /* openxds.io.constants.h in Headers */,
+				653B3D0814120416006C43A1 /* FileAlreadyExistsException.h in Headers */,
+				653B3D0914120416006C43A1 /* FileNotFoundException.h in Headers */,
+				653B3D0A14120416006C43A1 /* IOException.h in Headers */,
+				653B3D0B14120416006C43A1 /* RaceConditionException.h in Headers */,
+				653B3D0C14120416006C43A1 /* WouldBlockException.h in Headers */,
+				653B3D0D14120416006C43A1 /* openxds.io.exceptions.h in Headers */,
+				653B3D0E14120416006C43A1 /* openxds.io.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		653B3C9014120357006C43A1 /* libopenxds_io */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 653B3C9514120357006C43A1 /* Build configuration list for PBXNativeTarget "libopenxds_io" */;
+			buildPhases = (
+				653B3C8D14120357006C43A1 /* Sources */,
+				653B3C8E14120357006C43A1 /* Frameworks */,
+				653B3C8F14120357006C43A1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libopenxds_io;
+			productName = libopenxds_io;
+			productReference = 653B3C9114120357006C43A1 /* libopenxds_io.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		653B3C8814120356006C43A1 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 653B3C8B14120356006C43A1 /* Build configuration list for PBXProject "libopenxds_io" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 653B3C8614120356006C43A1;
+			productRefGroup = 653B3C9214120357006C43A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				653B3C9014120357006C43A1 /* libopenxds_io */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		653B3C8D14120357006C43A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				653B3D0F14120416006C43A1 /* Device.cpp in Sources */,
+				653B3D1014120416006C43A1 /* Directory.cpp in Sources */,
+				653B3D1114120416006C43A1 /* File.cpp in Sources */,
+				653B3D1214120416006C43A1 /* FileInputStream.cpp in Sources */,
+				653B3D1314120416006C43A1 /* FileOutputStream.cpp in Sources */,
+				653B3D1414120416006C43A1 /* IOBuffer.cpp in Sources */,
+				653B3D1514120416006C43A1 /* InputStream.cpp in Sources */,
+				653B3D1614120416006C43A1 /* InputStreamReader.cpp in Sources */,
+				653B3D1714120416006C43A1 /* LineParser.cpp in Sources */,
+				653B3D1814120416006C43A1 /* OutputStream.cpp in Sources */,
+				653B3D1914120416006C43A1 /* Path.cpp in Sources */,
+				653B3D1A14120416006C43A1 /* PrintWriter.cpp in Sources */,
+				653B3D1B14120416006C43A1 /* Printer.cpp in Sources */,
+				653B3D1C14120416006C43A1 /* PushbackReader.cpp in Sources */,
+				653B3D1D14120416006C43A1 /* Reader.cpp in Sources */,
+				653B3D1E14120416006C43A1 /* Writer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		653B3C9314120357006C43A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../OpenXDS_Core/0.x/libopenxds_core_base/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_threads/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_adt/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_adt_std/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_io/include,
+					../libopenxds_base/include,
+					../libopenxds_adt/include,
+					../libopenxds_adt_std/include,
+					../libopenxds_security/include,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "include source/include";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		653B3C9414120357006C43A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../OpenXDS_Core/0.x/libopenxds_core_base/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_threads/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_adt/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_adt_std/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_io/include,
+					../libopenxds_base/include,
+					../libopenxds_adt/include,
+					../libopenxds_adt_std/include,
+					../libopenxds_security/include,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "include source/include";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		653B3C9614120357006C43A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/Codex-gvclkrawamqdtsbihzqlucdjntjw/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		653B3C9714120357006C43A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/Codex-gvclkrawamqdtsbihzqlucdjntjw/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		653B3C8B14120356006C43A1 /* Build configuration list for PBXProject "libopenxds_io" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				653B3C9314120357006C43A1 /* Debug */,
+				653B3C9414120357006C43A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		653B3C9514120357006C43A1 /* Build configuration list for PBXNativeTarget "libopenxds_io" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				653B3C9614120357006C43A1 /* Debug */,
+				653B3C9714120357006C43A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 653B3C8814120356006C43A1 /* Project object */;
+}

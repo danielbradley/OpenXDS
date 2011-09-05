@@ -1,0 +1,114 @@
+/*
+ *  Copyright (C) 1997-2004 Daniel Robert Bradley. All rights reserved.
+ *
+ *  This software is redistributable under the terms of the GNU LGPL
+ *  (Lesser General Public License).
+ *
+ *  I.S.Labs is a registered trademark of Daniel Robert Bradley
+ */
+
+#include <openocl/io/FileDescriptor.h>
+
+#include <openocl/base/String.h>
+#include <openocl/io/File.h>
+#include <openocl/io/FilePSA.h>
+#include <openocl/io/IOException.h>
+#include <openocl/io/IOPSA.h>
+#include <openocl/io/Statistics.h>
+#include <openocl/io/StatPSA.h>
+
+#include <openocl/io_constants.h>
+
+#include <stdio.h>
+
+using namespace openocl::base;
+using namespace openocl::io;
+
+const int FileDescriptor::IN    = OPENOCL_IO_IN;
+const int FileDescriptor::OUT   = OPENOCL_IO_OUT;
+const int FileDescriptor::ERROR = OPENOCL_IO_ERR;
+
+
+FileDescriptor::FileDescriptor( int descriptor )
+throw (IOException*)
+{
+  switch( descriptor )
+  {
+  case IN:
+    this->fd = (void*) IN;
+    break;
+  case OUT:
+    this->fd = (void*) OUT;
+    break;
+  case ERROR:
+    this->fd = (void*) ERROR;
+    break;
+  default:
+    this->fd = (void*) descriptor;
+    //throw new IOException( "invalid descriptor" );
+  }
+}
+
+
+/**
+ *  This constructor creates a file descriptor object from a file descriptor
+ *  number. It does not do any checking to make sure the descriptor is valid.
+ *  The main use of this is to retrive FileDescriptor objects for the standard
+ *  in, out, and err file streams. <p>
+ */
+FileDescriptor::FileDescriptor( void* stream )
+{
+	this->fd = (void*) fileno( (FILE*) stream );
+}
+
+FileDescriptor::~FileDescriptor()
+throw (IOException*)
+{
+  this->close();
+}
+
+void
+FileDescriptor::close()
+throw (IOException*)
+{
+  FilePSA::Close( this->fd );
+  this->fd = null;
+}
+
+FileDescriptor*
+FileDescriptor::duplicate() const
+throw (IOException*)
+{
+  return new FileDescriptor( IOPSA::Duplicate( this->fd ) );
+}
+
+Object*
+FileDescriptor::clone() const
+throw (IOException*)
+{
+  return new FileDescriptor( this->fd );
+}
+
+bool
+FileDescriptor::isValid() const
+{
+  bool valid = false;
+  try
+  {
+    Statistics* stats = StatPSA::FDStat( this->fd );
+    delete stats;
+    valid = true;
+  } catch ( Exception* ex ) {
+    delete ex;
+  } catch ( ... ) {
+    ;
+  }
+  return valid;
+}
+
+void*
+FileDescriptor::getDescriptor() const
+throw (IOException*)
+{
+  return this->fd;
+}

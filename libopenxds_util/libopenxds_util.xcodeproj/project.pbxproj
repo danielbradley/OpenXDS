@@ -1,0 +1,366 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		653B3D66141206CB006C43A1 /* Arguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3D59141206CB006C43A1 /* Arguments.h */; };
+		653B3D67141206CB006C43A1 /* ITextToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3D5A141206CB006C43A1 /* ITextToken.h */; };
+		653B3D68141206CB006C43A1 /* ITextTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3D5B141206CB006C43A1 /* ITextTokenizer.h */; };
+		653B3D69141206CB006C43A1 /* IToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3D5C141206CB006C43A1 /* IToken.h */; };
+		653B3D6A141206CB006C43A1 /* ITokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3D5D141206CB006C43A1 /* ITokenizer.h */; };
+		653B3D6B141206CB006C43A1 /* TextToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3D5E141206CB006C43A1 /* TextToken.h */; };
+		653B3D6C141206CB006C43A1 /* TextTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3D5F141206CB006C43A1 /* TextTokenizer.h */; };
+		653B3D6D141206CB006C43A1 /* openxds.util.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3D60141206CB006C43A1 /* openxds.util.h */; };
+		653B3D6E141206CB006C43A1 /* Arguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3D63141206CB006C43A1 /* Arguments.cpp */; };
+		653B3D6F141206CB006C43A1 /* TextToken.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3D64141206CB006C43A1 /* TextToken.cpp */; };
+		653B3D70141206CB006C43A1 /* TextTokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3D65141206CB006C43A1 /* TextTokenizer.cpp */; };
+		653B3D7C14120778006C43A1 /* libopenxds_adt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D7214120778006C43A1 /* libopenxds_adt.dylib */; };
+		653B3D7D14120778006C43A1 /* libopenxds_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D7314120778006C43A1 /* libopenxds_base.dylib */; };
+		653B3D7E14120778006C43A1 /* libopenxds_core_adt_std.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D7414120778006C43A1 /* libopenxds_core_adt_std.dylib */; };
+		653B3D7F14120778006C43A1 /* libopenxds_core_adt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D7514120778006C43A1 /* libopenxds_core_adt.dylib */; };
+		653B3D8014120778006C43A1 /* libopenxds_core_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D7614120778006C43A1 /* libopenxds_core_base.dylib */; };
+		653B3D8114120778006C43A1 /* libopenxds_core_io.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D7714120778006C43A1 /* libopenxds_core_io.dylib */; };
+		653B3D8214120778006C43A1 /* libopenxds_core_threads.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D7814120778006C43A1 /* libopenxds_core_threads.dylib */; };
+		653B3D8314120778006C43A1 /* libopenxds_io.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3D7914120778006C43A1 /* libopenxds_io.dylib */; };
+		65941B92141467930043B182 /* libopenxds_adt_std.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 65941B91141467930043B182 /* libopenxds_adt_std.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		653B3D46141206A7006C43A1 /* libopenxds_util.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libopenxds_util.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		653B3D4E141206CB006C43A1 /* .cvsignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .cvsignore; sourceTree = "<group>"; };
+		653B3D4F141206CB006C43A1 /* libopenxds_adt.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_adt.link; sourceTree = "<group>"; };
+		653B3D50141206CB006C43A1 /* libopenxds_adt_std.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_adt_std.link; sourceTree = "<group>"; };
+		653B3D51141206CB006C43A1 /* libopenxds_base.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_base.link; sourceTree = "<group>"; };
+		653B3D52141206CB006C43A1 /* libopenxds_core_adt.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_adt.link; sourceTree = "<group>"; };
+		653B3D53141206CB006C43A1 /* libopenxds_core_adt_std.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_adt_std.link; sourceTree = "<group>"; };
+		653B3D54141206CB006C43A1 /* libopenxds_core_base.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_base.link; sourceTree = "<group>"; };
+		653B3D55141206CB006C43A1 /* libopenxds_core_threads.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_threads.link; sourceTree = "<group>"; };
+		653B3D56141206CB006C43A1 /* libopenxds_io.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_io.link; sourceTree = "<group>"; };
+		653B3D59141206CB006C43A1 /* Arguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arguments.h; sourceTree = "<group>"; };
+		653B3D5A141206CB006C43A1 /* ITextToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITextToken.h; sourceTree = "<group>"; };
+		653B3D5B141206CB006C43A1 /* ITextTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITextTokenizer.h; sourceTree = "<group>"; };
+		653B3D5C141206CB006C43A1 /* IToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IToken.h; sourceTree = "<group>"; };
+		653B3D5D141206CB006C43A1 /* ITokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITokenizer.h; sourceTree = "<group>"; };
+		653B3D5E141206CB006C43A1 /* TextToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextToken.h; sourceTree = "<group>"; };
+		653B3D5F141206CB006C43A1 /* TextTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextTokenizer.h; sourceTree = "<group>"; };
+		653B3D60141206CB006C43A1 /* openxds.util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openxds.util.h; sourceTree = "<group>"; };
+		653B3D63141206CB006C43A1 /* Arguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Arguments.cpp; sourceTree = "<group>"; };
+		653B3D64141206CB006C43A1 /* TextToken.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextToken.cpp; sourceTree = "<group>"; };
+		653B3D65141206CB006C43A1 /* TextTokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextTokenizer.cpp; sourceTree = "<group>"; };
+		653B3D7214120778006C43A1 /* libopenxds_adt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_adt.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_adt.dylib"; sourceTree = "<group>"; };
+		653B3D7314120778006C43A1 /* libopenxds_base.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_base.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_base.dylib"; sourceTree = "<group>"; };
+		653B3D7414120778006C43A1 /* libopenxds_core_adt_std.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_adt_std.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_adt_std.dylib"; sourceTree = "<group>"; };
+		653B3D7514120778006C43A1 /* libopenxds_core_adt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_adt.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_adt.dylib"; sourceTree = "<group>"; };
+		653B3D7614120778006C43A1 /* libopenxds_core_base.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_base.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_base.dylib"; sourceTree = "<group>"; };
+		653B3D7714120778006C43A1 /* libopenxds_core_io.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_io.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_io.dylib"; sourceTree = "<group>"; };
+		653B3D7814120778006C43A1 /* libopenxds_core_threads.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_threads.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_threads.dylib"; sourceTree = "<group>"; };
+		653B3D7914120778006C43A1 /* libopenxds_io.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_io.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_io.dylib"; sourceTree = "<group>"; };
+		65941B91141467930043B182 /* libopenxds_adt_std.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_adt_std.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/Codex-gvclkrawamqdtsbihzqlucdjntjw/Build/Products/Debug/libopenxds_adt_std.dylib"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		653B3D43141206A7006C43A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65941B92141467930043B182 /* libopenxds_adt_std.dylib in Frameworks */,
+				653B3D7C14120778006C43A1 /* libopenxds_adt.dylib in Frameworks */,
+				653B3D7D14120778006C43A1 /* libopenxds_base.dylib in Frameworks */,
+				653B3D7E14120778006C43A1 /* libopenxds_core_adt_std.dylib in Frameworks */,
+				653B3D7F14120778006C43A1 /* libopenxds_core_adt.dylib in Frameworks */,
+				653B3D8014120778006C43A1 /* libopenxds_core_base.dylib in Frameworks */,
+				653B3D8114120778006C43A1 /* libopenxds_core_io.dylib in Frameworks */,
+				653B3D8214120778006C43A1 /* libopenxds_core_threads.dylib in Frameworks */,
+				653B3D8314120778006C43A1 /* libopenxds_io.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		653B3D3B141206A7006C43A1 = {
+			isa = PBXGroup;
+			children = (
+				653B3D7914120778006C43A1 /* libopenxds_io.dylib */,
+				65941B91141467930043B182 /* libopenxds_adt_std.dylib */,
+				653B3D7214120778006C43A1 /* libopenxds_adt.dylib */,
+				653B3D7314120778006C43A1 /* libopenxds_base.dylib */,
+				653B3D7714120778006C43A1 /* libopenxds_core_io.dylib */,
+				653B3D7414120778006C43A1 /* libopenxds_core_adt_std.dylib */,
+				653B3D7514120778006C43A1 /* libopenxds_core_adt.dylib */,
+				653B3D7814120778006C43A1 /* libopenxds_core_threads.dylib */,
+				653B3D7614120778006C43A1 /* libopenxds_core_base.dylib */,
+				653B3D4D141206CB006C43A1 /* dep */,
+				653B3D57141206CB006C43A1 /* include */,
+				653B3D61141206CB006C43A1 /* source */,
+				653B3D47141206A7006C43A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		653B3D47141206A7006C43A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				653B3D46141206A7006C43A1 /* libopenxds_util.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		653B3D4D141206CB006C43A1 /* dep */ = {
+			isa = PBXGroup;
+			children = (
+				653B3D4E141206CB006C43A1 /* .cvsignore */,
+				653B3D4F141206CB006C43A1 /* libopenxds_adt.link */,
+				653B3D50141206CB006C43A1 /* libopenxds_adt_std.link */,
+				653B3D51141206CB006C43A1 /* libopenxds_base.link */,
+				653B3D52141206CB006C43A1 /* libopenxds_core_adt.link */,
+				653B3D53141206CB006C43A1 /* libopenxds_core_adt_std.link */,
+				653B3D54141206CB006C43A1 /* libopenxds_core_base.link */,
+				653B3D55141206CB006C43A1 /* libopenxds_core_threads.link */,
+				653B3D56141206CB006C43A1 /* libopenxds_io.link */,
+			);
+			path = dep;
+			sourceTree = "<group>";
+		};
+		653B3D57141206CB006C43A1 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				653B3D58141206CB006C43A1 /* openxds.util */,
+				653B3D60141206CB006C43A1 /* openxds.util.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		653B3D58141206CB006C43A1 /* openxds.util */ = {
+			isa = PBXGroup;
+			children = (
+				653B3D59141206CB006C43A1 /* Arguments.h */,
+				653B3D5A141206CB006C43A1 /* ITextToken.h */,
+				653B3D5B141206CB006C43A1 /* ITextTokenizer.h */,
+				653B3D5C141206CB006C43A1 /* IToken.h */,
+				653B3D5D141206CB006C43A1 /* ITokenizer.h */,
+				653B3D5E141206CB006C43A1 /* TextToken.h */,
+				653B3D5F141206CB006C43A1 /* TextTokenizer.h */,
+			);
+			path = openxds.util;
+			sourceTree = "<group>";
+		};
+		653B3D61141206CB006C43A1 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				653B3D62141206CB006C43A1 /* cplusplus */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+		653B3D62141206CB006C43A1 /* cplusplus */ = {
+			isa = PBXGroup;
+			children = (
+				653B3D63141206CB006C43A1 /* Arguments.cpp */,
+				653B3D64141206CB006C43A1 /* TextToken.cpp */,
+				653B3D65141206CB006C43A1 /* TextTokenizer.cpp */,
+			);
+			path = cplusplus;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		653B3D44141206A7006C43A1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				653B3D66141206CB006C43A1 /* Arguments.h in Headers */,
+				653B3D67141206CB006C43A1 /* ITextToken.h in Headers */,
+				653B3D68141206CB006C43A1 /* ITextTokenizer.h in Headers */,
+				653B3D69141206CB006C43A1 /* IToken.h in Headers */,
+				653B3D6A141206CB006C43A1 /* ITokenizer.h in Headers */,
+				653B3D6B141206CB006C43A1 /* TextToken.h in Headers */,
+				653B3D6C141206CB006C43A1 /* TextTokenizer.h in Headers */,
+				653B3D6D141206CB006C43A1 /* openxds.util.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		653B3D45141206A7006C43A1 /* libopenxds_util */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 653B3D4A141206A7006C43A1 /* Build configuration list for PBXNativeTarget "libopenxds_util" */;
+			buildPhases = (
+				653B3D42141206A7006C43A1 /* Sources */,
+				653B3D43141206A7006C43A1 /* Frameworks */,
+				653B3D44141206A7006C43A1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libopenxds_util;
+			productName = libopenxds_util;
+			productReference = 653B3D46141206A7006C43A1 /* libopenxds_util.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		653B3D3D141206A7006C43A1 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 653B3D40141206A7006C43A1 /* Build configuration list for PBXProject "libopenxds_util" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 653B3D3B141206A7006C43A1;
+			productRefGroup = 653B3D47141206A7006C43A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				653B3D45141206A7006C43A1 /* libopenxds_util */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		653B3D42141206A7006C43A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				653B3D6E141206CB006C43A1 /* Arguments.cpp in Sources */,
+				653B3D6F141206CB006C43A1 /* TextToken.cpp in Sources */,
+				653B3D70141206CB006C43A1 /* TextTokenizer.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		653B3D48141206A7006C43A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../OpenXDS_Core/0.x/libopenxds_core_base/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_threads/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_adt/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_adt_std/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_io/include,
+					../libopenxds_base/include,
+					../libopenxds_adt/include,
+					../libopenxds_adt_std/include,
+					../libopenxds_security/include,
+					../libopenxds_io/include,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "source/include include";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		653B3D49141206A7006C43A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../../OpenXDS_Core/0.x/libopenxds_core_base/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_threads/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_adt/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_adt_std/include,
+					../../../OpenXDS_Core/0.x/libopenxds_core_io/include,
+					../libopenxds_base/include,
+					../libopenxds_adt/include,
+					../libopenxds_adt_std/include,
+					../libopenxds_security/include,
+					../libopenxds_io/include,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "source/include include";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		653B3D4B141206A7006C43A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/Codex-gvclkrawamqdtsbihzqlucdjntjw/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		653B3D4C141206A7006C43A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EXECUTABLE_PREFIX = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug\"",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/Codex-gvclkrawamqdtsbihzqlucdjntjw/Build/Products/Debug\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		653B3D40141206A7006C43A1 /* Build configuration list for PBXProject "libopenxds_util" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				653B3D48141206A7006C43A1 /* Debug */,
+				653B3D49141206A7006C43A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		653B3D4A141206A7006C43A1 /* Build configuration list for PBXNativeTarget "libopenxds_util" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				653B3D4B141206A7006C43A1 /* Debug */,
+				653B3D4C141206A7006C43A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 653B3D3D141206A7006C43A1 /* Project object */;
+}
