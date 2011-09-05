@@ -11,7 +11,9 @@ struct _Position
 	int rank;
 };
 
-static void createPosition()
+void createPosition();
+
+void createPosition()
 {
 	openxds::core::adt::IPosition* p = (openxds::core::adt::IPosition*) Runtime::calloc( 1, sizeof( struct _Position ) );
 	Position<char>* position = new Position<char>( p );

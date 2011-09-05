@@ -6,7 +6,9 @@
 using namespace openxds::adt::std;
 using namespace openxds::base;
 
-static void createEIterator()
+void createEIterator();
+
+void createEIterator()
 {
 	openxds::core::adt::IDictionary* dict = openxds::core::adt::std::StdADTFactory_createDictionary();
 	openxds::core::adt::IEIterator*    it = dict->entries( dict ); 

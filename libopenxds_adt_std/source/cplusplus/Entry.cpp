@@ -11,7 +11,9 @@ struct _Entry
 	int rank;
 };
 
-static void createEntry()
+void createEntry();
+
+void createEntry()
 {
 	openxds::core::adt::IEntry* e = (openxds::core::adt::IEntry*) Runtime::calloc( 1, sizeof( struct _Entry ) );
 	Entry<char>* entry = new Entry<char>( e );

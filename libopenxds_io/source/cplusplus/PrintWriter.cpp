@@ -88,18 +88,18 @@ throw (IOException*)
   this->write( characters, 0, count );
 }  
 
-void
-PrintWriter::printf( const char* format, ... ) const
-{
-	va_list ap;
-	va_start( ap, format );
-	
-	char* str = new_CharString_format_valist( format, ap );
-	this->print( str, CharString_getLength( str ) );
-	free_CharString( str );
-	
-	va_end( ap );
-}
+//void
+//PrintWriter::printf( const char* format, ... ) const
+//{
+//	va_list ap;
+//	va_start( ap, format );
+//	
+//	char* str = new_CharString_format_valist( format, ap );
+//	this->print( str, CharString_getLength( str ) );
+//	free_CharString( str );
+//	
+//	va_end( ap );
+//}
 
 void PrintWriter::println() const
 {
@@ -197,8 +197,8 @@ throw (IOException*)
   this->os->write( (const byte*) cbuf, offset, count );
 }
 
-openxds::Object*
-PrintWriter::clone() const
-{
-  return new PrintWriter( (OutputStream*) this->os->clone() );
-}
+//openxds::Object*
+//PrintWriter::clone() const
+//{
+//  return new PrintWriter( this->os->clone() );
+//}

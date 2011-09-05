@@ -2,7 +2,9 @@
 
 using namespace openxds::adt::std;
 
-static void createStack()
+void createStack();
+
+void createStack()
 {
 	Stack<char>* stack = new Stack<char>();
 	delete stack;

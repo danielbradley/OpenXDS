@@ -6,7 +6,9 @@
 using namespace openxds::adt::std;
 using namespace openxds::base;
 
-static void createIterator()
+void createIterator();
+
+void createIterator()
 {
 	openxds::core::adt::IList* list    = openxds::core::adt::std::StdADTFactory_createList();
 	openxds::core::adt::IPIterator* ipit = list->positions( list ); 

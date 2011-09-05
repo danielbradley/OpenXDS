@@ -5,7 +5,9 @@
 using namespace openxds::adt::std;
 using namespace openxds::base;
 
-static void createSequence()
+void createSequence();
+
+void createSequence()
 {
 	Sequence<char>* sequence = new Sequence<char>();
 	delete sequence;

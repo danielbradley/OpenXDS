@@ -4,7 +4,9 @@
 using namespace openxds::adt::std;
 using namespace openxds::base;
 
-static void createTree()
+void createTree();
+
+void createTree()
 {
 	Tree<char>* tree = new Tree<char>();
 	delete tree;
