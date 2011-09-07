@@ -9,36 +9,36 @@
 
 #include <openxds.io/PrintWriter.h>
 
+#include <openxds.base/FormattedString.h>
 #include <openxds.base/Runtime.h>
 #include <openxds.io/OutputStream.h>
 #include <openxds.io.exceptions/IOException.h>
 #include <openxds.core.base/CharString.h>
 
-//#include <cstdarg>
+#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace openxds::base;
 using namespace openxds::core::base;
 using namespace openxds::io;
 using namespace openxds::io::exceptions;
 
-PrintWriter::PrintWriter( const OutputStream& ostream )
+PrintWriter::PrintWriter( const OutputStream& ostream ) : os( ostream )
 {
   this->isReference = true;
-  this->os = (OutputStream*) &ostream;
 }
 
-PrintWriter::PrintWriter( const OutputStream* ostream )
+PrintWriter::PrintWriter( const OutputStream* ostream ) : os( *ostream )
 {
  // IO::out().println( "PrintWriter( const OutputStream* )" );
 
   this->isReference = true;
-  this->os = (OutputStream*) ostream;
 }
 
-PrintWriter::PrintWriter( OutputStream* ostream )
+PrintWriter::PrintWriter( OutputStream* ostream ) : os( *ostream )
 {
   this->isReference = false;
-  this->os = ostream;
 }
 
 PrintWriter::~PrintWriter() throw (IOException*)
@@ -47,7 +47,7 @@ PrintWriter::~PrintWriter() throw (IOException*)
 	this->close();
 	if ( false == this->isReference )
 	{
-		delete this->os;
+		delete &this->os;
 	}
 }
 
@@ -88,18 +88,38 @@ throw (IOException*)
   this->write( characters, 0, count );
 }  
 
-//void
-//PrintWriter::printf( const char* format, ... ) const
-//{
-//	va_list ap;
-//	va_start( ap, format );
-//	
-//	char* str = new_CharString_format_valist( format, ap );
-//	this->print( str, CharString_getLength( str ) );
-//	free_CharString( str );
-//	
-//	va_end( ap );
-//}
+//
+//	error: generic thunk code fails for method
+//	‘virtual void openxds::io::PrintWriter::printf(const char*, ...) const’ which uses ‘...’
+//
+void
+PrintWriter::printf( const char* format, ... ) const
+{
+	va_list ap;
+	va_start( ap, format );
+	{
+		int written;
+		int size = 10;
+		char* self = (char*) Runtime::calloc( size, sizeof( char ) );
+
+		written = vsnprintf( self, size, format, ap );
+		va_end(ap);
+
+		if ( written >= size )
+		{
+			va_start(ap,format);
+
+			CRuntime_free( self );
+			self = (char*) Runtime::calloc( written + 1, sizeof( char ) );
+			written = vsnprintf( self, written + 1, format, ap );
+			
+			va_end(ap);
+		}
+
+		this->print( self, CharString_getLength( self ) );
+		free_CharString( self );
+	}
+}
 
 void PrintWriter::println() const
 {
@@ -165,28 +185,28 @@ void PrintWriter::close()
 throw (IOException*)
 {
   if ( false == isReference ) {
-    this->os->close();
+    this->os.close();
   }
 }
 
 void PrintWriter::flush() const
 throw (IOException*)
 {
-  this->os->flush();
+  this->os.flush();
 }
   
 void
 PrintWriter::write( const char* characters, unsigned int offset, unsigned int count ) const
 throw (IOException*)
 {
-  this->os->write( (const byte*) characters, offset, count );
+  this->os.write( (const byte*) characters, offset, count );
 }
 
 void
 PrintWriter::write( char character ) const
 throw (IOException*)
 {
-  this->os->write( (byte) character );
+  this->os.write( (byte) character );
 }
 
 void
@@ -194,11 +214,11 @@ PrintWriter::write( const String* str, unsigned int offset, unsigned int count )
 throw (IOException*)
 {
   const char* cbuf = str->getChars();
-  this->os->write( (const byte*) cbuf, offset, count );
+  this->os.write( (const byte*) cbuf, offset, count );
 }
 
-//openxds::Object*
-//PrintWriter::clone() const
-//{
-//  return new PrintWriter( this->os->clone() );
-//}
+openxds::Object*
+PrintWriter::clone() const
+{
+  return new PrintWriter( dynamic_cast<OutputStream*>( this->os.clone() ) );
+}

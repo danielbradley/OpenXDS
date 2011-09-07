@@ -21,7 +21,12 @@ namespace openxds {
 
 class PrintWriter : public openxds::Object, public Printer, public Writer
 {
+private:
+  bool isReference;
+  const OutputStream& os;
+
 public:
+
   /*
    *  @deprecated.
    */
@@ -43,7 +48,7 @@ public:
   virtual void print( openxds::base::String* s ) const throw (openxds::io::exceptions::IOException*);
   virtual void print( const char* characters ) const throw (openxds::io::exceptions::IOException*);
   virtual void print( const char* characters, unsigned int count ) const throw (openxds::io::exceptions::IOException*);
-  //virtual void printf( const char* format, ... ) const;
+  virtual void printf( const char* format, ... ) const;
   virtual void println() const;
   virtual void printlnDos() const;
   virtual void printlnMac() const;
@@ -71,7 +76,7 @@ public:
   virtual void write( const openxds::base::String* str, unsigned int offset, unsigned int count ) const
       throw (openxds::io::exceptions::IOException*);
 
- // virtual openxds::Object* clone() const;
+  virtual openxds::Object* clone() const;
 
   //print( int i ) = 0;
   ///print( long l );
@@ -79,9 +84,6 @@ public:
   //print( char c );
   //print( char* c );
   //print( unsigned int i );
-private:
-  bool isReference;
-  OutputStream* os;
 };
 
 };};

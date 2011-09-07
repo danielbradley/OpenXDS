@@ -48,21 +48,25 @@ static int hashCode2( const char* buf, int len );
 String::String() : Object()
 {
 	this->_data = new_StdString( "" );
+	this->chars = this->getChars();
 }
 
 String::String( const char* chars, long offset, long length )
 {
 	this->_data = new_StdString_start_length( chars, offset, length );
+	this->chars = this->getChars();
 }
 
 String::String( const char* string ) : Object()
 {
 	this->_data = new_StdString( string );
+	this->chars = this->getChars();
 }
 
 String::String( const String& aString ) : Object()
 {
 	this->_data = StdString_copy( (StdString*) aString._data ); 
+	this->chars = this->getChars();
 }
 
 String::String( int number ) : Object()
@@ -73,6 +77,7 @@ String::String( int number ) : Object()
 	this->_data = new_StdString( value );
 	
 	delete value;
+	this->chars = this->getChars();
 }
 
 String::~String()
@@ -206,12 +211,12 @@ String::startsWith( const String& prefix ) const
 	return StdString_startsWith( (StdString*) this->_data, prefix.getChars() );
 }
 
-//bool
-//String::endsWith( const String& suffix ) const
-//{
-//	return StdString_endsWith( this->data, suffix.getChars() );
-//}
-//
+bool
+String::endsWith( const String& suffix ) const
+{
+	return StdString_endsWith( (StdString*) this->_data, suffix.getChars() );
+}
+
 //bool
 //String::matches( const String& pattern ) const
 //{

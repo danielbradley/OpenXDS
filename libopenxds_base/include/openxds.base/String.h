@@ -104,7 +104,8 @@ protected:
 
 	void initialize( const char* chars );
 
-	void* _data;
+	const char* chars;
+	void*       _data;
 
 private:
 	static const bool debug;

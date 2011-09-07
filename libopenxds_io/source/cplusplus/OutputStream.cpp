@@ -110,7 +110,7 @@ throw (IOException*)
 }
 
 void
-OutputStream::close()
+OutputStream::close() const
 {
   if ( false == this->isReference ) {
     this->ioEndPoint->close();

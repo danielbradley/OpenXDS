@@ -44,7 +44,6 @@
 		65345E9E1411D1C70070D495 /* Argo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65345E561411D1C70070D495 /* Argo.cpp */; };
 		65345E9F1411D1C70070D495 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65345E571411D1C70070D495 /* Character.cpp */; };
 		65345EA01411D1C70070D495 /* DynamicBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65345E581411D1C70070D495 /* DynamicBuffer.cpp */; };
-		65345EA11411D1C70070D495 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65345E591411D1C70070D495 /* Exception.cpp */; };
 		65345EA21411D1C70070D495 /* FormattedString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65345E5A1411D1C70070D495 /* FormattedString.cpp */; };
 		65345EA31411D1C70070D495 /* ImplementationException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65345E5B1411D1C70070D495 /* ImplementationException.cpp */; };
 		65345EA41411D1C70070D495 /* IndexOutOfBoundsException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 65345E5C1411D1C70070D495 /* IndexOutOfBoundsException.cpp */; };
@@ -66,6 +65,9 @@
 		653B3B481411F520006C43A1 /* libopenxds_core_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3B431411F520006C43A1 /* libopenxds_core_base.dylib */; };
 		653B3B491411F520006C43A1 /* libopenxds_core_io.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3B441411F520006C43A1 /* libopenxds_core_io.dylib */; };
 		653B3B4A1411F520006C43A1 /* libopenxds_core_threads.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3B451411F520006C43A1 /* libopenxds_core_threads.dylib */; };
+		658DFA0A1414D79C00D9E202 /* Environment.h in Headers */ = {isa = PBXBuildFile; fileRef = 658DFA091414D79C00D9E202 /* Environment.h */; };
+		658DFA0D1414D7B700D9E202 /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 658DFA0C1414D7B700D9E202 /* Exception.cpp */; };
+		658DFA0F1414D82F00D9E202 /* Environment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 658DFA0E1414D82F00D9E202 /* Environment.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,7 +113,6 @@
 		65345E561411D1C70070D495 /* Argo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Argo.cpp; sourceTree = "<group>"; };
 		65345E571411D1C70070D495 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Character.cpp; sourceTree = "<group>"; };
 		65345E581411D1C70070D495 /* DynamicBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DynamicBuffer.cpp; sourceTree = "<group>"; };
-		65345E591411D1C70070D495 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
 		65345E5A1411D1C70070D495 /* FormattedString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FormattedString.cpp; sourceTree = "<group>"; };
 		65345E5B1411D1C70070D495 /* ImplementationException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImplementationException.cpp; sourceTree = "<group>"; };
 		65345E5C1411D1C70070D495 /* IndexOutOfBoundsException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IndexOutOfBoundsException.cpp; sourceTree = "<group>"; };
@@ -133,6 +134,9 @@
 		653B3B431411F520006C43A1 /* libopenxds_core_base.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_base.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_base.dylib"; sourceTree = "<group>"; };
 		653B3B441411F520006C43A1 /* libopenxds_core_io.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_io.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_io.dylib"; sourceTree = "<group>"; };
 		653B3B451411F520006C43A1 /* libopenxds_core_threads.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_threads.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_threads.dylib"; sourceTree = "<group>"; };
+		658DFA091414D79C00D9E202 /* Environment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Environment.h; sourceTree = "<group>"; };
+		658DFA0C1414D7B700D9E202 /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
+		658DFA0E1414D82F00D9E202 /* Environment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Environment.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,7 @@
 			children = (
 				65345E3D1411D1C70070D495 /* Character.h */,
 				65345E3E1411D1C70070D495 /* DynamicBuffer.h */,
+				658DFA091414D79C00D9E202 /* Environment.h */,
 				65345E3F1411D1C70070D495 /* FormattedString.h */,
 				65345E401411D1C70070D495 /* Math.h */,
 				65345E411411D1C70070D495 /* ProcessInfo.h */,
@@ -280,7 +285,8 @@
 				65345E561411D1C70070D495 /* Argo.cpp */,
 				65345E571411D1C70070D495 /* Character.cpp */,
 				65345E581411D1C70070D495 /* DynamicBuffer.cpp */,
-				65345E591411D1C70070D495 /* Exception.cpp */,
+				658DFA0E1414D82F00D9E202 /* Environment.cpp */,
+				658DFA0C1414D7B700D9E202 /* Exception.cpp */,
 				65345E5A1411D1C70070D495 /* FormattedString.cpp */,
 				65345E5B1411D1C70070D495 /* ImplementationException.cpp */,
 				65345E5C1411D1C70070D495 /* IndexOutOfBoundsException.cpp */,
@@ -342,6 +348,7 @@
 				65345E9B1411D1C70070D495 /* openxds.h in Headers */,
 				65345E9C1411D1C70070D495 /* Testing.h in Headers */,
 				65345E9D1411D1C70070D495 /* openxds.testing.h in Headers */,
+				658DFA0A1414D79C00D9E202 /* Environment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +402,6 @@
 				65345E9E1411D1C70070D495 /* Argo.cpp in Sources */,
 				65345E9F1411D1C70070D495 /* Character.cpp in Sources */,
 				65345EA01411D1C70070D495 /* DynamicBuffer.cpp in Sources */,
-				65345EA11411D1C70070D495 /* Exception.cpp in Sources */,
 				65345EA21411D1C70070D495 /* FormattedString.cpp in Sources */,
 				65345EA31411D1C70070D495 /* ImplementationException.cpp in Sources */,
 				65345EA41411D1C70070D495 /* IndexOutOfBoundsException.cpp in Sources */,
@@ -412,6 +418,8 @@
 				65345EAF1411D1C70070D495 /* StringTokenizer.cpp in Sources */,
 				65345EB01411D1C70070D495 /* System.cpp in Sources */,
 				65345EB11411D1C70070D495 /* Testing.cpp in Sources */,
+				658DFA0D1414D7B700D9E202 /* Exception.cpp in Sources */,
+				658DFA0F1414D82F00D9E202 /* Environment.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

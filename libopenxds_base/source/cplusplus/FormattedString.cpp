@@ -8,13 +8,14 @@
  */
 
 #include "openxds.base/FormattedString.h"
+#include "openxds.base/Runtime.h"
 
 #include <openxds.core.base/CharString.h>
 #include <openxds.core.adt.std/StdString.h>
 
 #include <cstdlib>
 #include <cstdarg>
-//#include <cstring>
+#include <cstdio>
 
 /**
  *  This tells the compiler that class String has been declared
@@ -27,19 +28,30 @@ using namespace openxds::core::base;
 
 FormattedString::FormattedString( const char* format, ... ) : String()
 {
-	char* tmp;
-
 	va_list ap;
 	va_start( ap, format );
-
-	tmp = new_CharString_format_valist( format, ap );
 	{
+		int written;
+		int size = 10;
+		char* tmp = (char*) Runtime::calloc( size, sizeof( char ) );
+
+		written = vsnprintf( tmp, size, format, ap );
+		va_end(ap);
+
+		if ( written >= size )
+		{
+			va_start(ap,format);
+
+			Runtime::free( tmp );
+			tmp = (char*) Runtime::calloc( written + 1, sizeof( char ) );
+			written = vsnprintf( tmp, written + 1, format, ap );
+			
+			va_end(ap);
+		}
 		free_StdString( (StdString*) this->_data );
 		this->_data = new_StdString( tmp );
+		Runtime::free( tmp );
 	}
-	free_CharString( tmp );
-
-	va_end( ap );
 }
 
 FormattedString::~FormattedString()

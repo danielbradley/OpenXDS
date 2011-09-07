@@ -31,7 +31,7 @@ public:
   virtual void print( openxds::base::String* s ) const = 0;
   virtual void print( const char* characters ) const = 0;
   virtual void print( const char* characters, unsigned int count ) const = 0;
-  virtual void printf( const char* format, ... ) const = 0;
+  //virtual void printf( const char* format, ... ) const = 0;
 
   /*
    *  @deprecated.
