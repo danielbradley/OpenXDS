@@ -38,8 +38,6 @@ public:
 
 	//	public constant methods
 	char getLastDelimiter() const;
-	const openxds::base::String* getLastDelimiters() const;
-	//openxds::util::Sequence* tokenize() const;
 
 protected:
 	void init();
@@ -54,8 +52,7 @@ private:
 	openxds::base::String* next;
 
 	char lastDelimiter;
-	openxds::base::StringBuffer* lastDelimiters;
-	openxds::base::StringBuffer* nextDelimiters;
+	char nextDelimiter;
 	
 	bool breakOnCaps;
 	bool keepQuotes;

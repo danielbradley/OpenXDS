@@ -24,8 +24,7 @@ StringTokenizer::StringTokenizer( const String& str )
 	this->position = 0;
 	this->next = (String*) null;
 	this->lastDelimiter = '\0';
-	this->lastDelimiters = new StringBuffer();
-	this->nextDelimiters = new StringBuffer();
+	this->nextDelimiter = '\0';
 	
 	this->breakOnCaps = false;
 	this->keepQuotes = false;
@@ -36,8 +35,6 @@ StringTokenizer::~StringTokenizer()
 {
 	delete this->source;
 	delete this->delimiters;
-	delete this->lastDelimiters;
-	delete this->nextDelimiters;
 }
 
 void
@@ -74,22 +71,26 @@ String*
 StringTokenizer::nextToken()
 throw (NoSuchElementException*)
 {
-  String* ret = (String*) null;
+	String* ret = (String*) null;
 
-  //  Calls "hasMoreTokens()" to ensure that "next"
-  //  is not null.
+	//  Calls "hasMoreTokens()" to ensure that "next"
+	//  is not null.
 
-  if ( false == this->hasMoreTokens() )
-  {
-    throw new NoSuchElementException();
-  }
+	if ( false == this->hasMoreTokens() )
+	{
+		throw new NoSuchElementException();
+	}
 
-  //  Removes the reference so that "hasNext()" will
-  //  parse the next token.
+	//  Removes the reference so that "hasNext()" will
+	//  parse the next token.
 
-  ret = this->next;
-  this->next = (String*) null;
-  return ret;
+	ret = this->next;
+	this->next = (String*) null;
+
+	this->lastDelimiter = this->nextDelimiter;
+	this->nextDelimiter = '\0';
+  
+	return ret;
 }
 
 char
@@ -98,99 +99,13 @@ StringTokenizer::getLastDelimiter() const
 	return this->lastDelimiter;
 }
 
-const String*
-StringTokenizer::getLastDelimiters() const
-{
-	return this->lastDelimiters->asString();
-}
-
-//Sequence* 
-//StringTokenizer::tokenize() const
-//{
-//	Sequence* tokens = new Sequence();
-//	
-//	//
-//	//	Tokenize this->text into tokens that are store in this->tokens
-//	//
-//	{
-//		StringTokenizer st( *this->source );
-//		st.setBreakOnCaps( this->breakOnCaps );
-//
-//		st.setDelimiter( this->delimiter );
-//		if ( this->delimiters )
-//		{
-//			st.setDelimiters( *this->delimiters );
-//		}
-//
-//		while( st.hasMoreTokens() )
-//		{
-//			const String& de = st.getLastDelimiters();
-//			if ( 0 < de.getLength() )
-//			{
-//				tokens->add( new String( de ) );
-//			}
-//			String* token = st.nextToken();
-//			tokens->add( token );
-//		}
-//		String* str = new String( st.getLastDelimiters() );
-//		if ( str && !str->equals( "" ) )
-//		{
-//			tokens->add( str );
-//		} else {
-//			delete str;
-//		}
-//	}
-//	return tokens;
-//}
-
-void
-StringTokenizer::init()
-{
-	//	Called from hasMoreTokens as delimiters need to be set first.
-	//
-	//	Skip over any delimiters at start of
-	//	String and append them to lastDelimiter and nextDelimiter.
-	//
-	//	Appending to nextDelimiter as well will mean that if hasMoreTokens
-	//	is called (causing nextDelimiter to overwrite lastDelimiter)
-	//	lastDelimiter will still contain the appropriate chars. 
-	//
-
-	delete this->lastDelimiters;
-	delete this->nextDelimiters;
-	
-	this->lastDelimiters = new StringBuffer();
-	this->nextDelimiters = new StringBuffer();
-
-	char ch[2] = { 0, 0 };
-	int i = this->position;
-	int del = this->delimiter;
-	int max = (int) this->source->getLength();
-	for ( ; i < max; i++ )
-	{
-		ch[0] = this->source->charAt( i );
-
-		if ( this->delimiters && !this->delimiters->contains( ch ) )
-		{
-			break;
-		}
-		else if ( !this->delimiters && ( ch[0] != del ) )
-		{
-			break;
-		}
-		this->lastDelimiters->append( ch[0] );
-		this->nextDelimiters->append( ch[0] );
-	}
-	this->position = i;
-}
-
 String*
 StringTokenizer::parseNextToken()
 {
-	delete this->lastDelimiters;
-	this->lastDelimiters = this->nextDelimiters;
-	this->nextDelimiters = new StringBuffer();
-	
+//	delete this->lastDelimiters;
+//	this->lastDelimiters = this->nextDelimiters;
+//	this->nextDelimiters = new StringBuffer();
+
 	String* ret = (String*) null;
 	StringBuffer* s = new StringBuffer();
 
@@ -204,38 +119,42 @@ StringTokenizer::parseNextToken()
 	{
 		ch[0] = this->source->charAt( i );
 
-		if ( ('\"' == ch[0]) && !quoted )
+		if ( quoted )
 		{
-			quoted = true;
-			if ( this->keepQuotes ) { s->append( ch[0] ); }
+			if ( '\"' == ch[0] )
+			{
+				quoted = !quoted;
+				if ( this->keepQuotes ) s->append( ch[0] );
+			} else {
+				s->append( ch[0] );
+			}
 		}
-		else if ( ('\"' == ch[0]) && quoted )
+		else if ( this->respectQuotes && ('\"' == ch[0]) )
 		{
-			quoted = false;
-			if ( this->keepQuotes ) { s->append( ch[0] ); }
-		}
-		else if ( quoted )
-		{
-			s->append( ch[0] );
+				if ( this->keepQuotes ) { s->append( ch[0] ); }
+				quoted = !quoted;
 		}
 		else if ( this->delimiters && this->delimiters->contains( ch ) )
 		{
 			i++;
-			this->lastDelimiter = ch[0];
-			this->nextDelimiters->append( ch[0] );
+			this->nextDelimiter = ch[0];
 			break;
 		}
 		else if ( !this->delimiters && ( ch[0] == del ) )
 		{
 			i++;
-			this->lastDelimiter = ch[0];
-			this->nextDelimiters->append( ch[0] );
+			this->nextDelimiter = ch[0];
 			break;
 		}
 		else if ( this->breakOnCaps && (this->position != i) && ('A' <= ch[0]) && (ch[0] <= 'Z') )
 		{
-			this->lastDelimiter = ch[0];
-			break;
+			if ( 0 < s->getLength() )
+			{
+				this->nextDelimiter = ch[0];
+				break;
+			} else {
+				this->lastDelimiter = ch[0];
+			}
 		}
 		else
 		{
@@ -246,28 +165,31 @@ StringTokenizer::parseNextToken()
 	//
 	//	Skip over any repeating delimiters
 	//
-	for (; i < max; i++ )
-	{
-		ch[0] = this->source->charAt( i );
-
-		if ( this->delimiters && !this->delimiters->contains( ch ) )
-		{
-			break;
-		}
-		else if ( !this->delimiters && ( ch[0] != del ) )
-		{
-			break;
-		}
-		this->lastDelimiter = ch[0];
-		this->nextDelimiters->append( ch[0] );
-	}
+//	for (; i < max; i++ )
+//	{
+//		ch[0] = this->source->charAt( i );
+//
+//		if ( this->delimiters && !this->delimiters->contains( ch ) )
+//		{
+//			break;
+//		}
+//		else if ( !this->delimiters && ( ch[0] != del ) )
+//		{
+//			break;
+//		}
+//		else // is a delimiter
+//		{
+//			this->nextDelimiter = ch[0];
+//		}
+//	}
 	this->position = i;
 
-	if ( s->getLength() > 0 )
+	if( (0 < s->getLength()) || (i < max) )
 	{
 		ret = s->asString();
 	}
 	delete s;
+
 	return ret;
 }
 
@@ -277,8 +199,6 @@ StringTokenizer::setDelimiter( char c )
 	delete this->delimiters;
 	this->delimiters = null;
 	this->delimiter = c;
-
-	this->init();
 }
 
 void
@@ -286,8 +206,6 @@ StringTokenizer::setDelimiters( const String& asciiValues )
 {
 	delete this->delimiters;
 	this->delimiters = new String( asciiValues );
-
-	this->init();
 }
 
 openxds::Object*

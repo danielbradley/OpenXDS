@@ -9,9 +9,11 @@ namespace openxds {
 		namespace std {
 	
 class PUBLIC Dictionary;
+class PUBLIC EIterator;
 class PUBLIC Entry;
 class PUBLIC Iterator;
 class PUBLIC List;
+class PUBLIC PIterator;
 class PUBLIC Position;
 class PUBLIC DefaultPosition;
 class PUBLIC Sequence;

@@ -51,6 +51,7 @@ FormattedString::FormattedString( const char* format, ... ) : String()
 		free_StdString( (StdString*) this->_data );
 		this->_data = new_StdString( tmp );
 		Runtime::free( tmp );
+		this->chars = (const char*) this->_data;
 	}
 }
 

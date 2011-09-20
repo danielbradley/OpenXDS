@@ -19,6 +19,8 @@
 		653B3BA71411FC19006C43A1 /* ITree.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3B841411FC19006C43A1 /* ITree.h */; };
 		653B3BA81411FC19006C43A1 /* openxds.adt.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B3B851411FC19006C43A1 /* openxds.adt.h */; };
 		653B3BA91411FC19006C43A1 /* version.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 653B3B881411FC19006C43A1 /* version.cpp */; };
+		6560729014245A0E00BB551A /* IMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 6560728F14245A0E00BB551A /* IMap.h */; };
+		656072981424604100BB551A /* IIterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 656072971424604100BB551A /* IIterator.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		653B3B841411FC19006C43A1 /* ITree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITree.h; sourceTree = "<group>"; };
 		653B3B851411FC19006C43A1 /* openxds.adt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openxds.adt.h; sourceTree = "<group>"; };
 		653B3B881411FC19006C43A1 /* version.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = version.cpp; sourceTree = "<group>"; };
+		6560728F14245A0E00BB551A /* IMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMap.h; sourceTree = "<group>"; };
+		656072971424604100BB551A /* IIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIterator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +103,9 @@
 				653B3B7C1411FC19006C43A1 /* IEIterator.h */,
 				653B3B7D1411FC19006C43A1 /* IEntry.h */,
 				653B3B7E1411FC19006C43A1 /* IGeneralTour.h */,
+				656072971424604100BB551A /* IIterator.h */,
 				653B3B7F1411FC19006C43A1 /* IList.h */,
+				6560728F14245A0E00BB551A /* IMap.h */,
 				653B3B801411FC19006C43A1 /* IPIterator.h */,
 				653B3B811411FC19006C43A1 /* IPosition.h */,
 				653B3B821411FC19006C43A1 /* ISequence.h */,
@@ -143,6 +149,8 @@
 				653B3BA61411FC19006C43A1 /* IStack.h in Headers */,
 				653B3BA71411FC19006C43A1 /* ITree.h in Headers */,
 				653B3BA81411FC19006C43A1 /* openxds.adt.h in Headers */,
+				6560729014245A0E00BB551A /* IMap.h in Headers */,
+				656072981424604100BB551A /* IIterator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

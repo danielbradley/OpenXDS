@@ -18,7 +18,7 @@ const char*
 Environment::arg0 = "";
 
 void
-Environment::init( int argc, char** argv )
+Environment::init( int argc, const char** argv )
 {
 	arg0 = argv[0];
 }

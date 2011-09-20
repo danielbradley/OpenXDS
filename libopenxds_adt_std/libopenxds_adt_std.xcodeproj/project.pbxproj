@@ -32,6 +32,9 @@
 		653B3C3314120120006C43A1 /* libopenxds_core_base.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3C2C14120120006C43A1 /* libopenxds_core_base.dylib */; };
 		653B3C3414120120006C43A1 /* libopenxds_core_io.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3C2D14120120006C43A1 /* libopenxds_core_io.dylib */; };
 		653B3C3514120120006C43A1 /* libopenxds_core_threads.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 653B3C2E14120120006C43A1 /* libopenxds_core_threads.dylib */; settings = {ATTRIBUTES = (Required, ); }; };
+		6560729314245B6200BB551A /* Map.h in Headers */ = {isa = PBXBuildFile; fileRef = 6560729214245B6200BB551A /* Map.h */; };
+		6560729614245C7C00BB551A /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6560729514245C7C00BB551A /* Map.cpp */; };
+		6560729A1424608E00BB551A /* Iterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 656072991424608E00BB551A /* Iterator.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +70,9 @@
 		653B3C2C14120120006C43A1 /* libopenxds_core_base.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_base.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_base.dylib"; sourceTree = "<group>"; };
 		653B3C2D14120120006C43A1 /* libopenxds_core_io.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_io.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_io.dylib"; sourceTree = "<group>"; };
 		653B3C2E14120120006C43A1 /* libopenxds_core_threads.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopenxds_core_threads.dylib; path = "../../../../../../Library/Developer/Xcode/DerivedData/OpenXDS-adzfzkzuajdityaelllcevritvtu/Build/Products/Debug/libopenxds_core_threads.dylib"; sourceTree = "<group>"; };
+		6560729214245B6200BB551A /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		6560729514245C7C00BB551A /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		656072991424608E00BB551A /* Iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Iterator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,8 @@
 				653B3BD71411FED8006C43A1 /* EIterator.h */,
 				653B3BD81411FED8006C43A1 /* Entry.h */,
 				653B3BD91411FED8006C43A1 /* GeneralTour.h */,
+				656072991424608E00BB551A /* Iterator.h */,
+				6560729214245B6200BB551A /* Map.h */,
 				653B3BDA1411FED8006C43A1 /* PIterator.h */,
 				653B3BDB1411FED8006C43A1 /* Position.h */,
 				653B3BDC1411FED8006C43A1 /* Sequence.h */,
@@ -164,6 +172,7 @@
 				653B3BE21411FED8006C43A1 /* Dictionary.cpp */,
 				653B3BE31411FED8006C43A1 /* EIterator.cpp */,
 				653B3BE41411FED8006C43A1 /* Entry.cpp */,
+				6560729514245C7C00BB551A /* Map.cpp */,
 				653B3BE51411FED8006C43A1 /* PIterator.cpp */,
 				653B3BE61411FED8006C43A1 /* Position.cpp */,
 				653B3BE71411FED8006C43A1 /* Sequence.cpp */,
@@ -190,6 +199,8 @@
 				653B3C0A1411FED8006C43A1 /* Stack.h in Headers */,
 				653B3C0B1411FED8006C43A1 /* Tree.h in Headers */,
 				653B3C0C1411FED8006C43A1 /* openxds.adt.std.h in Headers */,
+				6560729314245B6200BB551A /* Map.h in Headers */,
+				6560729A1424608E00BB551A /* Iterator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +259,7 @@
 				653B3C121411FED8006C43A1 /* Sequence.cpp in Sources */,
 				653B3C131411FED8006C43A1 /* Stack.cpp in Sources */,
 				653B3C141411FED8006C43A1 /* Tree.cpp in Sources */,
+				6560729614245C7C00BB551A /* Map.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

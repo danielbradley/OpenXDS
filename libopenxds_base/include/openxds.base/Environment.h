@@ -22,7 +22,7 @@ private:
 	static const char* arg0;
 
 public:
-	static void        init( int argc, char** argv );
+	static void        init( int argc, const char** argv );
 	static String*     executableDirectory();
 	static const char* getValue( const char* variableName );
 };
