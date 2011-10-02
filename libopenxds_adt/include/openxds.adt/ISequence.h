@@ -38,6 +38,7 @@ public:
 	virtual IPosition<E>*         next( IPosition<E>& p ) const throw (openxds::exceptions::NoSuchElementException*) = 0;
 
 	virtual IPIterator<E>*   positions() const = 0;
+	virtual IIterator<E>*     elements() const = 0;
 
 	// Vector
 	virtual void                   add( int rank, E* e ) throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;

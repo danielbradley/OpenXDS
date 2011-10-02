@@ -1,6 +1,7 @@
 #ifndef OPENXDS_ADT_STD_SEQUENCE_H
 #define OPENXDS_ADT_STD_SEQUENCE_H
 
+#include <openxds.adt.std/Iterator.h>
 #include <openxds.adt.std/Position.h>
 #include <openxds.adt.std/PIterator.h>
 #include <openxds.adt/IPosition.h>
@@ -172,6 +173,11 @@ public:
 	virtual IPIterator<E>* positions() const
 	{
 		return new PIterator<E>( this->_seq->positions( this->_seq ) );
+	}
+
+	virtual IIterator<E>* elements() const
+	{
+		return new Iterator<E>( this->_seq->elements( this->_seq ) );
 	}
 
 	virtual void add( int rank, E* e ) throw (openxds::exceptions::IndexOutOfBoundsException*)
