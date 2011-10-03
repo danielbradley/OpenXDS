@@ -24,6 +24,8 @@ public:
 	StringBuffer();
 	~StringBuffer();
 
+	void clear();
+
 	void append( long character );
 	void append( const char* aCString );
 	void appendHex( const char* aCString );

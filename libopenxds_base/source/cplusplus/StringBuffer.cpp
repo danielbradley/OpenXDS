@@ -54,6 +54,19 @@ StringBuffer::~StringBuffer()
 }
 
 void
+StringBuffer::clear()
+{
+	delete this->data;
+	if ( null != this->tmp )
+	{
+		delete this->tmp;
+		this->tmp = (String*) null;
+	}
+	this->initialize( DEFAULT_CAPACITY );
+}
+
+
+void
 StringBuffer::initialize( int initialCapacity )
 {
 	//Debug::entering( "StringBuffer", "initialize", "..." );
