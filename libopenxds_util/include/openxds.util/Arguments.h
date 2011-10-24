@@ -34,7 +34,7 @@ public:
 	/**
 	 *  Create an arguments object using the standard C arguments. <p>
 	 */
-	Arguments( unsigned int argc, const c_charPtr* argv );
+	Arguments( int argc, const c_charPtr* argv );
 	Arguments( const char* arguments );
 	virtual ~Arguments();
 

@@ -23,7 +23,7 @@ using namespace openxds::base;
 using namespace openxds::exceptions;
 using namespace openxds::util;
 
-Arguments::Arguments( unsigned int argc, const c_charPtr* argv )
+Arguments::Arguments( int argc, const c_charPtr* argv )
 {
 	this->arguments = new Sequence<String>();
 	this->required  = new Dictionary<int>();
