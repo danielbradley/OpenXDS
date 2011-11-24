@@ -130,7 +130,12 @@ public:
 		return it;
 	}
 
-	virtual IEIterator<E>* entries() const
+	virtual IEIterator<E>* entries()
+	{
+		return new EIterator<E>( this->d->entries( this->d ) );
+	}
+
+	virtual const IEIterator<E>* entries() const
 	{
 		return new EIterator<E>( this->d->entries( this->d ) );
 	}

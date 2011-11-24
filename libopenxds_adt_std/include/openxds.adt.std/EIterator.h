@@ -42,6 +42,11 @@ public:
 		return new Entry<E>( this->it->next( this->it ) );
 	}
 
+	virtual const IEntry<E>* next() const
+	{
+		return new Entry<E>( this->it->next( this->it ) );
+	}
+
 	virtual bool hasNext() const
 	{
 		return this->it->hasNext( this->it );

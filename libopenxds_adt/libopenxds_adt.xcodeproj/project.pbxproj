@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		651ED3DF1479EACD00462CDB /* mtx */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mtx; sourceTree = "<group>"; };
 		653B3B6C1411FA64006C43A1 /* libopenxds_adt.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libopenxds_adt.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		653B3B741411FC19006C43A1 /* libopenxds_base.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_base.link; sourceTree = "<group>"; };
 		653B3B751411FC19006C43A1 /* libopenxds_core_adt.link */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = libopenxds_core_adt.link; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		653B3B861411FC19006C43A1 /* source */ = {
 			isa = PBXGroup;
 			children = (
+				651ED3DF1479EACD00462CDB /* mtx */,
 				653B3B871411FC19006C43A1 /* cplusplus */,
 			);
 			path = source;
@@ -179,6 +181,9 @@
 /* Begin PBXProject section */
 		653B3B631411FA64006C43A1 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 653B3B661411FA64006C43A1 /* Build configuration list for PBXProject "libopenxds_adt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;

@@ -31,7 +31,7 @@ public:
 	{
 	}
 	
-	virtual const char* getKey()
+	virtual const char* getKey() const
 	{
 		const openxds::core::adt::IKey* k = this->e->getKey( this->e );
 		return k->getChars( k );

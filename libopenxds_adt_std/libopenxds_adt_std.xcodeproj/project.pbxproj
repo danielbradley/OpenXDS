@@ -229,6 +229,9 @@
 /* Begin PBXProject section */
 		653B3BBD1411FEA5006C43A1 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 653B3BC01411FEA5006C43A1 /* Build configuration list for PBXProject "libopenxds_adt_std" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;

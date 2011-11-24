@@ -13,7 +13,7 @@ class IEntry : public openxds::Interface
 public:
 	virtual ~IEntry() {};
 
-	virtual const char*        getKey()       = 0;
+	virtual const char*        getKey() const = 0;
 	virtual       E&         getValue()       = 0;
 	virtual const E&         getValue() const = 0;
 	virtual       IEntry<E>*     copy() const = 0;

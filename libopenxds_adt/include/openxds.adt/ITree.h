@@ -21,15 +21,18 @@ public:
 	virtual       E*                  remove( IPosition<E>* p )                  = 0;
 	virtual       ITree<E>*     removeAsTree( IPosition<E>* p )                  = 0;
 
-	virtual       IPosition<E>*         root()                  const throw (openxds::exceptions::NoSuchElementException*) = 0;
-	virtual       IPosition<E>*       parent( IPosition<E>& p ) const throw (openxds::exceptions::NoSuchElementException*) = 0;
-	virtual       IPIterator<E>*    children( IPosition<E>& p ) const = 0;
-	virtual       bool                isRoot( IPosition<E>& p ) const = 0;
-	virtual       bool            isInternal( IPosition<E>& p ) const = 0;
-	virtual       bool            isExternal( IPosition<E>& p ) const = 0;
-	virtual       bool             hasParent( IPosition<E>& p ) const = 0;
-	virtual       bool               isEmpty()                  const = 0;
-	virtual       int                   size()                  const = 0;
+	virtual       IPosition<E>*         root()                          const throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual       IPosition<E>*       parent( IPosition<E>& p )         const throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual       IPosition<E>*        child( IPosition<E>& p, long i ) const throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual       IPIterator<E>*    children( IPosition<E>& p )         const = 0;
+	virtual       bool                isRoot( IPosition<E>& p )         const = 0;
+	virtual       bool            isInternal( IPosition<E>& p )         const = 0;
+	virtual       bool            isExternal( IPosition<E>& p )         const = 0;
+	virtual       bool             hasParent( IPosition<E>& p )         const = 0;
+	virtual       bool              hasChild( IPosition<E>& p, long i ) const = 0;
+	virtual       bool               isEmpty()                          const = 0;
+	virtual       long            nrChildren( IPosition<E>& p )         const = 0;
+	virtual       long                  size()                          const = 0;
 }; 
 
 };};

@@ -1,0 +1,471 @@
+<html>
+<head>
+<style type='text/css'>
+BODY {}DIV.document {}DIV.text { width:718px; width:550px; margin-left:auto; margin-right:auto; }DIV.text { padding: 25; border: none; }H1,H2,H3,H4,H5,H6,P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { font-size:small; font-weight:normal; font-style:normal; font-family:helvetica; }P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { margin-bottom:10px; }H1,H2,H3,H4,H5,H6                  { margin-bottom:10px; }.subtitle { font-size: medium; text-align: center; }.top { margin-top:10px; }.H1 { font-size: xx-large; font-weight:bold; margin-top:10px; margin-bottom:10px; text-align: center; }.H2 { font-size: larger;   font-weight:bold; margin-top:36px;                     font-variant: small-caps; }.H3 { font-size: medium;   font-weight:bold; margin-top:32px; }.H4 { font-size: small;    font-weight:bold; margin-top:26px; }.H5 { font-size: smaller;  font-weight:bold; margin-top:26px; font-style: normal; font-variant: small-caps; }.H6 { font-size: smaller;                                     font-style:italic; }UL  { margin-left: 30px; text-align: justify; list-style-position:outside; }OL  { margin-left: 30px; text-align: justify; list-style-position:outside; }LI   { padding-left: 0px; }P   { text-align: justify; line-height: 20px; }P.paragraph { font-family: helvetica; font-size: small; margin-left: 0; margin-right: 0; text-align: justify; }P.part { font-size: x-large; font-weight: bold; margin-top:36; border-bottom: solid 1px black; padding-bottom:8px; }B  { color: black; }A  { text-decoration: none; }A:visited { text-decoration: none; }P.figure{	margin: 20px 0 20px 0;	text-align:center;}PRE{	margin: 20px 0 20px 0;	padding: 10px 0px 10px 20px;	font-family: courier;	font-size: 8pt;	/* background: #eee; */	border-left: solid 1px #ddd;}BLOCKQUOTE{	background: #eee;	margin: 20px 0 20px 0;	padding: 10px 20px 10px 20px;	color: #333;	font-family: times;	font-size: small;	line-height: 150%;	text-align: justify;}P.marginnote{	width: 100;	float: right;}TD { padding: 5px; }TD.bibkey { text-align:right; padding-right: 5px; }TD.reference { }
+</style>
+</head>
+<body>
+<div class='document'>
+<div class='text'>
+<h2 class='h2'>	ITree (interface)</h2>
+<h3 class='h3'>		Usage</h3>
+<p class='paragraph'>
+Linkage:
+</p>
+<pre>
+-lopenxds_adt
+</pre>
+<p class='paragraph'>
+To use the ITree interface:
+</p>
+<pre>
+#include &lt;openxds.adt/ITree.h&gt;
+</pre>
+<h3 class='h3'>		Method Summary</h3>
+<table>
+<thead>
+<tr>
+	<th>Returns</th><th>Method-name</th><th colspan='2'>Parameters</th><th>Throws</th>
+</tr>
+</thead>
+<tbody>
+
+<tr><td><b>IPosition(E)* </b></td><td><a href='#addRoot'     >addRoot     </a></td><td><b>E*           </b> element </td>                                                             </tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#addChild'    >addChild    </a></td><td><b>IPosition(E)&</b> p       </td><td><b>E*       </b> element</td>                            </tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#addSubtree'  >addSubtree  </a></td><td><b>IPosition(E)&</b> p       </td><td><b>ITree(E)*</b> lower  </td>                            </tr>
+<tr><td><b>E*            </b></td><td><a href='#replace'     >replace     </a></td><td><b>IPosition(E)&</b> p       </td><td><b>E*       </b> element</td>                            </tr>
+<tr><td><b>E*            </b></td><td><a href='#remove'      >remove      </a></td><td><b>IPosition(E)*</b> p       </td>                                                             </tr>
+<tr><td><b>ITree(E)*     </b></td><td><a href='#removeAsTree'>removeAsTree</a></td><td><b>IPosition(E)*</b> p       </td>                                                             </tr>
+
+<tr><td><b>IPosition(E)* </b></td><td><a href='#root'        >root        </a></td><td>                           </td><td>                       </td><td>NoSuchElementException</td></tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#parent'      >parent      </a></td><td><b>IPosition(E)&</b> p     </td><td>                       </td><td>NoSuchElementException</td></tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#child'       >child       </a></td><td><b>IPosition(E)&</b> p     </td><td><b>long</b> index      </td><td>NoSuchElementException</td></tr>
+<tr><td><b>IPIterator(E)*</b></td><td><a href='#children'    >children    </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
+<tr><td><b>bool          </b></td><td><a href='#isRoot'      >isRoot      </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
+<tr><td><b>bool          </b></td><td><a href='#isInternal'  >isInternal  </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
+<tr><td><b>bool          </b></td><td><a href='#isExternal'  >isExternal  </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
+<tr><td><b>bool          </b></td><td><a href='#hasParent'   >hasParent   </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
+<tr><td><b>bool          </b></td><td><a href='#hasChild'    >hasChild    </a></td><td><b>IPosition(E)&</b> p     </td><td><b>long</b> i          </td>                               </tr>
+<tr><td><b>bool          </b></td><td><a href='#isEmpty'     >isEmpty     </a></td>                                                                                                   </tr>
+<tr><td><b>int           </b></td><td><a href='#size'        >size        </a></td>                                                                                                   </tr>
+
+</tbody>
+</table>
+<h3 class='h3'>		Methods</h3>
+<a name='addRoot'></a>
+<hr>
+<h5 class='h5'>			addRoot</h5>
+<pre>
+IPosition&lt;E&gt;* addRoot( E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>element</i>, to be stored in the root of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new position that can directly accesss the root position of the tree.
+</p>
+</blockquote>
+<a name='addChild'></a>
+<hr>
+<h5 class='h5'>			addChild</h5>
+<pre>
+IPosition&lt;E&gt;* addChild( IPosition&lt;E&gt;& p, E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position referencing the node the element should be made a child of;
+</p>
+<p class='paragraph'>
+<i>element</i>, to be stored in of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new position that can directly accesss the root position of the tree.
+</p>
+</blockquote>
+<a name='addSubtree'></a>
+<hr>
+<h5 class='h5'>			addSubtree</h5>
+<pre>
+IPosition&lt;E&gt;* addSubtree( IPosition&lt;E&gt;& p, ITree&lt;E&gt;* aTree );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position referencing the node that the root of the tree should be made a child of;
+</p>
+<p class='paragraph'>
+<i>aTree</i>, to be added as a subtree of this tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new position referencing the root node of the added subtree.
+</p>
+</blockquote>
+<a name='replace'></a>
+<hr>
+<h5 class='h5'>			replace</h5>
+<pre>
+E* replace( IPosition&lt;E&gt;& p, E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree;
+</p>
+<p class='paragraph'>
+<i>element</i>, to be stored in the tree at position <i>p</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The element that was previously stored at position <i>p</i>.
+</p>
+</blockquote>
+<a name='remove'></a>
+<hr>
+<h5 class='h5'>			remove</h5>
+<pre>
+E* remove( IPosition&lt;E&gt;* p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position referencing a left node of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The element that was previously stored at position <i>p</i>.
+</p>
+</blockquote>
+<a name='removeAsTree'></a>
+<hr>
+<h5 class='h5'>			removeAsTree</h5>
+<pre>
+ITree&lt;E&gt;* removeAsTree( IPosition&lt;E&gt;* p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new tree correspond to the previous subtree whose root was <i>p</i>.
+</p>
+</blockquote>
+<a name='root'></a>
+<hr>
+<h5 class='h5'>			root</h5>
+<pre>
+IPosition&lt;E&gt;* root() throws NoSuchElementException;
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new position that corresponds to the root node of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+A <i>NoSuchElementException</i> if the tree is empty.
+</p>
+</blockquote>
+<a name='parent'></a>
+<hr>
+<h5 class='h5'>			parent</h5>
+<pre>
+IPosition&lt;E&gt;* parent( IPosition&lt;E&gt;& ) throws NoSuchElementException;
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new position that corresponds to the parent node of <i>p</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+A <i>NoSuchElementException</i> if <i>p</i> is the root of the tree.
+</p>
+</blockquote>
+<a name='child'></a>
+<hr>
+<h5 class='h5'>			child</h5>
+<pre>
+IPosition&lt;E&gt;* child( IPosition&lt;E&gt;&, long i ) throws NoSuchElementException;
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, the parent node of the child;
+</p>
+<p class='paragraph'>
+<i>i</i>, an number specifying a child of <i>p</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new position that corresponds to the <i>i</i> the child of <i>p</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+A <i>NoSuchElementException</i> if <i>p</i> doesn't have an <i>i</i> th child.
+</p>
+</blockquote>
+<a name='children'></a>
+<hr>
+<h5 class='h5'>			children</h5>
+<pre>
+IPIterator&lt;E&gt;* children( IPosition&lt;E&gt;& p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A (possibly empty) position iterator that contains the positions of all children of <i>p</i>.
+</p>
+</blockquote>
+<a name='isRoot'></a>
+<hr>
+<h5 class='h5'>			isRoot</h5>
+<pre>
+bool isRoot( IPosition&lt;E&gt;& p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if <i>p</i> is the root of the tree; otherwise FALSE.
+</p>
+</blockquote>
+<a name='isInternal'></a>
+<hr>
+<h5 class='h5'>			isInternal</h5>
+<pre>
+bool isInternal( IPosition&lt;E&gt;& p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if <i>p</i> is an internal node of the tree (has children); otherwise FALSE.
+</p>
+</blockquote>
+<a name='isExternal'></a>
+<hr>
+<h5 class='h5'>			isExternal</h5>
+<pre>
+bool isExternal( IPosition&lt;E&gt;& p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if <i>p</i> is an external node of the tree (has no children); otherwise FALSE.
+</p>
+</blockquote>
+<a name='hasParent'></a>
+<hr>
+<h5 class='h5'>			hasParent</h5>
+<pre>
+bool hasParent( IPosition&lt;E&gt;& p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if <i>p</i> is not the root node; otherwise FALSE.
+</p>
+</blockquote>
+<a name='isEmpty'></a>
+<hr>
+<a name='hasChild'></a>
+<hr>
+<h5 class='h5'>			hasParent</h5>
+<pre>
+bool hasChild( IPosition&lt;E&gt;& p, long i );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree;
+</p>
+<p class='paragraph'>
+<i>i</i>, a number specifying a child of <i>p</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if <i>p</i> has an <i>i</i> th child; otherwise FALSE.
+</p>
+</blockquote>
+<a name='isEmpty'></a>
+<hr>
+<h5 class='h5'>			isEmpty</h5>
+<pre>
+bool isEmpty();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if the tree is empty; otherwise FALSE.
+</p>
+</blockquote>
+<a name='nrChildren'></a>
+<hr>
+<h5 class='h5'>			nrChildren</h5>
+<pre>
+long nrChildren( IPosition&lt;E&gt;& p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position (node) of the tree.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The number of children of <i>p</i>.
+</p>
+</blockquote>
+<a name='size'></a>
+<hr>
+<h5 class='h5'>			size</h5>
+<pre>
+long size();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The number of nodes in the tree.
+</p>
+</blockquote>
+</div>
+</div>
+</body>
+</html>

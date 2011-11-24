@@ -13,9 +13,10 @@ class IEIterator : public openxds::Interface
 {
 public:
 	virtual ~IEIterator() {}
-	virtual void            reset() = 0;
-	virtual IEntry<E>*       next() = 0;
-	virtual bool          hasNext() const = 0;
+	virtual       void            reset() = 0;
+	virtual       IEntry<E>*       next() = 0;
+	virtual const IEntry<E>*       next() const = 0;
+	virtual       bool          hasNext() const = 0;
 }; 
 
 };};

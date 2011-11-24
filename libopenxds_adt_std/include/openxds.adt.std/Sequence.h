@@ -1,6 +1,7 @@
 #ifndef OPENXDS_ADT_STD_SEQUENCE_H
 #define OPENXDS_ADT_STD_SEQUENCE_H
 
+#include <openxds.adt.std.h>
 #include <openxds.adt.std/Iterator.h>
 #include <openxds.adt.std/Position.h>
 #include <openxds.adt.std/PIterator.h>
