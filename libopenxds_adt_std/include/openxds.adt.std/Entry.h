@@ -31,6 +31,9 @@ public:
 	{
 	}
 	
+
+
+
 	virtual const char* getKey() const
 	{
 		const openxds::core::adt::IKey* k = this->e->getKey( this->e );
@@ -50,14 +53,19 @@ public:
 		return *v;
 	}
 
+	virtual IEntry<E>* copy()
+	{
+		return new Entry( this->e );
+	}
+
+	virtual const IEntry<E>* copy() const
+	{
+		return new Entry( this->e );
+	}
+
 	virtual const openxds::core::adt::IEntry* getCoreEntry() const
 	{
 		return this->e;
-	}
-	
-	virtual IEntry<E>* copy() const
-	{
-		return new Entry( this->e );
 	}
 
 private:

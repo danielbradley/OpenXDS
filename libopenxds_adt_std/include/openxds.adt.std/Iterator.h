@@ -30,12 +30,22 @@ public:
 		this->it->free( this->it );
 	}
 	
-	virtual void reset()
+	virtual void reset() const
 	{
 		this->it->reset( this->it );
 	}
 
 	virtual E& next()
+	throw (openxds::exceptions::NoSuchElementException*)
+	{
+		const E* _e = static_cast<const E*>( this->it->next( this->it ) );
+		E* e = const_cast<E*>( _e );
+		if ( ! e ) throw new openxds::exceptions::NoSuchElementException();
+	
+		return *e;
+	}
+
+	virtual const E& next() const
 	throw (openxds::exceptions::NoSuchElementException*)
 	{
 		const E* _e = static_cast<const E*>( this->it->next( this->it ) );

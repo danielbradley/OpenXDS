@@ -32,12 +32,21 @@ public:
 		this->it->free( this->it );
 	}
 	
-	virtual void reset()
+	virtual void reset() const
 	{
 		this->it->reset( this->it );
 	}
 
 	virtual IPosition<E>* next()
+	throw (openxds::exceptions::NoSuchElementException*)
+	{
+		const openxds::core::adt::IPosition* pos = this->it->next( this->it );
+		if ( !pos ) throw new openxds::exceptions::NoSuchElementException();
+	
+		return new Position<E>( pos );
+	}
+
+	virtual const IPosition<E>* next() const
 	throw (openxds::exceptions::NoSuchElementException*)
 	{
 		const openxds::core::adt::IPosition* pos = this->it->next( this->it );

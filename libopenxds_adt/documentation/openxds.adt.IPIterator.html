@@ -7,6 +7,88 @@ BODY {}DIV.document {}DIV.text { width:718px; width:550px; margin-left:auto; mar
 <body>
 <div class='document'>
 <div class='text'>
+<h2 class='h2'>	IPIterator (interface)</h2>
+<h3 class='h3'>		Usage</h3>
+<p class='paragraph'>
+Linkage:
+</p>
+<pre>
+-lopenxds_adt
+</pre>
+<p class='paragraph'>
+To use the interface:
+</p>
+<pre>
+#include &lt;openxds.adt/IPIterator.h&gt;
+
+using namespace openxds::adt;
+</pre>
+<h3 class='h3'>		Method Summary</h3>
+<table>
+<thead>
+<tr>
+	<th>Returns</th><th>Method-name</th><th>Throws</th>
+</tr>
+</thead>
+<tbody>
+
+<tr><td><b>void         </b></td><td><a href='#reset'  >reset  </a></td>                                </tr>
+<tr><td><b>IPosition(E)*</b></td><td><a href='#next'   >next   </a></td><td>NoSuchElementException*</td></tr>
+<tr><td><b>bool         </b></td><td><a href='#hasNext'>hasNext</a></td>                                </tr>
+
+</tbody>
+</table>
+<h3 class='h3'>		Methods</h3>
+<a name='reset'></a>
+<hr>
+<h4 class='h4'>			reset</h4>
+<pre>
+void reset();
+</pre>
+<p class='paragraph'>
+Causes
+</p>
+<blockquote>
+<p class='paragraph'>
+The iterator to be reset such that a call to <i>next</i> will return the first <i>position</i> of the iteration.
+</p>
+</blockquote>
+<a name='hasNext'></a>
+<hr>
+<h4 class='h4'>			hasNext</h4>
+<pre>
+bool hasNext();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if another <i>position</i> could be returned by a call to <i>next</i>; otherwise FALSE.
+</p>
+</blockquote>
+<a name='next'></a>
+<hr>
+<h4 class='h4'>			next</h4>
+<pre>
+IPosition&lt;E&gt;* next() throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>IPosition</i> instance, that the user is responsible for deallocating.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i>, if the iterator has no more items.
+</p>
+</blockquote>
 </div>
 </div>
 </body>

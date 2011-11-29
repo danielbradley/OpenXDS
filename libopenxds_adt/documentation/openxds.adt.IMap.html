@@ -1,0 +1,180 @@
+<html>
+<head>
+<style type='text/css'>
+BODY {}DIV.document {}DIV.text { width:718px; width:550px; margin-left:auto; margin-right:auto; }DIV.text { padding: 25; border: none; }H1,H2,H3,H4,H5,H6,P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { font-size:small; font-weight:normal; font-style:normal; font-family:helvetica; }P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { margin-bottom:10px; }H1,H2,H3,H4,H5,H6                  { margin-bottom:10px; }.subtitle { font-size: medium; text-align: center; }.top { margin-top:10px; }.H1 { font-size: xx-large; font-weight:bold; margin-top:10px; margin-bottom:10px; text-align: center; }.H2 { font-size: larger;   font-weight:bold; margin-top:36px;                     font-variant: small-caps; }.H3 { font-size: medium;   font-weight:bold; margin-top:32px; }.H4 { font-size: small;    font-weight:bold; margin-top:26px; }.H5 { font-size: smaller;  font-weight:bold; margin-top:26px; font-style: normal; font-variant: small-caps; }.H6 { font-size: smaller;                                     font-style:italic; }UL  { margin-left: 30px; text-align: justify; list-style-position:outside; }OL  { margin-left: 30px; text-align: justify; list-style-position:outside; }LI   { padding-left: 0px; }P   { text-align: justify; line-height: 20px; }P.paragraph { font-family: helvetica; font-size: small; margin-left: 0; margin-right: 0; text-align: justify; }P.part { font-size: x-large; font-weight: bold; margin-top:36; border-bottom: solid 1px black; padding-bottom:8px; }B  { color: black; }A  { text-decoration: none; }A:visited { text-decoration: none; }P.figure{	margin: 20px 0 20px 0;	text-align:center;}PRE{	margin: 20px 0 20px 0;	padding: 10px 0px 10px 20px;	font-family: courier;	font-size: 8pt;	/* background: #eee; */	border-left: solid 1px #ddd;}BLOCKQUOTE{	background: #eee;	margin: 20px 0 20px 0;	padding: 10px 20px 10px 20px;	color: #333;	font-family: times;	font-size: small;	line-height: 150%;	text-align: justify;}P.marginnote{	width: 100;	float: right;}TD { padding: 5px; }TD.bibkey { text-align:right; padding-right: 5px; }TD.reference { }
+</style>
+</head>
+<body>
+<div class='document'>
+<div class='text'>
+<h2 class='h2'>	IMap (interface)</h2>
+<h3 class='h3'>		Usage</h3>
+<p class='paragraph'>
+Linkage:
+</p>
+<pre>
+-lopenxds_adt
+</pre>
+<p class='paragraph'>
+To use the interface:
+</p>
+<pre>
+#include &lt;openxds.adt/IMap.h&gt;
+
+using namespace openxds::adt;
+</pre>
+<h3 class='h3'>		Method Summary</h3>
+<table>
+<thead>
+<tr>
+	<th>Returns</th><th>Method-name</th><th colspan='2'>Parameters</th><th>Throws</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><b>E*                 </b></td> <td><a href='#put'       >put         </a></td> <td><b>const char* </b> key</td> <td><b>E*</b> element</td>                                </tr>
+<tr><td><b>E*                 </b></td> <td><a href='#remove'    >remove      </a></td> <td><b>const char* </b> key</td>                                                           </tr>
+<tr><td><b>E*                 </b></td> <td><a href='#get'       >get         </a></td> <td><b>const char* </b> key</td> <td>                 </td><td>NoSuchElementException*</td> </tr>
+<tr><td><b>IIterator(String)* </b></td> <td><a href='#keys'      >keys        </a></td>                                                                                            </tr>
+<tr><td><b>IIterator(E)*      </b></td> <td><a href='#elements'  >values      </a></td>                                                                                            </tr>
+<tr><td><b>IIterator(E)*      </b></td> <td><a href='#elements'  >elements    </a></td>                                                                                            </tr>
+<tr><td><b>bool               </b></td> <td><a href='#isEmpty'   >isEmpty     </a></td>                                                                                            </tr>
+<tr><td><b>long               </b></td> <td><a href='#size'      >size        </a></td>                                                                                            </tr>
+
+</tbody>
+</table>
+<h3 class='h3'>		Methods</h3>
+<a name='put'></a>
+<hr>
+<h4 class='h4'>			put</h4>
+<pre>
+E* put( const char* key, E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>key</i>, that the <i>element</i> will be associated with;
+</p>
+<p class='paragraph'>
+<i>element</i>, to be mapped to <i>key</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>element</i> currently mapped to <i>key</i>; otherwise NULL.
+</p>
+</blockquote>
+<a name='remove'></a>
+<hr>
+<h4 class='h4'>			remove</h4>
+<pre>
+E* remove( const char* key );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>key</i>, that may map to an <i>element</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>element</i> currently mapped to <i>key</i>; otherwise NULL.
+</p>
+</blockquote>
+<a name='get'></a>
+<hr>
+<h4 class='h4'>			get</h4>
+<pre>
+E& get( const char* key ) throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>key</i>, that may map to an <i>element</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A reference to the <i>element</i> currently mapped to <i>key</i>; otherwise NULL.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i>, if the <i>key</i> is not in the map.
+</p>
+</blockquote>
+<a name='keys'></a>
+<hr>
+<h4 class='h4'>			keys</h4>
+<pre>
+IIterator&lt;String&gt;* keys();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A <i>string</i> iterator that iterates over the keys stored in the Map.
+</p>
+</blockquote>
+<a name='elements'></a>
+<hr>
+<h4 class='h4'>			elements (values)</h4>
+<pre>
+IIterator&lt;E&gt;* elements();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+An <i>element</i> iterator that iterates over the <i>elements</i> stored in the map.
+</p>
+</blockquote>
+<h4 class='h4'>			isEmpty</h4>
+<pre>
+bool isEmpty();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if the map is empty; otherwise FALSE.
+</p>
+</blockquote>
+<a name='size'></a>
+<hr>
+<h4 class='h4'>			size</h4>
+<pre>
+long size();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The number of key/element mappings in the map.
+</p>
+</blockquote>
+</div>
+</div>
+</body>
+</html>

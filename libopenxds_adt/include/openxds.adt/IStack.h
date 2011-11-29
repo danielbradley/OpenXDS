@@ -12,14 +12,16 @@ template <class E>
 class IStack : public openxds::Interface
 {
 public:
-	virtual ~IStack() {}
-	virtual void  push( E* anElement )                                        = 0;
-	virtual E*     pop() throw (openxds::exceptions::NoSuchElementException*) = 0;
-	virtual E&     top() throw (openxds::exceptions::NoSuchElementException*) = 0;
-	virtual int   size() = 0;
-	virtual bool  isEmpty() = 0;
+	virtual            ~IStack() {}
+	virtual       void    push( E* anElement )                                                            = 0;
+	virtual       E*       pop()                     throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual       E&       top()                     throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual const E&       top()               const throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual       bool isEmpty()               const                                                      = 0;
+	virtual       long    size()               const                                                      = 0;
 }; 
 
 };};
 
 #endif
+

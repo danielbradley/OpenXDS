@@ -7,6 +7,88 @@ BODY {}DIV.document {}DIV.text { width:718px; width:550px; margin-left:auto; mar
 <body>
 <div class='document'>
 <div class='text'>
+<h2 class='h2'>	IPosition (interface)</h2>
+<h3 class='h3'>		Usage</h3>
+<p class='paragraph'>
+Linkage:
+</p>
+<pre>
+-lopenxds_adt
+</pre>
+<p class='paragraph'>
+To use the interface:
+</p>
+<pre>
+#include &lt;openxds.adt/IPosition.h&gt;
+
+using namespace openxds::adt;
+</pre>
+<h3 class='h3'>		Method Summary</h3>
+<table>
+<thead>
+<tr>
+	<th>Returns</th><th>Method-name</th><th>Throws</th>
+</tr>
+</thead>
+<tbody>
+
+<tr><td><b>E&            </b></td> <td><a href='#getElement' >getElement</a></td>                                       </tr>
+<tr><td><b>IPosition(E)* </b></td> <td><a href='#copy'       >copy      </a></td>                                       </tr>
+<tr><td><b>bool          </b></td> <td><a href='#equals'     >equals    </a></td> <td><b>const IPosition(E)&</b> p</td> </tr>
+
+</tbody>
+</table>
+<h3 class='h3'>		Methods</h3>
+<a name='getElement'></a>
+<hr>
+<h4 class='h4'>			getElement</h4>
+<pre>
+E& getElement();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+Returns <i>element</i> corresponding to this position.
+</p>
+</blockquote>
+<a name='copy'></a>
+<hr>
+<h4 class='h4'>			copy</h4>
+<pre>
+IPosition&lt;E&gt;* copy();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>position</i> instance that corresponds to the underlying node storing the <i>element</i>.
+</p>
+</blockquote>
+<a name='equals'></a>
+<hr>
+<h4 class='h4'>			equals</h4>
+<pre>
+bool equals( IPosition(E)& p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a <i>position</i> corresponding to the underlying node storing an <i>element</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if <i>p</i> corresponds to the same underlying node as this <i>position</i>; otherwise FALSE.
+</p>
+</blockquote>
 </div>
 </div>
 </body>

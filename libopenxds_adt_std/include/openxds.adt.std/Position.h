@@ -27,8 +27,7 @@ public:
 	}
 
 	virtual ~Position()
-	{
-	}
+	{}
 	
 	virtual E& getElement()
 	{
@@ -43,9 +42,14 @@ public:
 		return *e;
 	}
 
-	virtual const openxds::core::adt::IPosition* getCorePosition() const
+	virtual IPosition<E>* copy()
 	{
-		return this->p;
+		return new Position( this->p );
+	}
+
+	virtual const IPosition<E>* copy() const
+	{
+		return new Position( this->p );
 	}
 
 	virtual bool equals( const IPosition<E>& p ) const
@@ -53,10 +57,10 @@ public:
 		const Position<E>& pos = dynamic_cast<const Position<E>&>( p );
 		return this->p == pos.p;
 	}
-	
-	virtual IPosition<E>* copy() const
+
+	virtual const openxds::core::adt::IPosition* getCorePosition() const
 	{
-		return new Position( this->p );
+		return this->p;
 	}
 
 private:

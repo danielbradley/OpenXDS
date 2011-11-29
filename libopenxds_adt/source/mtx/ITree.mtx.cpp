@@ -8,10 +8,12 @@ Linkage:
 -lopenxds_adt
 ~
 
-To use the ITree interface:
+To use the interface:
 
 ~
 #include <openxds.adt/ITree.h>
+
+using namespace openxds::adt;
 ~
 
 !
@@ -32,25 +34,30 @@ class ITree : public openxds::Interface
 public:
 	virtual       ~ITree() {}
 
-	virtual       IPosition<E>*      addRoot( E* value ) = 0;
-	virtual       IPosition<E>*     addChild( IPosition<E>& p, E*        value ) = 0;
-	virtual       IPosition<E>*   addSubtree( IPosition<E>& p, ITree<E>* value ) = 0;
-	virtual       E*                 replace( IPosition<E>& p, E*        value ) = 0;
-	virtual       E*                  remove( IPosition<E>* p )                  = 0;
-	virtual       ITree<E>*     removeAsTree( IPosition<E>* p )                  = 0;
+	virtual       IPosition<E>*      addRoot(       E* value )                         = 0;
+	virtual       IPosition<E>*     addChild(       IPosition<E>& p, E*        value ) = 0;
+	virtual       IPosition<E>*   addSubtree(       IPosition<E>& p, ITree<E>* value ) = 0;
+	virtual       E*                 replace(       IPosition<E>& p, E*        value ) = 0;
+	virtual       E*                  remove(       IPosition<E>* p )                  = 0;
+	virtual       ITree<E>*     removeAsTree(       IPosition<E>* p )                  = 0;
 
-	virtual       IPosition<E>*         root()                          const throw (openxds::exceptions::NoSuchElementException*) = 0;
-	virtual       IPosition<E>*       parent( IPosition<E>& p )         const throw (openxds::exceptions::NoSuchElementException*) = 0;
-	virtual       IPosition<E>*        child( IPosition<E>& p, long i ) const throw (openxds::exceptions::NoSuchElementException*) = 0;
-	virtual       IPIterator<E>*    children( IPosition<E>& p )         const = 0;
-	virtual       bool                isRoot( IPosition<E>& p )         const = 0;
-	virtual       bool            isInternal( IPosition<E>& p )         const = 0;
-	virtual       bool            isExternal( IPosition<E>& p )         const = 0;
-	virtual       bool             hasParent( IPosition<E>& p )         const = 0;
-	virtual       bool              hasChild( IPosition<E>& p, long i ) const = 0;
-	virtual       bool               isEmpty()                          const = 0;
-	virtual       long            nrChildren( IPosition<E>& p )         const = 0;
-	virtual       long                  size()                          const = 0;
+	virtual       IPosition<E>*         root()                                      throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual       IPosition<E>*       parent(       IPosition<E>& p )               throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual       IPosition<E>*        child(       IPosition<E>& p, long i )       throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual       IPIterator<E>*    children(       IPosition<E>& p )                                                                    = 0;
+
+	virtual const IPosition<E>*         root()                                const throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual const IPosition<E>*       parent( const IPosition<E>& p )         const throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual const IPosition<E>*        child( const IPosition<E>& p, long i ) const throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual const IPIterator<E>*    children( const IPosition<E>& p )         const                                                      = 0;
+	virtual       bool                isRoot( const IPosition<E>& p )         const                                                      = 0;
+	virtual       bool            isInternal( const IPosition<E>& p )         const                                                      = 0;
+	virtual       bool            isExternal( const IPosition<E>& p )         const                                                      = 0;
+	virtual       bool             hasParent( const IPosition<E>& p )         const                                                      = 0;
+	virtual       bool              hasChild( const IPosition<E>& p, long i ) const                                                      = 0;
+	virtual       bool               isEmpty()                                const                                                      = 0;
+	virtual       long            nrChildren( const IPosition<E>& p )         const                                                      = 0;
+	virtual       long                  size()                                const                                                      = 0;
 }; 
 
 };};
@@ -77,17 +84,19 @@ public:
 <tr><td><b>E*            </b></td><td><a href='#remove'      >remove      </a></td><td><b>IPosition(E)*</b> p       </td>                                                             </tr>
 <tr><td><b>ITree(E)*     </b></td><td><a href='#removeAsTree'>removeAsTree</a></td><td><b>IPosition(E)*</b> p       </td>                                                             </tr>
 
-<tr><td><b>IPosition(E)* </b></td><td><a href='#root'        >root        </a></td><td>                           </td><td>                       </td><td>NoSuchElementException</td></tr>
-<tr><td><b>IPosition(E)* </b></td><td><a href='#parent'      >parent      </a></td><td><b>IPosition(E)&</b> p     </td><td>                       </td><td>NoSuchElementException</td></tr>
-<tr><td><b>IPosition(E)* </b></td><td><a href='#child'       >child       </a></td><td><b>IPosition(E)&</b> p     </td><td><b>long</b> index      </td><td>NoSuchElementException</td></tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#root'        >root        </a></td><td>                           </td><td>                       </td><td>NoSuchElementException*</td></tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#parent'      >parent      </a></td><td><b>IPosition(E)&</b> p     </td><td>                       </td><td>NoSuchElementException*</td></tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#child'       >child       </a></td><td><b>IPosition(E)&</b> p     </td><td><b>long</b> index      </td><td>NoSuchElementException*</td></tr>
 <tr><td><b>IPIterator(E)*</b></td><td><a href='#children'    >children    </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
+
 <tr><td><b>bool          </b></td><td><a href='#isRoot'      >isRoot      </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
 <tr><td><b>bool          </b></td><td><a href='#isInternal'  >isInternal  </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
 <tr><td><b>bool          </b></td><td><a href='#isExternal'  >isExternal  </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
 <tr><td><b>bool          </b></td><td><a href='#hasParent'   >hasParent   </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
 <tr><td><b>bool          </b></td><td><a href='#hasChild'    >hasChild    </a></td><td><b>IPosition(E)&</b> p     </td><td><b>long</b> i          </td>                               </tr>
 <tr><td><b>bool          </b></td><td><a href='#isEmpty'     >isEmpty     </a></td>                                                                                                   </tr>
-<tr><td><b>int           </b></td><td><a href='#size'        >size        </a></td>                                                                                                   </tr>
+<tr><td><b>long          </b></td><td><a href='#nrChildren'  >nrChildren  </a></td><td><b>IPosition(E)&</b> p     </td>                                                               </tr>
+<tr><td><b>long          </b></td><td><a href='#size'        >size        </a></td>                                                                                                   </tr>
 
 </tbody>
 </table>
@@ -100,7 +109,7 @@ public:
 <hr>
 ~
 
-....			addRoot
+...			addRoot
 
 ~
 IPosition<E>* addRoot( E* element );
@@ -122,7 +131,7 @@ A new position that can directly accesss the root position of the tree.
 <hr>
 ~
 
-....			addChild
+...			addChild
 
 ~
 IPosition<E>* addChild( IPosition<E>& p, E* element );
@@ -146,7 +155,7 @@ A new position that can directly accesss the root position of the tree.
 <hr>
 ~
 
-....			addSubtree
+...			addSubtree
 
 ~
 IPosition<E>* addSubtree( IPosition<E>& p, ITree<E>* aTree );
@@ -170,7 +179,7 @@ A new position referencing the root node of the added subtree.
 <hr>
 ~
 
-....			replace
+...			replace
 
 ~
 E* replace( IPosition<E>& p, E* element );
@@ -194,7 +203,7 @@ The element that was previously stored at position /p/.
 <hr>
 ~
 
-....			remove
+...			remove
 
 ~
 E* remove( IPosition<E>* p );
@@ -216,7 +225,7 @@ The element that was previously stored at position /p/.
 <hr>
 ~
 
-....			removeAsTree
+...			removeAsTree
 
 ~
 ITree<E>* removeAsTree( IPosition<E>* p );
@@ -238,7 +247,7 @@ A new tree correspond to the previous subtree whose root was /p/.
 <hr>
 ~
 
-....			root
+...			root
 
 ~
 IPosition<E>* root() throws NoSuchElementException;
@@ -251,7 +260,7 @@ A new position that corresponds to the root node of the tree.
 
 Throws
 |
-A /NoSuchElementException/ if the tree is empty.
+/NoSuchElementException/, if the tree is empty.
 |
 
 
@@ -260,7 +269,7 @@ A /NoSuchElementException/ if the tree is empty.
 <hr>
 ~
 
-....			parent
+...			parent
 
 ~
 IPosition<E>* parent( IPosition<E>& ) throws NoSuchElementException;
@@ -278,7 +287,7 @@ A new position that corresponds to the parent node of /p/.
 
 Throws
 |
-A /NoSuchElementException/ if /p/ is the root of the tree.
+/NoSuchElementException/, if /p/ is the root of the tree.
 |
 
 
@@ -287,7 +296,7 @@ A /NoSuchElementException/ if /p/ is the root of the tree.
 <hr>
 ~
 
-....			child
+...			child
 
 ~
 IPosition<E>* child( IPosition<E>&, long i ) throws NoSuchElementException;
@@ -307,7 +316,7 @@ A new position that corresponds to the /i/ the child of /p/.
 
 Throws
 |
-A /NoSuchElementException/ if /p/ doesn't have an /i/ th child.
+/NoSuchElementException/, if /p/ doesn't have an /i/ th child.
 |
 
 
@@ -316,7 +325,7 @@ A /NoSuchElementException/ if /p/ doesn't have an /i/ th child.
 <hr>
 ~
 
-....			children
+...			children
 
 ~
 IPIterator<E>* children( IPosition<E>& p );
@@ -338,7 +347,7 @@ A (possibly empty) position iterator that contains the positions of all children
 <hr>
 ~
 
-....			isRoot
+...			isRoot
 
 ~
 bool isRoot( IPosition<E>& p );
@@ -360,7 +369,7 @@ TRUE, if /p/ is the root of the tree; otherwise FALSE.
 <hr>
 ~
 
-....			isInternal
+...			isInternal
 
 ~
 bool isInternal( IPosition<E>& p );
@@ -382,7 +391,7 @@ TRUE, if /p/ is an internal node of the tree (has children); otherwise FALSE.
 <hr>
 ~
 
-....			isExternal
+...			isExternal
 
 ~
 bool isExternal( IPosition<E>& p );
@@ -404,7 +413,7 @@ TRUE, if /p/ is an external node of the tree (has no children); otherwise FALSE.
 <hr>
 ~
 
-....			hasParent
+...			hasParent
 
 ~
 bool hasParent( IPosition<E>& p );
@@ -422,17 +431,11 @@ TRUE, if /p/ is not the root node; otherwise FALSE.
 
 
 ~html~
-<a name='isEmpty'></a>
-<hr>
-~
-
-
-~html~
 <a name='hasChild'></a>
 <hr>
 ~
 
-....			hasParent
+...			hasChild
 
 ~
 bool hasChild( IPosition<E>& p, long i );
@@ -456,8 +459,7 @@ TRUE, if /p/ has an /i/ th child; otherwise FALSE.
 <hr>
 ~
 
-
-....			isEmpty
+...			isEmpty
 
 ~
 bool isEmpty();
@@ -474,8 +476,7 @@ TRUE, if the tree is empty; otherwise FALSE.
 <hr>
 ~
 
-
-....			nrChildren
+...			nrChildren
 
 ~
 long nrChildren( IPosition<E>& p );
@@ -497,7 +498,7 @@ The number of children of /p/.
 <hr>
 ~
 
-....			size
+...			size
 
 ~
 long size();

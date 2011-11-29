@@ -12,13 +12,14 @@ template <class E>
 class IEIterator : public openxds::Interface
 {
 public:
-	virtual ~IEIterator() {}
-	virtual       void            reset() = 0;
-	virtual       IEntry<E>*       next() = 0;
-	virtual const IEntry<E>*       next() const = 0;
-	virtual       bool          hasNext() const = 0;
+	virtual                  ~IEIterator() {}
+	virtual       void             reset() const                                                      = 0;
+	virtual       IEntry<E>*        next()       throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual const IEntry<E>*        next() const throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual       bool           hasNext() const                                                      = 0;
 }; 
 
 };};
 
 #endif
+

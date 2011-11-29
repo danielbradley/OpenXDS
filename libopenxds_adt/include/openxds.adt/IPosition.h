@@ -13,13 +13,17 @@ class IPosition : public openxds::Interface
 public:
 	virtual ~IPosition() {}
 
-	virtual       E&        getElement() = 0;
-	virtual const E&        getElement() const = 0;
-	
-	virtual       bool          equals( const IPosition<E>& p ) const = 0;
-	virtual       IPosition<E>*   copy() const = 0;
+	virtual       E&            getElement()                              = 0;
+	virtual       IPosition<E>*       copy()                              = 0;
+
+	virtual const E&            getElement()                        const = 0;
+	virtual const IPosition<E>*       copy()                        const = 0;
+
+
+	virtual       bool              equals( const IPosition<E>& p ) const = 0;
 };
 
 };};
 
 #endif
+

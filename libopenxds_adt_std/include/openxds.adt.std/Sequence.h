@@ -68,7 +68,7 @@ public:
 		return static_cast<E*>( this->_seq->removeLast( this->_seq ) );
 	}
 	
-	virtual E& getFirst() const throw (openxds::exceptions::NoSuchElementException*)
+	virtual E& getFirst() throw (openxds::exceptions::NoSuchElementException*)
 	{
 		if ( this->isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
 
@@ -77,7 +77,25 @@ public:
 		return *e2;
 	}
 
-	virtual E& getLast() const throw (openxds::exceptions::NoSuchElementException*)
+	virtual E& getLast() throw (openxds::exceptions::NoSuchElementException*)
+	{
+		if ( this->isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
+
+		const E* e= static_cast<const E*>( this->_seq->getLast( this->_seq ) ); 
+		E* e2     = const_cast<E*>( e );
+		return *e2;
+	}
+
+	virtual const E& getFirst() const throw (openxds::exceptions::NoSuchElementException*)
+	{
+		if ( this->isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
+
+		const E* e= static_cast<const E*>( this->_seq->getFirst( this->_seq ) ); 
+		E* e2     = const_cast<E*>( e );
+		return *e2;
+	}
+
+	virtual const E& getLast() const throw (openxds::exceptions::NoSuchElementException*)
 	{
 		if ( this->isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
 
@@ -128,15 +146,17 @@ public:
 		return e;
 	}
 
-	virtual IPosition<E>* first() const throw (openxds::exceptions::NoSuchElementException*)
+	virtual IPosition<E>* first() throw (openxds::exceptions::NoSuchElementException*)
 	{
+		return const_cast<IPosition<E>* >( this->first() );
+	
 		if ( this->isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
 
 		const openxds::core::adt::IPosition* p = this->_seq->first( this->_seq );
 		return new Position<E>( p );
 	}
 
-	virtual IPosition<E>* last() const throw (openxds::exceptions::NoSuchElementException*)
+	virtual IPosition<E>* last() throw (openxds::exceptions::NoSuchElementException*)
 	{
 		if ( this->isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
 
@@ -144,7 +164,7 @@ public:
 		return new Position<E>( p );
 	}
 
-	virtual IPosition<E>* prev( IPosition<E>& p ) const throw (openxds::exceptions::NoSuchElementException*)
+	virtual IPosition<E>* prev( IPosition<E>& p ) throw (openxds::exceptions::NoSuchElementException*)
 	{
 		Position<E>& _p = dynamic_cast<Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = _p.getCorePosition(); 
@@ -155,12 +175,12 @@ public:
 		return new Position<E>( p2 );
 	}
 
-	virtual IPosition<E>* previous( IPosition<E>& p ) const throw (openxds::exceptions::NoSuchElementException*)
+	virtual IPosition<E>* previous( IPosition<E>& p ) throw (openxds::exceptions::NoSuchElementException*)
 	{
 		return this->prev( p );
 	}
 	
-	virtual IPosition<E>* next( IPosition<E>& p ) const throw (openxds::exceptions::NoSuchElementException*)
+	virtual IPosition<E>* next( IPosition<E>& p ) throw (openxds::exceptions::NoSuchElementException*)
 	{
 		Position<E>& _p = dynamic_cast<Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = _p.getCorePosition(); 
@@ -171,14 +191,67 @@ public:
 		return new Position<E>( p2 );
 	}
 
-	virtual IPIterator<E>* positions() const
+	virtual IIterator<E>* elements()
+	{
+		return new Iterator<E>( this->_seq->elements( this->_seq ) );
+	}
+
+	virtual IPIterator<E>* positions()
 	{
 		return new PIterator<E>( this->_seq->positions( this->_seq ) );
 	}
 
-	virtual IIterator<E>* elements() const
+	virtual const IPosition<E>* first() const throw (openxds::exceptions::NoSuchElementException*)
+	{
+		if ( this->isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
+
+		const openxds::core::adt::IPosition* p = this->_seq->first( this->_seq );
+		return new Position<E>( p );
+	}
+
+	virtual const IPosition<E>* last() const throw (openxds::exceptions::NoSuchElementException*)
+	{
+		if ( this->isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
+
+		const openxds::core::adt::IPosition* p = this->_seq->last( this->_seq );
+		return new Position<E>( p );
+	}
+
+	virtual const IPosition<E>* prev( const IPosition<E>& p ) const throw (openxds::exceptions::NoSuchElementException*)
+	{
+		const Position<E>& _p = dynamic_cast<const Position<E>&>( p );
+		const openxds::core::adt::IPosition* core = _p.getCorePosition(); 
+		const openxds::core::adt::IPosition* p2   = this->_seq->prev( this->_seq, core );
+
+		if ( ! p2 ) throw new openxds::exceptions::NoSuchElementException();
+
+		return new Position<E>( p2 );
+	}
+
+	virtual const IPosition<E>* previous( const IPosition<E>& p ) const throw (openxds::exceptions::NoSuchElementException*)
+	{
+		return this->prev( p );
+	}
+	
+	virtual const IPosition<E>* next( const IPosition<E>& p ) const throw (openxds::exceptions::NoSuchElementException*)
+	{
+		const Position<E>& _p = dynamic_cast<const Position<E>&>( p );
+		const openxds::core::adt::IPosition* core = _p.getCorePosition(); 
+		const openxds::core::adt::IPosition* p2   = this->_seq->next( this->_seq, core );
+
+		if ( ! p2 ) throw new openxds::exceptions::NoSuchElementException();
+
+		return new Position<E>( p2 );
+	}
+
+	virtual const IIterator<E>* elements() const
 	{
 		return new Iterator<E>( this->_seq->elements( this->_seq ) );
+	}
+
+	virtual const IPIterator<E>* positions() const
+	{
+		return new PIterator<E>( this->_seq->positions( this->_seq ) );
 	}
 
 	virtual void add( int rank, E* e ) throw (openxds::exceptions::IndexOutOfBoundsException*)
@@ -218,7 +291,7 @@ public:
 		return e;
 	}
 
-	virtual E& get( int rank ) const throw (openxds::exceptions::IndexOutOfBoundsException*)
+	virtual E& get( int rank ) throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
 		int size = this->_seq->size( this->_seq );
 		if ( (rank < 0) || (size <= rank))
@@ -231,13 +304,26 @@ public:
 		return *e;
 	}
 
-	virtual int rankOf( IPosition<E>& p ) const
+	virtual const E& get( int rank ) const throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
-		Position<E>& _p = dynamic_cast<Position<E>&>( p );
+		int size = this->_seq->size( this->_seq );
+		if ( (rank < 0) || (size <= rank))
+			throw new openxds::exceptions::IndexOutOfBoundsException();
+
+		E* e = const_cast<E*>( static_cast<const E*>( this->_seq->get( this->_seq, rank ) ) );
+
+		if ( !e ) throw new openxds::exceptions::IndexOutOfBoundsException();
+	
+		return *e;
+	}
+
+	virtual int rankOf( const IPosition<E>& p ) const
+	{
+		const Position<E>& _p = dynamic_cast<const Position<E>&>( p );
 		return this->_seq->rankOf( this->_seq, _p.getCorePosition() );
 	}
 
-	virtual IPosition<E>* atRank( int rank ) const throw (openxds::exceptions::IndexOutOfBoundsException*)
+	virtual IPosition<E>* atRank( int rank ) throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
 		const openxds::core::adt::IPosition* p = this->_seq->atRank( this->_seq, rank );
 		
@@ -245,15 +331,24 @@ public:
 	
 		return new Position<E>( p );
 	}
-	
-	virtual int size() const
+
+	virtual const IPosition<E>* atRank( int rank ) const throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
-		return this->_seq->size( this->_seq );
-	}
+		const openxds::core::adt::IPosition* p = this->_seq->atRank( this->_seq, rank );
+		
+		if ( !p ) throw new openxds::exceptions::IndexOutOfBoundsException();
 	
+		return new Position<E>( p );
+	}
+
 	virtual bool isEmpty() const
 	{
 		return this->_seq->isEmpty( this->_seq );
+	}
+	
+	virtual long size() const
+	{
+		return this->_seq->size( this->_seq );
 	}
 	
 private:

@@ -32,19 +32,27 @@ public:
 		this->it->free( this->it );
 	}
 	
-	virtual void reset()
+	virtual void reset() const
 	{
 		this->it->reset( this->it );
 	}
 
 	virtual IEntry<E>* next()
+	throw (openxds::exceptions::NoSuchElementException*)
 	{
-		return new Entry<E>( this->it->next( this->it ) );
+		const openxds::core::adt::IEntry* e = this->it->next( this->it );
+		if ( !e ) throw new openxds::exceptions::NoSuchElementException();
+	
+		return new Entry<E>( e );
 	}
 
 	virtual const IEntry<E>* next() const
+	throw (openxds::exceptions::NoSuchElementException*)
 	{
-		return new Entry<E>( this->it->next( this->it ) );
+		const openxds::core::adt::IEntry* e = this->it->next( this->it );
+		if ( !e ) throw new openxds::exceptions::NoSuchElementException();
+	
+		return new Entry<E>( e );
 	}
 
 	virtual bool hasNext() const

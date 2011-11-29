@@ -49,7 +49,7 @@ public:
 	virtual IEntry<E>* insert( const char* key, E* value )
 	{
 		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
-		IEntry<E>* e = new Entry<E>( this->d->insert( this->d, k, value ) );
+		IEntry<E>* e = new Entry<E>( this->d->insert( this->d, k, (void*) value ) );
 		k->free( k );
 		return e;
 	}
@@ -71,28 +71,7 @@ public:
 		return value;
 	}
 
-//	virtual IEntry<E>* find( const char* key )
-//	{
-//		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
-//		Entry<E>* e = new Entry<E>( this->d->find( this->d, k ) );
-//		k->free( k );
-//		return e;
-//	}
-//
-//	virtual IEIterator<E>* findAll( const char* key )
-//	{
-//		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
-//		EIterator<E>* it = new EIterator<E>( this->d->findAll( this->d, k ) );
-//		k->free( k );
-//		return it;
-//	}
-//
-//	virtual IEIterator<E>* entries()
-//	{
-//		return new EIterator<E>( this->d->entries( this->d ) );
-//	}
-
-	virtual IEntry<E>* find( const char* key ) const
+	virtual IEntry<E>* find( const char* key )
 	throw (openxds::exceptions::NoSuchElementException*)
 	{
 		Entry<E>* e = NULL;
@@ -107,7 +86,7 @@ public:
 		return e;
 	}
 
-	virtual IEntry<E>* startsWith( const char* key ) const
+	virtual IEntry<E>* startsWith( const char* key )
 	throw (openxds::exceptions::NoSuchElementException*)
 	{
 		Entry<E>* e = NULL;
@@ -122,7 +101,45 @@ public:
 		return e;
 	}
 
-	virtual IEIterator<E>* findAll( const char* key ) const
+	virtual IEIterator<E>* findAll( const char* key )
+	{
+		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
+		EIterator<E>* it = new EIterator<E>( this->d->findAll( this->d, k ) );
+		k->free( k );
+		return it;
+	}
+
+	virtual const IEntry<E>* find( const char* key ) const
+	throw (openxds::exceptions::NoSuchElementException*)
+	{
+		Entry<E>* e = NULL;
+		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
+		{
+			const openxds::core::adt::IEntry* core = this->d->find( this->d, k );
+			if ( ! core ) throw new openxds::exceptions::NoSuchElementException();
+		
+			e = new Entry<E>( core );
+			k->free( k );
+		}
+		return e;
+	}
+
+	virtual const IEntry<E>* startsWith( const char* key ) const
+	throw (openxds::exceptions::NoSuchElementException*)
+	{
+		Entry<E>* e = NULL;
+		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
+		{
+			const openxds::core::adt::IEntry* core = this->d->startsWith( this->d, k );
+			if ( ! core ) throw new openxds::exceptions::NoSuchElementException();
+		
+			e = new Entry<E>( core );
+			k->free( k );
+		}
+		return e;
+	}
+
+	virtual const IEIterator<E>* findAll( const char* key ) const
 	{
 		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
 		EIterator<E>* it = new EIterator<E>( this->d->findAll( this->d, k ) );

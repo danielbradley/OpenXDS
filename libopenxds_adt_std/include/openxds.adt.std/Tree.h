@@ -108,7 +108,9 @@ public:
 		return tree;
 	}
 
-	virtual IPosition<E>* root() const
+
+
+	virtual IPosition<E>* root()
 	throw (openxds::exceptions::NoSuchElementException*)
 	{
 		if ( this->isEmpty() )
@@ -119,7 +121,7 @@ public:
 		return new Position<E>( core );
 	}
 
-	virtual IPosition<E>* parent( IPosition<E>& p ) const
+	virtual IPosition<E>* parent( IPosition<E>& p )
 	throw (openxds::exceptions::NoSuchElementException*)
 	{
 		Position<E>& posn = dynamic_cast<Position<E>&>( p );
@@ -132,7 +134,7 @@ public:
 		return new Position<E>( this->t->parent( this->t, core ) );
 	}
 
-	virtual IPosition<E>* child( IPosition<E>& p, long i ) const
+	virtual IPosition<E>* child( IPosition<E>& p, long i )
 	throw (openxds::exceptions::NoSuchElementException*)
 	{
 		Position<E>& posn = dynamic_cast<Position<E>&>( p );
@@ -149,7 +151,7 @@ public:
 		}
 	}
 
-	virtual IPIterator<E>* children( IPosition<E>& p ) const
+	virtual IPIterator<E>* children( IPosition<E>& p )
 	{
 		Position<E>& posn = dynamic_cast<Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
@@ -157,41 +159,90 @@ public:
 		return new PIterator<E>( this->t->children( this->t, core ) );
 	}
 
-	virtual bool isRoot( IPosition<E>& p ) const
+	virtual const IPosition<E>* root() const
+	throw (openxds::exceptions::NoSuchElementException*)
 	{
-		Position<E>& posn = dynamic_cast<Position<E>&>( p );
+		if ( this->isEmpty() )
+		{
+			throw new openxds::exceptions::NoSuchElementException();
+		}
+		const openxds::core::adt::IPosition* core = this->t->root( this->t ); 
+		return new Position<E>( core );
+	}
+
+	virtual const IPosition<E>* parent( const IPosition<E>& p ) const
+	throw (openxds::exceptions::NoSuchElementException*)
+	{
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
+		const openxds::core::adt::IPosition* core = posn.getCorePosition();
+
+		if ( ! core )
+		{
+			throw new openxds::exceptions::NoSuchElementException();
+		}
+		return new Position<E>( this->t->parent( this->t, core ) );
+	}
+
+	virtual const IPosition<E>* child( const IPosition<E>& p, long i ) const
+	throw (openxds::exceptions::NoSuchElementException*)
+	{
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
+		const openxds::core::adt::IPosition* core  = posn.getCorePosition();
+		const openxds::core::adt::IPosition* child = this->t->child( this->t, core, i );
+		
+		if ( child )
+		{
+			return new Position<E>( child );
+		}
+		else
+		{
+			throw new openxds::exceptions::NoSuchElementException();
+		}
+	}
+
+	virtual const IPIterator<E>* children( const IPosition<E>& p ) const
+	{
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
+		const openxds::core::adt::IPosition* core = posn.getCorePosition();
+
+		return new PIterator<E>( this->t->children( this->t, core ) );
+	}
+
+	virtual bool isRoot( const IPosition<E>& p ) const
+	{
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 
 		return this->t->isRoot( this->t, core );
 	}
 
-	virtual bool isInternal( IPosition<E>& p ) const
+	virtual bool isInternal( const IPosition<E>& p ) const
 	{
-		Position<E>& posn = dynamic_cast<Position<E>&>( p );
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 
 		return this->t->isInternal( this->t, core );
 	}
 
-	virtual bool isExternal( IPosition<E>& p ) const
+	virtual bool isExternal( const IPosition<E>& p ) const
 	{
-		Position<E>& posn = dynamic_cast<Position<E>&>( p );
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 
 		return this->t->isExternal( this->t, core );
 	}
 
-	virtual bool hasParent( IPosition<E>& p ) const
+	virtual bool hasParent( const IPosition<E>& p ) const
 	{
-		Position<E>& posn = dynamic_cast<Position<E>&>( p );
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 
 		return this->t->hasParent( this->t, core );
 	}
 
-	virtual bool hasChild( IPosition<E>& p, long i ) const
+	virtual bool hasChild( const IPosition<E>& p, long i ) const
 	{
-		Position<E>& posn = dynamic_cast<Position<E>&>( p );
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 
 		return this->t->hasChild( this->t, core, i );
@@ -202,9 +253,9 @@ public:
 		return this->t->isEmpty( this->t );
 	}
 
-	virtual long nrChildren( IPosition<E>& p ) const
+	virtual long nrChildren( const IPosition<E>& p ) const
 	{
-		Position<E>& posn = dynamic_cast<Position<E>&>( p );
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 
 		return this->t->nrChildren( this->t, core );

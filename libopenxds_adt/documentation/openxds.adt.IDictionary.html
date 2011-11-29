@@ -1,0 +1,270 @@
+<html>
+<head>
+<style type='text/css'>
+BODY {}DIV.document {}DIV.text { width:718px; width:550px; margin-left:auto; margin-right:auto; }DIV.text { padding: 25; border: none; }H1,H2,H3,H4,H5,H6,P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { font-size:small; font-weight:normal; font-style:normal; font-family:helvetica; }P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { margin-bottom:10px; }H1,H2,H3,H4,H5,H6                  { margin-bottom:10px; }.subtitle { font-size: medium; text-align: center; }.top { margin-top:10px; }.H1 { font-size: xx-large; font-weight:bold; margin-top:10px; margin-bottom:10px; text-align: center; }.H2 { font-size: larger;   font-weight:bold; margin-top:36px;                     font-variant: small-caps; }.H3 { font-size: medium;   font-weight:bold; margin-top:32px; }.H4 { font-size: small;    font-weight:bold; margin-top:26px; }.H5 { font-size: smaller;  font-weight:bold; margin-top:26px; font-style: normal; font-variant: small-caps; }.H6 { font-size: smaller;                                     font-style:italic; }UL  { margin-left: 30px; text-align: justify; list-style-position:outside; }OL  { margin-left: 30px; text-align: justify; list-style-position:outside; }LI   { padding-left: 0px; }P   { text-align: justify; line-height: 20px; }P.paragraph { font-family: helvetica; font-size: small; margin-left: 0; margin-right: 0; text-align: justify; }P.part { font-size: x-large; font-weight: bold; margin-top:36; border-bottom: solid 1px black; padding-bottom:8px; }B  { color: black; }A  { text-decoration: none; }A:visited { text-decoration: none; }P.figure{	margin: 20px 0 20px 0;	text-align:center;}PRE{	margin: 20px 0 20px 0;	padding: 10px 0px 10px 20px;	font-family: courier;	font-size: 8pt;	/* background: #eee; */	border-left: solid 1px #ddd;}BLOCKQUOTE{	background: #eee;	margin: 20px 0 20px 0;	padding: 10px 20px 10px 20px;	color: #333;	font-family: times;	font-size: small;	line-height: 150%;	text-align: justify;}P.marginnote{	width: 100;	float: right;}TD { padding: 5px; }TD.bibkey { text-align:right; padding-right: 5px; }TD.reference { }
+</style>
+</head>
+<body>
+<div class='document'>
+<div class='text'>
+<h2 class='h2'>	IDictionary (interface)</h2>
+<h3 class='h3'>		Usage</h3>
+<p class='paragraph'>
+Linkage:
+</p>
+<pre>
+-lopenxds_adt
+</pre>
+<p class='paragraph'>
+To use the interface:
+</p>
+<pre>
+#include &lt;openxds.adt/IDictionary.h&gt;
+
+using namespace openxds::adt;
+</pre>
+<h3 class='h3'>		Method Summary</h3>
+<table>
+<thead>
+<tr>
+	<th>Returns</th><th>Method-name</th><th colspan='2'>Parameters</th><th>Throws</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><b>IEntry(E)*     </b></td> <td><a href='#insert'    >insert      </a></td> <td><b>const char* </b> key</td> <td><b>E*</b> element</td>                                     </tr>
+<tr><td><b>IEntry(E)*     </b></td> <td><a href='#insertRef' >insertRef   </a></td> <td><b>const char* </b> key</td> <td><b>E&</b> element</td>                                     </tr>
+<tr><td><b>E*             </b></td> <td><a href='#remove'    >remove      </a></td> <td><b>IEntry(E)*  </b> e  </td>                                                                </tr>
+<tr><td><b>IEntry(E)*     </b></td> <td><a href='#find'      >find        </a></td> <td><b>const char* </b> key</td> <td>                       </td><td>NoSuchElementException*</td></tr>
+<tr><td><b>IEntry(E)*     </b></td> <td><a href='#startsWith'>startsWith  </a></td> <td><b>const char* </b> key</td> <td>                       </td><td>NoSuchElementException*</td></tr>
+<tr><td><b>IEIterator(E)* </b></td> <td><a href='#findAll'   >findAll     </a></td> <td><b>const char* </b> key</td> <td>                       </td>                               </tr>
+<tr><td><b>IEIterator(E)* </b></td> <td><a href='#entries'   >entries     </a></td> <td>                       </td> <td>                       </td>                               </tr>
+<tr><td><b>bool           </b></td> <td><a href='#isEmpty'   >isEmpty     </a></td>                                                                                                 </tr>
+<tr><td><b>long           </b></td> <td><a href='#size'      >size        </a></td>                                                                                                 </tr>
+</tbody>
+</table>
+<h3 class='h3'>		Methods</h3>
+<a name='insert'></a>
+<hr>
+<h4 class='h4'>			insert</h4>
+<pre>
+IEntry&lt;E&gt;* insert( const char* key, E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>key</i>, to associate the <i>value</i> with in the dictonary.
+</p>
+<p class='paragraph'>
+<i>element</i>, to be stored in the dictionary.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>entry</i> that corresponds to the underlying position in the dictionary.
+</p>
+</blockquote>
+<a name='insertRef'></a>
+<hr>
+<h4 class='h4'>			insert</h4>
+<pre>
+IEntry&lt;E&gt;* insertRef( const char* key, E& element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>key</i>, to associate the <i>value</i> with in the dictonary.
+</p>
+<p class='paragraph'>
+<i>element</i>, reference to be stored in the dictionary.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>entry</i> that corresponds to the underlying position in the dictionary.
+</p>
+</blockquote>
+<a name='insertRef'></a>
+<hr>
+<h4 class='h4'>			insertRef</h4>
+<pre>
+IEntry&lt;E&gt;* insertRef( const char* key, E& element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>key</i>, to associate the <i>value</i> with in the dictonary.
+</p>
+<p class='paragraph'>
+<i>element</i>, reference to be stored in the dictionary.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>entry</i> that corresponds to the underlying position in the dictionary.
+</p>
+</blockquote>
+<a name='remove'></a>
+<hr>
+<h4 class='h4'>			remove</h4>
+<pre>
+E* remove( IEntry&lt;E&gt;* e );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>e</i>, the <i>entry</i> to be removed from the dictionary.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>element</i> that was stored in the <i>entry</i>.
+</p>
+</blockquote>
+<a name='find'></a>
+<hr>
+<h4 class='h4'>			find</h4>
+<pre>
+IEntry&lt;E&gt;* find( const char* key ) throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>key</i>, that identifies one or more entries in the dictionary.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>entry</i> instance that corresponds to the first entry in the dictionary that is identifeid by <i>key</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i> if no entry in the dictionary is identified by <i>key</i>.
+</p>
+</blockquote>
+<a name='startsWith'></a>
+<hr>
+<h4 class='h4'>			startsWith</h4>
+<pre>
+IEntry&lt;E&gt;* startsWith( const char* key ) throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>key</i>, that identifies one or more entries in the dictionary.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>entry</i> instance that corresponds to the first entry in the dictionary who key starts with <i>key</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i> if no entry's key starts with <i>key</i>.
+</p>
+</blockquote>
+<a name='findAll'></a>
+<hr>
+<h4 class='h4'>			findAll</h4>
+<pre>
+IEIterator&lt;E&gt;* findAll( const char* key );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>key</i>, that identifies one or more entries in the dictionary.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>entry</i> iterator that iterates over all entries that are identified by <i>key</i>.
+</p>
+</blockquote>
+<a name='entries'></a>
+<hr>
+<h4 class='h4'>			entries</h4>
+<pre>
+IEIterator&lt;E&gt;* entries();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>entry</i> iterator that iterates over all entries in the dictionary.
+</p>
+</blockquote>
+<a name='isEmpty'></a>
+<hr>
+<h4 class='h4'>			isEmpty</h4>
+<pre>
+bool isEmpty();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if the tree is empty; otherwise FALSE.
+</p>
+</blockquote>
+<a name='size'></a>
+<hr>
+<h4 class='h4'>			size</h4>
+<pre>
+long size();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The number of nodes in the tree.
+</p>
+</blockquote>
+</div>
+</div>
+</body>
+</html>

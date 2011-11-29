@@ -71,18 +71,7 @@ public:
 		return *e;
 	}
 
-	virtual const E& get( const char* key ) const throw (openxds::exceptions::NoSuchElementException*)
-	{
-		openxds::core::adt::IKey* _key = openxds::core::adt::std::StdADTFactory_createKey( key );
-		const E* e = static_cast<const E*>( this->m->get( this->m, _key ) );
-		if ( ! e )
-		{
-			throw new openxds::exceptions::NoSuchElementException();
-		}
-		return *e;
-	}
-	
-	virtual IIterator<openxds::base::String>* keys() const
+	virtual IIterator<openxds::base::String>* keys()
 	{
 		openxds::core::adt::IIterator* _keys = this->m->keys( this->m );
 		{
@@ -99,9 +88,52 @@ public:
 		return new Iterator<openxds::base::String>( _keys );
 	}
 	
-	virtual IIterator<E>*  values() const
+	virtual IIterator<E>*  values()
 	{
 		return new Iterator<E>( this->m->values( this->m ) );
+	}
+
+	virtual IIterator<E>* elements()
+	{
+		return this->values();
+	}
+
+	virtual const E& get( const char* key ) const throw (openxds::exceptions::NoSuchElementException*)
+	{
+		openxds::core::adt::IKey* _key = openxds::core::adt::std::StdADTFactory_createKey( key );
+		const E* e = static_cast<const E*>( this->m->get( this->m, _key ) );
+		if ( ! e )
+		{
+			throw new openxds::exceptions::NoSuchElementException();
+		}
+		return *e;
+	}
+	
+	virtual const IIterator<openxds::base::String>* keys() const
+	{
+		openxds::core::adt::IIterator* _keys = this->m->keys( this->m );
+		{
+			openxds::core::adt::std::StdIterator* string_keys = openxds::core::adt::std::new_StdIterator();
+			while ( _keys->hasNext( _keys ) )
+			{
+				const openxds::core::adt::IKey* key = static_cast<const openxds::core::adt::IKey*>( _keys->next( _keys ) );
+				StdIterator_addElement( string_keys, new openxds::base::String( key->getChars( key ) ) );
+			}
+			_keys->free( _keys );
+			_keys = (openxds::core::adt::IIterator*) string_keys;
+		}
+		
+		return new Iterator<openxds::base::String>( _keys );
+	}
+	
+	virtual const IIterator<E>*  values() const
+	{
+		return new Iterator<E>( this->m->values( this->m ) );
+	}
+
+	virtual const IIterator<E>*  elements() const
+	{
+		return this->values();
 	}
 
 	virtual int size() const

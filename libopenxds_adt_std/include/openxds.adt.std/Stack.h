@@ -66,14 +66,23 @@ public:
 		return *element;
 	}
 
-	virtual int   size()
+	virtual const E& top() const throw (openxds::exceptions::NoSuchElementException*)
 	{
-		return this->_stack->size( this->_stack );
+		if ( isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
+	
+		openxds::core::adt::IValue* value = (openxds::core::adt::IValue*) this->_stack->top( this->_stack );
+		E* element = const_cast<E*>( static_cast<const E*>( value->getValue( value ) ) );
+		return *element;
 	}
 
-	virtual bool  isEmpty()
+	virtual bool isEmpty() const
 	{
 		return this->_stack->isEmpty( this->_stack );
+	}
+
+	virtual long size() const
+	{
+		return this->_stack->size( this->_stack );
 	}
 	
 private:

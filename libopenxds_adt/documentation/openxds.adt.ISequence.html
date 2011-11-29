@@ -1,0 +1,662 @@
+<html>
+<head>
+<style type='text/css'>
+BODY {}DIV.document {}DIV.text { width:718px; width:550px; margin-left:auto; margin-right:auto; }DIV.text { padding: 25; border: none; }H1,H2,H3,H4,H5,H6,P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { font-size:small; font-weight:normal; font-style:normal; font-family:helvetica; }P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { margin-bottom:10px; }H1,H2,H3,H4,H5,H6                  { margin-bottom:10px; }.subtitle { font-size: medium; text-align: center; }.top { margin-top:10px; }.H1 { font-size: xx-large; font-weight:bold; margin-top:10px; margin-bottom:10px; text-align: center; }.H2 { font-size: larger;   font-weight:bold; margin-top:36px;                     font-variant: small-caps; }.H3 { font-size: medium;   font-weight:bold; margin-top:32px; }.H4 { font-size: small;    font-weight:bold; margin-top:26px; }.H5 { font-size: smaller;  font-weight:bold; margin-top:26px; font-style: normal; font-variant: small-caps; }.H6 { font-size: smaller;                                     font-style:italic; }UL  { margin-left: 30px; text-align: justify; list-style-position:outside; }OL  { margin-left: 30px; text-align: justify; list-style-position:outside; }LI   { padding-left: 0px; }P   { text-align: justify; line-height: 20px; }P.paragraph { font-family: helvetica; font-size: small; margin-left: 0; margin-right: 0; text-align: justify; }P.part { font-size: x-large; font-weight: bold; margin-top:36; border-bottom: solid 1px black; padding-bottom:8px; }B  { color: black; }A  { text-decoration: none; }A:visited { text-decoration: none; }P.figure{	margin: 20px 0 20px 0;	text-align:center;}PRE{	margin: 20px 0 20px 0;	padding: 10px 0px 10px 20px;	font-family: courier;	font-size: 8pt;	/* background: #eee; */	border-left: solid 1px #ddd;}BLOCKQUOTE{	background: #eee;	margin: 20px 0 20px 0;	padding: 10px 20px 10px 20px;	color: #333;	font-family: times;	font-size: small;	line-height: 150%;	text-align: justify;}P.marginnote{	width: 100;	float: right;}TD { padding: 5px; }TD.bibkey { text-align:right; padding-right: 5px; }TD.reference { }
+</style>
+</head>
+<body>
+<div class='document'>
+<div class='text'>
+<h2 class='h2'>	ISequence (interface)</h2>
+<h3 class='h3'>		Usage</h3>
+<p class='paragraph'>
+Linkage:
+</p>
+<pre>
+-lopenxds_adt
+</pre>
+<p class='paragraph'>
+To use the interface:
+</p>
+<pre>
+#include &lt;openxds.adt/ISequence.h&gt;
+
+using namespace openxds::adt;
+</pre>
+<h3 class='h3'>		Method Summary</h3>
+<table>
+<thead>
+<tr>
+	<th>Returns</th><th>Method-name</th><th colspan='2'>Parameters</th><th>Throws</th>
+</tr>
+</thead>
+<tbody>
+
+<tr><td><b>void          </b></td><td><a href='#addFirst'    >addFirst     </a></td> <td><b>E*           </b> element </td>                                                                     </tr>
+<tr><td><b>void          </b></td><td><a href='#addLast'     >addFirst     </a></td> <td><b>E*           </b> element </td>                                                                     </tr>
+<tr><td><b>E*            </b></td><td><a href='#removeFirst' >removeFirst  </a></td> <td>                             </td><td>                        </td> <td>NoSuchElementException*   </td></tr>
+<tr><td><b>E*            </b></td><td><a href='#removeLast'  >removeLast   </a></td> <td>                             </td><td>                        </td> <td>NoSuchElementException*   </td></tr>
+<tr><td><b>E&            </b></td><td><a href='#getFirst'    >getFirst     </a></td> <td>                             </td><td>                        </td> <td>NoSuchElementException*   </td></tr>
+<tr><td><b>E&            </b></td><td><a href='#getLast'     >getLast      </a></td> <td>                             </td><td>                        </td> <td>NoSuchElementException*   </td></tr>
+
+<tr><td><b>IPosition(E)* </b></td><td><a href='#insertFirst' >insertFirst  </a></td> <td><b>E*           </b> element </td>                                                                     </tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#insertLast'  >insertLast   </a></td> <td><b>E*           </b> element </td>                                                                     </tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#insertBefore'>insertBefore </a></td> <td><b>IPosition(E)&</b> p       </td><td><b>E*       </b> element</td>                                    </tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#insertAfter' >insertAfter  </a></td> <td><b>IPosition(E)&</b> p       </td><td><b>E*       </b> element</td>                                    </tr>
+<tr><td><b>E*            </b></td><td><a href='#replace'     >replace      </a></td> <td><b>IPosition(E)&</b> p       </td><td><b>E*       </b> element</td>                                    </tr>
+<tr><td><b>E*            </b></td><td><a href='#remove'      >remove       </a></td> <td><b>IPosition(E)*</b> p       </td>                                                                     </tr>
+
+<tr><td><b>IPosition(E)* </b></td><td><a href='#first'       >first        </a></td> <td>                             </td><td>                        </td> <td>NoSuchElementException*   </td></tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#last'        >last         </a></td> <td>                             </td><td>                        </td> <td>NoSuchElementException*   </td></tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#prev'        >prev         </a></td><td><b>IPosition(E)&</b> p        </td><td>                        </td> <td>NoSuchElementException*   </td></tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#previous'    >previous     </a></td><td><b>IPosition(E)&</b> p        </td><td>                        </td> <td>NoSuchElementException*   </td></tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#next'        >next         </a></td><td><b>IPosition(E)&</b> p        </td><td>                        </td> <td>NoSuchElementException*   </td></tr>
+
+<tr><td><b>IIterator(E)* </b></td><td><a href='#elements'    >elements     </a></td>                                                                                                            </tr>
+<tr><td><b>IPIterator(E)*</b></td><td><a href='#positions'   >positions    </a></td>                                                                                                            </tr>
+
+<tr><td><b>void          </b></td><td><a href='#add'         >add          </a></td><td><b>int</b> rank               </td><td><b>E*</b> element       </td> <td>IndexOutOfBoundsException*</td></tr>
+<tr><td><b>E*            </b></td><td><a href='#set'         >set          </a></td><td><b>int</b> rank               </td><td><b>E*</b> element       </td> <td>IndexOutOfBoundsException*</td></tr>
+<tr><td><b>E*            </b></td><td><a href='#removeFrom'  >removeFrom   </a></td><td><b>int</b> rank               </td><td>                        </td> <td>IndexOutOfBoundsException*</td></tr>
+<tr><td><b>E&            </b></td><td><a href='#get'         >get          </a></td><td><b>int</b> rank               </td><td>                        </td> <td>IndexOutOfBoundsException*</td></tr>
+
+<tr><td><b>int           </b></td><td><a href='#rankOf'      >rankOf       </a></td><td><b>IPosition(E)&</b> rank     </td>                                                                     </tr>
+<tr><td><b>IPosition(E)* </b></td><td><a href='#atRank'      >atRank       </a></td><td><b>int</b> rank               </td><td>                        </td> <td>IndexOutOfBoundsException*</td></tr>
+
+<tr><td><b>bool          </b></td><td><a href='#isEmpty'     >isEmpty      </a></td>                                                                                                         </tr>
+<tr><td><b>long          </b></td><td><a href='#size'        >size         </a></td>                                                                                                         </tr>
+
+</tbody>
+</table>
+<h3 class='h3'>		Methods</h3>
+<a name='addFirst'></a>
+<hr>
+<h4 class='h4'>			addFirst</h4>
+<pre>
+void addFirst( E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>element</i>, to be inserted into the sequence.
+</p>
+</blockquote>
+<p class='paragraph'>
+Causes
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>element</i> to be added to the sequence at rank 0.
+</p>
+</blockquote>
+<a name='addLast'></a>
+<hr>
+<h4 class='h4'>			addLast</h4>
+<pre>
+void addLast( E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>element</i>, to be inserted into the sequence.
+</p>
+</blockquote>
+<p class='paragraph'>
+Causes
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>element</i> to be added to the sequence at rank <i>n</i>, where <i>n</i> is the size of the sequence.
+</p>
+</blockquote>
+<a name='removeFirst'></a>
+<hr>
+<h4 class='h4'>			removeFirst</h4>
+<pre>
+E* removeFirst() throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>element</i> stored at rank 0 of the sequence.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i>, if the sequence is empty.
+</p>
+</blockquote>
+<a name='removeLast'></a>
+<hr>
+<h4 class='h4'>			removeLast</h4>
+<pre>
+E* removeLast() throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>element</i> stored at rank <i>n</i> of the sequence, where <i>n</i> is the size of the sequence.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i>, if the sequence is empty.
+</p>
+</blockquote>
+<a name='getFirst'></a>
+<hr>
+<h4 class='h4'>			getFirst</h4>
+<pre>
+E& getFirst() throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A reference to the <i>element</i> stored at rank 0 of the sequence.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i>, if the sequence is empty.
+</p>
+</blockquote>
+<a name='getLast'></a>
+<hr>
+<h4 class='h4'>			getLast</h4>
+<pre>
+E& getLast() throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A reference to the <i>element</i> stored at rank <i>n</i> of the sequence, where <i>n</i> is the size of the sequence.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i>, if the sequence is empty.
+</p>
+</blockquote>
+<a name='insertFirst'></a>
+<hr>
+<h4 class='h4'>			insertFirst</h4>
+<pre>
+IPosition&lt;E&gt;* insertFirst( E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>element</i>, to be inserted into the list.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>position</i> that corresponds to the element's position in the list.
+</p>
+</blockquote>
+<a name='insertLast'></a>
+<hr>
+<h4 class='h4'>			insertLast</h4>
+<pre>
+IPosition&lt;E&gt;* insertLast( E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>element</i>, to be inserted into the list.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>position</i> that corresponds to the element's position in the list.
+</p>
+</blockquote>
+<a name='insertBefore'></a>
+<hr>
+<h4 class='h4'>			insertBefore</h4>
+<pre>
+IPosition&lt;E&gt;* insertBefore( IPosition&lt;E&gt;& p, E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, the position that the <i>element</i> is to be inserted before;
+</p>
+<p class='paragraph'>
+<i>element</i>, to be inserted into the list.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>position</i> that corresponds to the element's position in the list.
+</p>
+</blockquote>
+<a name='insertAfter'></a>
+<hr>
+<h4 class='h4'>			insertAfter</h4>
+<pre>
+IPosition&lt;E&gt;* insertAfter( IPosition&lt;E&gt;& p, E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, the position that the <i>element</i> is to be inserted after;
+</p>
+<p class='paragraph'>
+<i>element</i>, to be inserted into the list.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>position</i> that corresponds to the element's position in the list.
+</p>
+</blockquote>
+<a name='replace'></a>
+<hr>
+<h4 class='h4'>			replace</h4>
+<pre>
+E* replace( IPosition&lt;E&gt;& p, E* element );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, the position that the <i>element</i> is to be swapped into;
+</p>
+<p class='paragraph'>
+<i>element</i>, to be inserted into the list.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The previous <i>element</i> in that <i>position</i>.
+</p>
+</blockquote>
+<a name='remove'></a>
+<hr>
+<h4 class='h4'>			remove</h4>
+<pre>
+E* remove( IPosition&lt;E&gt;* p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, the position that the <i>element</i> is to be removed from.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>element</i> stored at the passed <i>position</i>.
+</p>
+</blockquote>
+<a name='first'></a>
+<hr>
+<h4 class='h4'>			first</h4>
+<pre>
+IPosition&lt;E&gt;* first() throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The first <i>position</i> of the list.
+</p>
+</blockquote>
+<a name='last'></a>
+<hr>
+<h4 class='h4'>			last</h4>
+<pre>
+IPosition&lt;E&gt;* last() throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The last <i>position</i> of the list.
+</p>
+</blockquote>
+<a name='previous'></a>
+<hr>
+<h4 class='h4'>			previous (prev)</h4>
+<pre>
+IPosition&lt;E&gt;* previous( IPosition&lt;E&gt;& p ) throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position in the list.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>position</i> before <i>p</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i>, if there is no position before <i>p</i>.
+</p>
+</blockquote>
+<a name='next'></a>
+<hr>
+<h4 class='h4'>			next</h4>
+<pre>
+IPosition&lt;E&gt;* next( IPosition&lt;E&gt;& p ) throw (NoSuchElementException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a position in the list.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>position</i> after <i>p</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>NoSuchElementException</i>, if there is no position after <i>p</i>.
+</p>
+</blockquote>
+<a name='elements'></a>
+<hr>
+<h4 class='h4'>			elements</h4>
+<pre>
+IIterator&lt;E&gt;* elements();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+An <i>element</i> iterator that iterates over the list's elements.
+</p>
+</blockquote>
+<a name='positions'></a>
+<hr>
+<h4 class='h4'>			positions</h4>
+<pre>
+IPIterator&lt;E&gt;* positions();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A <i>position</i> iterator that iterates over the list's positions.
+</p>
+</blockquote>
+<a name='add'></a>
+<hr>
+<h4 class='h4'>			add</h4>
+<pre>
+void add( int rank, E* element ) throw (IndexOutOfBoundsException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>rank</i>, to add the <i>element</i> at, moving existing positions up one rank;
+</p>
+<p class='paragraph'>
+<i>element</i>, to be added at <i>rank</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>IndexOutOfBoundsException</i>, if <i>rank</i> is greater than <i>n</i>, where <i>n</i> is the size of the sequence.
+</p>
+</blockquote>
+<a name='set'></a>
+<hr>
+<h4 class='h4'>			set</h4>
+<pre>
+E* set( int rank, E* element ) throw (IndexOutOfBoundsException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>rank</i>, of position whose element will replaced with <i>element</i>;
+</p>
+<p class='paragraph'>
+<i>element</i>, to be swapped into the position at <i>rank</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The existing <i>element</i> in the position at <i>rank</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>IndexOutOfBoundsException</i>, if <i>rank</i> is equal or greater than <i>n</i>, where <i>n</i> is the size of the sequence.
+</p>
+</blockquote>
+<a name='removeFrom'></a>
+<hr>
+<h4 class='h4'>			removeFrom</h4>
+<pre>
+E* removeFrom( int rank ) throw (IndexOutOfBoundsException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>rank</i>, of position to be removed.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>element</i> that was stored in the removed <i>position</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>IndexOutOfBoundsException</i>, if <i>rank</i> is equal or greater than <i>n</i>, where <i>n</i> is the size of the sequence.
+</p>
+</blockquote>
+<a name='get'></a>
+<hr>
+<h4 class='h4'>			get</h4>
+<pre>
+E& get( int rank ) throw (IndexOutOfBoundsException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>rank</i>, of a position in the sequence.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A reference to the <i>element</i> stored in the <i>position</i> at <i>rank</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>IndexOutOfBoundsException</i>, if <i>rank</i> is equal or greater than <i>n</i>, where <i>n</i> is the size of the sequence.
+</p>
+</blockquote>
+<a name='rankOf'></a>
+<hr>
+<h4 class='h4'>			rankOf</h4>
+<pre>
+int rankOf( const IPosition&lt;E&gt;& p );
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>p</i>, a <i>position</i> in the sequence.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The <i>rank</i> of the passed position, <i>p</i>.
+</p>
+</blockquote>
+<a name='atRank'></a>
+<hr>
+<h4 class='h4'>			atRank</h4>
+<pre>
+IPosition&lt;E&gt;* atRank( long rank ) throw (IndexOutOfBoundsException*);
+</pre>
+<p class='paragraph'>
+Parameters
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>rank</i>, the <i>rank</i> of a position in the sequence.
+</p>
+</blockquote>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new <i>position</i> instance corresponding to the underlying sequence node at <i>rank</i>.
+</p>
+</blockquote>
+<p class='paragraph'>
+Throws
+</p>
+<blockquote>
+<p class='paragraph'>
+<i>IndexOutOfBoundsException</i>, if <i>rank</i> is equal or greater than <i>n</i>, where <i>n</i> is the size of the sequence.
+</p>
+</blockquote>
+<a name='isEmpty'></a>
+<hr>
+<h4 class='h4'>			isEmpty</h4>
+<pre>
+bool isEmpty();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+TRUE, if the list is empty; otherwise FALSE.
+</p>
+</blockquote>
+<a name='size'></a>
+<hr>
+<h4 class='h4'>			size</h4>
+<pre>
+long size();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+The number of <i>elements</i> stored in the list.
+</p>
+</blockquote>
+</div>
+</div>
+</body>
+</html>

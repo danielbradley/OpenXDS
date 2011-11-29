@@ -16,9 +16,11 @@ public:
 	virtual const char*        getKey() const = 0;
 	virtual       E&         getValue()       = 0;
 	virtual const E&         getValue() const = 0;
-	virtual       IEntry<E>*     copy() const = 0;
+	virtual       IEntry<E>*     copy()       = 0;
+	virtual const IEntry<E>*     copy() const = 0;
 }; 
 
 };};
 
 #endif
+
