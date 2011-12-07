@@ -293,7 +293,7 @@ Arguments::hasOption( const char* key ) const
 const String&
 Arguments::getOptionValue( const char* key ) const
 {
-	IEntry<String>* e = this->parsedOptions().find( key );
+	const IEntry<String>* e = this->parsedOptions().find( key );
 	const String& ret = e->getValue();
 	delete e;
 	return ret;

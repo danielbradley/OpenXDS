@@ -3,3 +3,5 @@
 lib
 obj
 *.cfworkspace
+*.xcodeproj
+*.xcworkspace

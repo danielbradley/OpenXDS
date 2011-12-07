@@ -30,17 +30,16 @@ OutputStream::OutputStream()
   this->ioEndPoint = null;
 }
 
-OutputStream::OutputStream( const IEndPoint& io )
-throw (IOException*)
+OutputStream::OutputStream( IEndPoint& io )
 {
   this->isReference = true;
-  this->ioEndPoint = (IEndPoint*) &io;
+  this->ioEndPoint  = &io;
 }
 
 OutputStream::OutputStream( IEndPoint* io )
 {
   this->isReference = false;
-  this->ioEndPoint = io;
+  this->ioEndPoint  = io;
 }
 
 /*
@@ -69,9 +68,10 @@ OutputStream::OutputStream( IEndPoint* io )
 
 OutputStream::~OutputStream()
 {
-  if ( (false == this->isReference) && (null != this->ioEndPoint ) ) {
-    delete this->ioEndPoint;
-  }
+	if ( this->ioEndPoint && !this->isReference )
+	{
+		delete this->ioEndPoint;
+	}
 }
 
 void
@@ -129,9 +129,15 @@ OutputStream::clone() const
   return new OutputStream( (IEndPoint*) this->ioEndPoint->clone() );
 }
 
+IEndPoint&
+OutputStream::getIOEndPoint()
+{
+	return *this->ioEndPoint;
+}
+
 const IEndPoint&
 OutputStream::getIOEndPoint() const
 {
-  return *this->ioEndPoint;
+	return *this->ioEndPoint;
 }
 

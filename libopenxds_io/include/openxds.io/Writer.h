@@ -22,21 +22,21 @@ namespace openxds {
 class Writer : public openxds::Interface
 {
 public:
-  static const int EOL;
+	static const int EOL;
 
-  virtual ~Writer() throw (openxds::io::exceptions::IOException*);
+	virtual ~Writer() throw (openxds::io::exceptions::IOException*);
 
-  virtual void close() = 0;
-  virtual void flush() const = 0;
+	virtual void close() = 0;
+	virtual void flush() const = 0;
   
-  virtual void write( const char* characters, unsigned int offset, unsigned int count ) const
-      throw (openxds::io::exceptions::IOException*) = 0;
-  virtual void write( char character ) const
-      throw (openxds::io::exceptions::IOException*) = 0;
-  virtual void write( const openxds::base::String* str, unsigned int offset, unsigned int count ) const
-      throw (openxds::io::exceptions::IOException*) = 0;
+	virtual void write( const char* characters, unsigned int offset, unsigned int count ) const
+		throw (openxds::io::exceptions::IOException*) = 0;
+	virtual void write( char character ) const
+		throw (openxds::io::exceptions::IOException*) = 0;
+	virtual void write( const openxds::base::String* str, unsigned int offset, unsigned int count ) const
+		throw (openxds::io::exceptions::IOException*) = 0;
 
-  virtual openxds::Object* clone() const = 0;
+	virtual openxds::Object* clone() const = 0;
 };
 
 };};

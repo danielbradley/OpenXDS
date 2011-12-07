@@ -24,15 +24,8 @@ using namespace openxds::core::base;
 using namespace openxds::io;
 using namespace openxds::io::exceptions;
 
-PrintWriter::PrintWriter( const OutputStream& ostream ) : os( ostream )
+PrintWriter::PrintWriter( OutputStream& ostream ) : os( ostream )
 {
-  this->isReference = true;
-}
-
-PrintWriter::PrintWriter( const OutputStream* ostream ) : os( *ostream )
-{
- // IO::out().println( "PrintWriter( const OutputStream* )" );
-
   this->isReference = true;
 }
 
@@ -215,6 +208,18 @@ throw (IOException*)
 {
   const char* cbuf = str->getChars();
   this->os.write( (const byte*) cbuf, offset, count );
+}
+
+OutputStream&
+PrintWriter::getOutputStream()
+{
+	return this->os;
+}
+
+const OutputStream&
+PrintWriter::getOutputStream() const
+{
+	return this->os;
 }
 
 openxds::Object*

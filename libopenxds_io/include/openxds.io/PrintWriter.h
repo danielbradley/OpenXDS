@@ -22,21 +22,14 @@ namespace openxds {
 class PrintWriter : public openxds::Object, public Printer, public Writer
 {
 private:
-  bool isReference;
-  const OutputStream& os;
+  bool          isReference;
+  OutputStream& os;
 
 public:
 
-  /*
-   *  @deprecated.
-   */
-  PrintWriter( const OutputStream* ostream );
-  PrintWriter( const OutputStream& ostream );
+  PrintWriter( OutputStream& ostream );
   PrintWriter( OutputStream* ostream );
   virtual ~PrintWriter() throw (openxds::io::exceptions::IOException*);
-
-  //virtual void operatordelete( PrintWriter* upw );
-  //virtual void operatordelete( const PrintWriter* upw );
 
   // Printer Implementations
 
@@ -77,6 +70,11 @@ public:
       throw (openxds::io::exceptions::IOException*);
 
   virtual openxds::Object* clone() const;
+
+  virtual       openxds::io::OutputStream& getOutputStream();
+  virtual const openxds::io::OutputStream& getOutputStream() const;
+
+
 
   //print( int i ) = 0;
   ///print( long l );

@@ -21,7 +21,7 @@ namespace openxds {
 class OutputStream : public openxds::Object
 {
 public:
-  OutputStream( const IEndPoint& io ) throw (openxds::io::exceptions::IOException*);
+  OutputStream( IEndPoint& io );
   OutputStream( IEndPoint* io );
 
   virtual ~OutputStream();
@@ -41,9 +41,11 @@ public:
 
   virtual openxds::Object* clone() const;
 
+	      IEndPoint& getIOEndPoint();
+	const IEndPoint& getIOEndPoint() const;
+
 protected:
   OutputStream();
-  const IEndPoint& getIOEndPoint() const;
 
 private:
   bool isReference;
