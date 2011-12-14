@@ -35,10 +35,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
+#include <cstdio>
 
 using namespace openxds::core::base;
-
-
 
 void doSomething();
 
