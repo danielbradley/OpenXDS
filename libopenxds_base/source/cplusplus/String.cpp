@@ -8,7 +8,6 @@
  */
 
 #include "openxds.base/String.h"
-
 #include "openxds.exceptions/IndexOutOfBoundsException.h"
 
 #include <openxds.core.adt.std/StdString.h>
@@ -19,13 +18,8 @@
 #include <cstdio> // These should be removed once exceptions are implemented.
 #include <cstring>
 #include <new>
-//#include <cmath>
 #include <errno.h>
 
-/**
- *  This tells the compiler that class String has been declared
- *  within the particular namespace. <p>
- */  
 using namespace openxds;
 using namespace openxds::base;
 using namespace openxds::exceptions;
@@ -33,18 +27,8 @@ using namespace openxds::core::adt;
 using namespace openxds::core::adt::std;
 
 const bool String::debug = false;
-//static const char* NULLSTRING = "null";
-
-//static int hashCode1( const char* buf, int len );
 static int hashCode2( const char* buf, int len );
 
-//-----------------------------------------------------------------------------
-// Constructors
-//-----------------------------------------------------------------------------
-
-/******************************************************************************
- *  Creates an empty String. <p>
- */
 String::String() : Object()
 {
 	this->_data = new_StdString( "" );
@@ -85,10 +69,6 @@ String::~String()
 	free_StdString( (StdString*) this->_data );
 }
 
-//-----------------------------------------------------------------------------
-// Virtual Methods from Object
-//-----------------------------------------------------------------------------
-
 Object* String::clone() const
 {
 	return new String( *this );
@@ -98,11 +78,6 @@ String* String::asString() const
 {
 	String* str = new String( *this );
 	return str;
-}
-
-bool String::equals( const Object* obj ) const
-{
-  return this->equals( *obj );
 }
 
 bool String::equals( const Object& obj ) const
@@ -116,12 +91,14 @@ bool String::equals( const Object& obj ) const
 	}
 } 
 
-bool
-String::equals( const String& aString ) const
+/*
+ *	Deprecated
+ */
+bool String::equals( const Object* obj ) const
 {
-	return ( 0 == this->compareTo( aString ) );
+	return this->equals( *obj );
 }
-  
+
 //----------------------------------------------------------------------------- 
 // Public Methods Implemented For Objects
 //-----------------------------------------------------------------------------
@@ -137,28 +114,17 @@ throw (IndexOutOfBoundsException*)
 	}
 }
 
-int String::compareTo( const String* anotherString ) const
-{
-	return compareTo( *anotherString );
-}
-
 int
 String::compareTo( const String& anotherString ) const
 {
 	return StdString_compare( (StdString*) this->_data, StdString_getChars( (StdString*) anotherString._data ) );
 }
 
-//int String::compareTo( const char StdString[] ) const
-//{
-//  return strcmp(this->data, StdString);
-//}
+int String::compareTo( const String* anotherString ) const
+{
+	return compareTo( *anotherString );
+}
 
-/**
- *  Returns the characters between start and end. <p>
- *
- *  Note: this is different to the Java String object
- *        which returns start --> end - 1.
- */
 String*
 String::substring( long start, long end ) const
 throw (IndexOutOfBoundsException*)
@@ -171,11 +137,23 @@ throw (IndexOutOfBoundsException*)
 	if ( start > end )
 	{
 		return new String();
-		//throw new IndexOutOfBoundsException( start );
 	}
 	long count = (end - start) + 1;
-
+	
 	return new String( StdString_getChars( (StdString*) this->_data ), start, count );
+}
+
+String*
+String::removeWhitespace() const
+{
+	String* ret = null;
+	void*   str = StdString_removeWhitespace( (StdString*) this->_data );
+	{
+		ret = new String( StdString_getChars( (StdString*) str ) );
+	}
+	free_StdString( (StdString*) str );
+	
+	return ret;
 }
 
 const byte*const String::getBytes() const
@@ -185,7 +163,7 @@ const byte*const String::getBytes() const
 
 const char* String::getChars() const
 {
-  return StdString_getChars( (StdString*) this->_data );
+	return StdString_getChars( (StdString*) this->_data );
 }
 
 long String::getLength() const
@@ -323,3 +301,4 @@ String::endsWith( const String& suffix ) const
 //	}
 //}
 //*/
+

@@ -85,6 +85,8 @@ namespace openxds {
 			String* substring( long start, long end ) const
 			throw (openxds::exceptions::IndexOutOfBoundsException*);
 			
+			String* removeWhitespace() const;
+			
 			const byte*const getBytes() const;
 			const char* getChars() const;
 			
@@ -153,6 +155,7 @@ namespace openxds {
 
 <tr><td><b>long           </b></td> <td><a href='#compareTo'               >compareTo          </a></td> <td><b>const String&</b> aString  </td>                                                         </tr>
 <tr><td><b>String*        </b></td> <td><a href='#substring'               >substring          </a></td> <td><b>long         </b> start    </td> <td><b>long</b> end   </td> <td><b>    </b>       </td> <td>IndexOutOfBoundsException*</td> </tr>
+<tr><td><b>String*        </b></td> <td><a href='#removeWhitespace'        >removeWhitespace   </a></td>                                                                                                 </tr>
 
 <tr><td><b>const byte*    </b></td> <td><a href='#getBytes'                >getBytes           </a></td>                                                                                                 </tr>
 <tr><td><b>const char*    </b></td> <td><a href='#getChars'                >getChars           </a></td>                                                                                                 </tr>
@@ -640,6 +643,42 @@ throw (IndexOutOfBoundsException*)
 	long count = (end - start) + 1;
 	
 	return new String( StdString_getChars( (StdString*) this->_data ), start, count );
+}
+~
+
+
+
+
+~html~
+<a name='removeWhitespace'></a>
+<hr>
+~
+
+...			removeWhitespace
+
+~
+String* removeWhitespace() const;
+~
+
+Returns
+|
+a new instance of String whose contents is identical to those of the /this/ string except that all whitespace characters have been removed. 
+|
+
+Implementation
+
+~source/cplusplus/String.cpp~
+String*
+String::removeWhitespace() const
+{
+	String* ret = null;
+	void*   str = StdString_removeWhitespace( (StdString*) this->_data );
+	{
+		ret = new String( StdString_getChars( (StdString*) str ) );
+	}
+	free_StdString( (StdString*) str );
+	
+	return ret;
 }
 ~
 
