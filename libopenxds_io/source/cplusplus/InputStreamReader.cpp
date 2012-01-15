@@ -36,7 +36,8 @@ InputStreamReader::~InputStreamReader()
   }
 }
 
-int InputStreamReader::readInto( char* cbuf, int offset, int len )
+long
+InputStreamReader::readInto( char* cbuf, long offset, long len )
 throw (IOException*)
 {
   return this->istream->read( (byte*) cbuf, offset, len );

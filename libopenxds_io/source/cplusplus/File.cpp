@@ -280,11 +280,11 @@ File::remove()
 	return status;
 }
 
-unsigned int
-File::read( byte* buffer, unsigned int bufferSize ) const
+long
+File::read( byte* buffer, long bufferSize ) const
 throw (IOException*)
 {
-	unsigned int nr_read = this->native->read( this->native, buffer, bufferSize );
+	long nr_read = this->native->read( this->native, buffer, bufferSize );
 
 	if ( 0 == nr_read )
 	{
@@ -299,8 +299,8 @@ throw (IOException*)
 	return nr_read;
 }
 
-unsigned int
-File::write( const byte* buffer, unsigned int bufferSize ) const
+long
+File::write( const byte* buffer, long bufferSize ) const
 throw (IOException*)
 {
 	return this->native->write( this->native, buffer, bufferSize );

@@ -104,10 +104,10 @@ public:
 
 	bool remove();
 
-	unsigned int read( byte* buffer, unsigned int bufferSize ) const
+	long read( byte* buffer, long bufferSize ) const
 		throw (openxds::io::exceptions::IOException*);
 
-	unsigned int write( const byte* buffer, unsigned int count ) const
+	long write( const byte* buffer, long count ) const
 		throw (openxds::io::exceptions::IOException*);
   
 //	openxds::security::AccessControlList*

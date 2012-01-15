@@ -27,7 +27,7 @@ public:
 	         PushbackReader( Reader* aReader );
 	virtual ~PushbackReader();
 
-	virtual int  readInto( char* cbuf, int off, int len ) throw (openxds::io::exceptions::IOException*);
+	virtual long readInto( char* cbuf, long off, long len ) throw (openxds::io::exceptions::IOException*);
 	virtual void   unread( char c );
 	virtual void    close();
 

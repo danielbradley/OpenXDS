@@ -85,8 +85,8 @@ throw (IOException*)
 
 void
 OutputStream::write( const    byte* buf,
-                     unsigned int   offset,
-                     unsigned int   nrToWrite ) const
+                     long   offset,
+                     long   nrToWrite ) const
 throw (IOException*)
 {
   //const byte* posn = &buf[offset];

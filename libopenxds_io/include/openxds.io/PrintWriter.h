@@ -40,7 +40,7 @@ public:
   virtual void print( const openxds::base::String& s ) const throw (openxds::io::exceptions::IOException*);
   virtual void print( openxds::base::String* s ) const throw (openxds::io::exceptions::IOException*);
   virtual void print( const char* characters ) const throw (openxds::io::exceptions::IOException*);
-  virtual void print( const char* characters, unsigned int count ) const throw (openxds::io::exceptions::IOException*);
+  virtual void print( const char* characters, long count ) const throw (openxds::io::exceptions::IOException*);
   virtual void printf( const char* format, ... ) const;
   virtual void println() const;
   virtual void printlnDos() const;
@@ -54,7 +54,7 @@ public:
   virtual void println( const openxds::base::String& s ) const throw (openxds::io::exceptions::IOException*);
   virtual void println( openxds::base::String* s ) const throw (openxds::io::exceptions::IOException*);
   virtual void println( const char* characters ) const throw (openxds::io::exceptions::IOException*);
-  virtual void println( const char* characters, unsigned int count ) const throw (openxds::io::exceptions::IOException*);
+  virtual void println( const char* characters, long count ) const throw (openxds::io::exceptions::IOException*);
 
 
   // Writer Implementations
@@ -62,11 +62,11 @@ public:
   virtual void close() throw (openxds::io::exceptions::IOException*);
   virtual void flush() const throw (openxds::io::exceptions::IOException*);
   
-  virtual void write( const char* characters, unsigned int offset, unsigned int count ) const
+  virtual void write( const char* characters, long offset, long count ) const
       throw (openxds::io::exceptions::IOException*);
   virtual void write( char character ) const
       throw (openxds::io::exceptions::IOException*);
-  virtual void write( const openxds::base::String* str, unsigned int offset, unsigned int count ) const
+  virtual void write( const openxds::base::String* str, long offset, long count ) const
       throw (openxds::io::exceptions::IOException*);
 
   virtual openxds::Object* clone() const;

@@ -87,14 +87,14 @@ InputStream::close()
 	}
 }
 
-int
+long
 InputStream::read() const
 throw (IOException*)
 {
 	int ret = EOS;
 
 	byte buf[1];
-	unsigned int nrRead = this->endPoint->read( buf, 1 );
+	long nrRead = this->endPoint->read( buf, 1 );
 
 	switch ( nrRead )
 	{
@@ -106,13 +106,13 @@ throw (IOException*)
 	return ret;
 }
 
-unsigned int
+long
 InputStream::read( byte* buf,
-                   unsigned int offset,
-                   unsigned int nrToRead ) const
+                   long offset,
+                   long nrToRead ) const
 throw (IOException*)
 {
-	unsigned int nrRead = this->endPoint->read( buf, nrToRead );
+	long nrRead = this->endPoint->read( buf, nrToRead );
 
 	if ( IEndPoint::EOF == nrRead )
 	{

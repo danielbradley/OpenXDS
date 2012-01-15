@@ -37,8 +37,8 @@ PushbackReader::unread( char c )
 	this->pushstack->push( new Character( c ) );
 }
 
-int
-PushbackReader::readInto( char* cbuf, int off, int len )
+long
+PushbackReader::readInto( char* cbuf, long off, long len )
 throw (IOException*)
 {
 	while ( !this->pushstack->isEmpty() )

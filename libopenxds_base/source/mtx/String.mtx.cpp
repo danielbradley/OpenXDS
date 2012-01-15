@@ -497,6 +497,28 @@ bool String::equals( const Object* obj ) const
 
 
 
+...			equals
+
+~
+bool equals( const String& string ) const;
+~
+
+Returns
+|
+TRUE, if the content of /this/ string is identical to the content of the passed /string/; otherwise FALSE.
+|
+
+Implementation
+
+~source/cplusplus/String.cpp~
+bool String::equals( const String& string ) const
+{
+	return ( 0 == this->compareTo( string ) );
+} 
+~
+
+
+
 !
 ~source/cplusplus/String.cpp~
 //----------------------------------------------------------------------------- 
@@ -672,9 +694,10 @@ String*
 String::removeWhitespace() const
 {
 	String* ret = null;
-	void*   str = StdString_removeWhitespace( (StdString*) this->_data );
+	StdString* str = StdString_removeWhitespace( (StdString*) this->_data );
 	{
-		ret = new String( StdString_getChars( (StdString*) str ) );
+		const char* chars = StdString_getChars( str );
+		ret = new String( chars );
 	}
 	free_StdString( (StdString*) str );
 	

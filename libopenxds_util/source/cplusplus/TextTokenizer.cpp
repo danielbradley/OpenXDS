@@ -91,15 +91,15 @@ ITextToken* parseNextToken( PushbackReader& reader ) throw (IOException*)
 {
 	ITextToken* ret = null;
 	
-	int ch1 = reader.read();
+	long ch1 = reader.read();
 	
 	if ( -1 != ch1 )
 	{
 		StringBuffer sb;
 		sb.append( ch1 );
 
-		int special = 0;
-		int chX;
+		long special = 0;
+		long chX;
 		
 		while ( -1 != (chX = reader.read() ) )
 		{

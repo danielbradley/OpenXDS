@@ -27,8 +27,8 @@ public:
 	         InputStreamReader( InputStream* istream );
 	virtual ~InputStreamReader();
 
-	virtual void close();
-	virtual int  readInto( char* cbuf, int off, int len ) throw (openxds::io::exceptions::IOException*);
+	virtual void    close();
+	virtual long readInto( char* cbuf, long off, long len ) throw (openxds::io::exceptions::IOException*);
 };
 
 };};

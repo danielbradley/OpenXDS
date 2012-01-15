@@ -30,7 +30,7 @@ public:
   virtual void print( const openxds::base::String& s ) const = 0;
   virtual void print( openxds::base::String* s ) const = 0;
   virtual void print( const char* characters ) const = 0;
-  virtual void print( const char* characters, unsigned int count ) const = 0;
+  virtual void print( const char* characters, long count ) const = 0;
   //virtual void printf( const char* format, ... ) const = 0;
 
   /*
@@ -40,7 +40,7 @@ public:
   virtual void println( const openxds::base::String& s ) const = 0;
   virtual void println( openxds::base::String* s ) const = 0;
   virtual void println( const char* characters ) const = 0;
-  virtual void println( const char* characters, unsigned int count ) const = 0;
+  virtual void println( const char* characters, long count ) const = 0;
   virtual void println() const = 0;
   virtual void printlnDos() const = 0;
   virtual void printlnMac() const = 0;

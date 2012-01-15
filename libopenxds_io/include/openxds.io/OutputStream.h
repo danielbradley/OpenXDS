@@ -33,8 +33,8 @@ public:
       write( const byte value ) const throw (openxds::io::exceptions::IOException*);
   virtual void
       write( const byte* buf,
-             unsigned int offset,
-             unsigned int nrToWrite ) const throw (openxds::io::exceptions::IOException*);
+             long offset,
+             long nrToWrite ) const throw (openxds::io::exceptions::IOException*);
 
 	virtual void
 		write( const char* format, ... ) const throw (openxds::io::exceptions::IOException*);

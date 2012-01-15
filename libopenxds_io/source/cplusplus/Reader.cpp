@@ -22,11 +22,11 @@ Reader::Reader()
 Reader::~Reader()
 {}
 
-int
+long
 Reader::read() throw (IOException*)
 {
   char cbuf[1];
-  int c = this->readInto( cbuf, 0, 1 );
+  long c = this->readInto( cbuf, 0, 1 );
   if ( EOS != c )
   {
     c = (int) cbuf[0];

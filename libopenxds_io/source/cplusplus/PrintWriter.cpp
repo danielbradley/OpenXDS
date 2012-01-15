@@ -75,7 +75,7 @@ throw (IOException*)
   //this->write( characters, 0, strlen( characters ) );
 }  
 
-void PrintWriter::print( const char* characters, unsigned int count ) const
+void PrintWriter::print( const char* characters, long count ) const
 throw (IOException*)
 {
   this->write( characters, 0, count );
@@ -163,7 +163,7 @@ throw (IOException*)
   this->println();
 }
 
-void PrintWriter::println( const char* characters, unsigned int count ) const
+void PrintWriter::println( const char* characters, long count ) const
 throw (IOException*)
 {
   this->print( characters, count );
@@ -189,7 +189,7 @@ throw (IOException*)
 }
   
 void
-PrintWriter::write( const char* characters, unsigned int offset, unsigned int count ) const
+PrintWriter::write( const char* characters, long offset, long count ) const
 throw (IOException*)
 {
   this->os.write( (const byte*) characters, offset, count );
@@ -203,7 +203,7 @@ throw (IOException*)
 }
 
 void
-PrintWriter::write( const String* str, unsigned int offset, unsigned int count ) const
+PrintWriter::write( const String* str, long offset, long count ) const
 throw (IOException*)
 {
   const char* cbuf = str->getChars();

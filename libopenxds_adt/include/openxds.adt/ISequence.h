@@ -52,16 +52,16 @@ public:
 	virtual const IPIterator<E>*   positions()                              const                                                         = 0;
 
 	// Vector
-	virtual       void                   add(       int rank, E* e )              throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
-	virtual       E*                     set(       int rank, E* e )              throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
-	virtual       E*              removeFrom(       int rank )                    throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
-	virtual       E&                     get(       int rank )                    throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
-	virtual const E&                     get(       int rank )              const throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
+	virtual       void                   add(      long rank, E* e )              throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
+	virtual       E*                     set(      long rank, E* e )              throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
+	virtual       E*              removeFrom(      long rank )                    throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
+	virtual       E&                     get(      long rank )                    throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
+	virtual const E&                     get(      long rank )              const throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
 
 	// Bridging
-	virtual       int                 rankOf( const IPosition<E>& p )       const                                                         = 0;
-	virtual       IPosition<E>*       atRank(       int rank )                    throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
-	virtual const IPosition<E>*       atRank(       int rank )              const throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
+	virtual       long                rankOf( const IPosition<E>& p )       const                                                         = 0;
+	virtual       IPosition<E>*       atRank(      long rank )                    throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
+	virtual const IPosition<E>*       atRank(      long rank )              const throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
 	
 	// Common
 	virtual       long                  size()                              const                                                         = 0;

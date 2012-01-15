@@ -254,9 +254,9 @@ public:
 		return new PIterator<E>( this->_seq->positions( this->_seq ) );
 	}
 
-	virtual void add( int rank, E* e ) throw (openxds::exceptions::IndexOutOfBoundsException*)
+	virtual void add( long rank, E* e ) throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
-		int size = this->_seq->size( this->_seq );
+		long size = this->_seq->size( this->_seq );
 		if ( (rank < 0) || (size < rank))
 		{
 			delete e;
@@ -266,9 +266,9 @@ public:
 		this->_seq->add( this->_seq, rank, e );
 	}
 
-	virtual E* set( int rank, E* e ) throw (openxds::exceptions::IndexOutOfBoundsException*)
+	virtual E* set( long rank, E* e ) throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
-		int size = this->_seq->size( this->_seq );
+		long size = this->_seq->size( this->_seq );
 		if ( (rank < 0) || (size <= rank))
 		{
 			delete e;
@@ -278,9 +278,9 @@ public:
 		return const_cast<E*>( static_cast<E*>( this->_seq->set( this->_seq, rank, e ) ) );
 	}
 
-	virtual E* removeFrom( int rank ) throw (openxds::exceptions::IndexOutOfBoundsException*)
+	virtual E* removeFrom( long rank ) throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
-		int size = this->_seq->size( this->_seq );
+		long size = this->_seq->size( this->_seq );
 		if ( (rank < 0) || (size <= rank))
 			throw new openxds::exceptions::IndexOutOfBoundsException();
 
@@ -291,9 +291,9 @@ public:
 		return e;
 	}
 
-	virtual E& get( int rank ) throw (openxds::exceptions::IndexOutOfBoundsException*)
+	virtual E& get( long rank ) throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
-		int size = this->_seq->size( this->_seq );
+		long size = this->_seq->size( this->_seq );
 		if ( (rank < 0) || (size <= rank))
 			throw new openxds::exceptions::IndexOutOfBoundsException();
 
@@ -304,9 +304,9 @@ public:
 		return *e;
 	}
 
-	virtual const E& get( int rank ) const throw (openxds::exceptions::IndexOutOfBoundsException*)
+	virtual const E& get( long rank ) const throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
-		int size = this->_seq->size( this->_seq );
+		long size = this->_seq->size( this->_seq );
 		if ( (rank < 0) || (size <= rank))
 			throw new openxds::exceptions::IndexOutOfBoundsException();
 
@@ -317,13 +317,13 @@ public:
 		return *e;
 	}
 
-	virtual int rankOf( const IPosition<E>& p ) const
+	virtual long rankOf( const IPosition<E>& p ) const
 	{
 		const Position<E>& _p = dynamic_cast<const Position<E>&>( p );
 		return this->_seq->rankOf( this->_seq, _p.getCorePosition() );
 	}
 
-	virtual IPosition<E>* atRank( int rank ) throw (openxds::exceptions::IndexOutOfBoundsException*)
+	virtual IPosition<E>* atRank( long rank ) throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
 		const openxds::core::adt::IPosition* p = this->_seq->atRank( this->_seq, rank );
 		
@@ -332,7 +332,7 @@ public:
 		return new Position<E>( p );
 	}
 
-	virtual const IPosition<E>* atRank( int rank ) const throw (openxds::exceptions::IndexOutOfBoundsException*)
+	virtual const IPosition<E>* atRank( long rank ) const throw (openxds::exceptions::IndexOutOfBoundsException*)
 	{
 		const openxds::core::adt::IPosition* p = this->_seq->atRank( this->_seq, rank );
 		

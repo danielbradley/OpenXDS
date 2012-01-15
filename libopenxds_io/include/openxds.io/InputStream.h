@@ -30,11 +30,11 @@ public:
 
   virtual void close();
 
-  virtual int read() const
+  virtual long read() const
       throw (openxds::io::exceptions::IOException*);
 
-  virtual unsigned int
-      read( byte* buf, unsigned int offset, unsigned int nrToRead ) const
+  virtual long
+      read( byte* buf, long offset, long nrToRead ) const
       throw (openxds::io::exceptions::IOException*);
 
   //virtual int available();

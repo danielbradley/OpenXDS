@@ -26,10 +26,10 @@ public:
 
 	virtual ~IEndPoint() {};
 
-	virtual unsigned int read( byte* buffer, unsigned int bufferSize ) const
+	virtual long read( byte* buffer, long bufferSize ) const
 		throw (openxds::io::exceptions::IOException*) = 0;
 
-	virtual unsigned int write( const byte* buffer, unsigned int count ) const
+	virtual long write( const byte* buffer, long count ) const
 		throw (openxds::io::exceptions::IOException*) = 0;
 
 //  virtual void

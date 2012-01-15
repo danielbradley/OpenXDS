@@ -29,11 +29,11 @@ public:
 	virtual void close() = 0;
 	virtual void flush() const = 0;
   
-	virtual void write( const char* characters, unsigned int offset, unsigned int count ) const
+	virtual void write( const char* characters, long offset, long count ) const
 		throw (openxds::io::exceptions::IOException*) = 0;
 	virtual void write( char character ) const
 		throw (openxds::io::exceptions::IOException*) = 0;
-	virtual void write( const openxds::base::String* str, unsigned int offset, unsigned int count ) const
+	virtual void write( const openxds::base::String* str, long offset, long count ) const
 		throw (openxds::io::exceptions::IOException*) = 0;
 
 	virtual openxds::Object* clone() const = 0;

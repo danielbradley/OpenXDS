@@ -48,15 +48,15 @@ IOBuffer::~IOBuffer()
 //  delete this->address;
 }
 
-unsigned int
-IOBuffer::read( byte* buffer, unsigned int bufferSize ) const
+long
+IOBuffer::read( byte* buffer, long bufferSize ) const
 throw (IOException*)
 {
 	if ( this->closed && this->buffer->isEmpty() ) {
 		return EOF;
 	}
 
-	unsigned int i;
+	long i;
 	for( i=0; i < bufferSize; i++ )
 	{
 		if ( this->buffer->isNotEmpty() ) {
@@ -68,11 +68,11 @@ throw (IOException*)
 	return i;
 }
 
-unsigned int
-IOBuffer::write( const byte* buffer, unsigned int count ) const
+long
+IOBuffer::write( const byte* buffer, long count ) const
 throw (IOException*)
 {
-  unsigned int i;
+  long i;
   for ( i=0; i < count; i++ ) {
     this->buffer->write( buffer[i] );
   }

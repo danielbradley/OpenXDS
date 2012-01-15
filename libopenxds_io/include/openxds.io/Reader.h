@@ -25,10 +25,10 @@ public:
 	         Reader();
 	virtual ~Reader();
 
-	virtual int      read() throw (openxds::io::exceptions::IOException*);
+	virtual long     read() throw (openxds::io::exceptions::IOException*);
 	virtual long     skip( long n ) throw (openxds::io::exceptions::IOException*);
 
-	virtual int  readInto( char* cbuf, int off, int len ) throw (openxds::io::exceptions::IOException*) = 0;
+	virtual long readInto( char* cbuf, long off, long len ) throw (openxds::io::exceptions::IOException*) = 0;
 	virtual void    close() = 0;
 
 	static const int EOS;

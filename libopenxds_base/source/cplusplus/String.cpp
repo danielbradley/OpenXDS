@@ -99,6 +99,11 @@ bool String::equals( const Object* obj ) const
 	return this->equals( *obj );
 }
 
+bool String::equals( const String& string ) const
+{
+	return ( 0 == this->compareTo( string ) );
+} 
+
 //----------------------------------------------------------------------------- 
 // Public Methods Implemented For Objects
 //-----------------------------------------------------------------------------
@@ -147,9 +152,10 @@ String*
 String::removeWhitespace() const
 {
 	String* ret = null;
-	void*   str = StdString_removeWhitespace( (StdString*) this->_data );
+	StdString* str = StdString_removeWhitespace( (StdString*) this->_data );
 	{
-		ret = new String( StdString_getChars( (StdString*) str ) );
+		const char* chars = StdString_getChars( str );
+		ret = new String( chars );
 	}
 	free_StdString( (StdString*) str );
 	

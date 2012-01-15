@@ -60,7 +60,7 @@ LineParser::readLine()
   String* ret = null;
   StringBuffer* s = new StringBuffer();
 
-  int c;
+  long c;
   bool loop = true;
   while( loop )
   {
@@ -100,7 +100,7 @@ LineParser::parseLine()
 	
 	StringBuffer* s = new StringBuffer();
 
-	int c;
+	long c;
 	bool loop = true;
 	bool quoted = false;
 
