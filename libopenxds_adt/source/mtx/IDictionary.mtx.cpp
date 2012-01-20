@@ -49,6 +49,7 @@ public:
 	virtual const IEIterator<E>*    findAll( const char* key ) const                                                      = 0;
 
 	virtual const IEIterator<E>*    entries() const                                                                       = 0;
+	virtual const  IIterator<E>*     values() const                                                                       = 0;
 
 	virtual bool                    isEmpty() const                                                                       = 0;
 	virtual int                        size() const                                                                       = 0;
@@ -77,6 +78,7 @@ public:
 <tr><td><b>IEntry(E)*     </b></td> <td><a href='#startsWith'>startsWith  </a></td> <td><b>const char* </b> key</td> <td>                       </td><td>NoSuchElementException*</td></tr>
 <tr><td><b>IEIterator(E)* </b></td> <td><a href='#findAll'   >findAll     </a></td> <td><b>const char* </b> key</td> <td>                       </td>                               </tr>
 <tr><td><b>IEIterator(E)* </b></td> <td><a href='#entries'   >entries     </a></td> <td>                       </td> <td>                       </td>                               </tr>
+<tr><td><b>IIterator(E)*  </b></td> <td><a href='#values'    >values      </a></td> <td>                       </td> <td>                       </td>                               </tr>
 <tr><td><b>bool           </b></td> <td><a href='#isEmpty'   >isEmpty     </a></td>                                                                                                 </tr>
 <tr><td><b>long           </b></td> <td><a href='#size'      >size        </a></td>                                                                                                 </tr>
 </tbody>
@@ -268,6 +270,23 @@ IEIterator<E>* entries();
 Returns
 |
 A new /entry/ iterator that iterates over all entries in the dictionary.
+|
+
+
+~html~
+<a name='values'></a>
+<hr>
+~
+
+...			values
+
+~
+IIterator<E>* values();
+~
+
+Returns
+|
+A new iterator that iterates over all values in the dictionary.
 |
 
 

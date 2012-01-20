@@ -4,6 +4,7 @@
 #include <openxds.adt/IDictionary.h>
 #include <openxds.adt.std/EIterator.h>
 #include <openxds.adt.std/Entry.h>
+#include <openxds.adt.std/Iterator.h>
 
 #include <openxds/Object.h>
 #include <openxds.exceptions/NoSuchElementException.h>
@@ -151,10 +152,20 @@ public:
 	{
 		return new EIterator<E>( this->d->entries( this->d ) );
 	}
-
+	
 	virtual const IEIterator<E>* entries() const
 	{
 		return new EIterator<E>( this->d->entries( this->d ) );
+	}
+
+	virtual const Iterator<E>* values() const
+	{
+		return new Iterator<E>( this->d->values( this->d ) );
+	}
+
+	virtual Iterator<E>* values()
+	{
+		return new Iterator<E>( this->d->values( this->d ) );
 	}
 
 	virtual int size() const

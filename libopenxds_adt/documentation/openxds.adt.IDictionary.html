@@ -1,7 +1,7 @@
 <html>
 <head>
 <style type='text/css'>
-BODY {}DIV.document {}DIV.text { width:718px; width:550px; margin-left:auto; margin-right:auto; }DIV.text { padding: 25; border: none; }H1,H2,H3,H4,H5,H6,P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { font-size:small; font-weight:normal; font-style:normal; font-family:helvetica; }P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { margin-bottom:10px; }H1,H2,H3,H4,H5,H6                  { margin-bottom:10px; }.subtitle { font-size: medium; text-align: center; }.top { margin-top:10px; }.H1 { font-size: xx-large; font-weight:bold; margin-top:10px; margin-bottom:10px; text-align: center; }.H2 { font-size: larger;   font-weight:bold; margin-top:36px;                     font-variant: small-caps; }.H3 { font-size: medium;   font-weight:bold; margin-top:32px; }.H4 { font-size: small;    font-weight:bold; margin-top:26px; }.H5 { font-size: smaller;  font-weight:bold; margin-top:26px; font-style: normal; font-variant: small-caps; }.H6 { font-size: smaller;                                     font-style:italic; }UL  { margin-left: 30px; text-align: justify; list-style-position:outside; }OL  { margin-left: 30px; text-align: justify; list-style-position:outside; }LI   { padding-left: 0px; }P   { text-align: justify; line-height: 20px; }P.paragraph { font-family: helvetica; font-size: small; margin-left: 0; margin-right: 0; text-align: justify; }P.part { font-size: x-large; font-weight: bold; margin-top:36; border-bottom: solid 1px black; padding-bottom:8px; }B  { color: black; }A  { text-decoration: none; }A:visited { text-decoration: none; }P.figure{	margin: 20px 0 20px 0;	text-align:center;}BLOCKQUOTE{	margin: 20px 0 20px 0;	padding: 10px 0px 10px 20px;	font-family: times;	font-size: 8pt;	/* background: #eee; */	border-left: solid 1px #ddd;}PRE{	background: #fff;	margin: 20px 0 20px 0;	padding: 10px 20px 10px 20px;	color: #333;	font-family: menlo;	font-size:10px;	line-height: 150%;	text-align: justify;}P.marginnote{	width: 100;	float: right;}TD { padding: 5px; }TD.bibkey { text-align:right; padding-right: 5px; }TD.reference { }
+BODY { color:#444; }DIV.document {}DIV.text { width:718px; width:550px; margin-left:auto; margin-right:auto; }DIV.text { padding: 25; border: none; }H1,H2,H3,H4,H5,H6,P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { font-size:small; font-weight:normal; font-style:normal; font-family:helvetica; }P,PRE,TD,BLOCKQUOTE,UL,OL,SPAN,B,A { margin-bottom:10px; }H1,H2,H3,H4,H5,H6                  { margin-bottom:10px; }.subtitle { font-size: medium; text-align: center; }.top { margin-top:10px; }.H1 { font-size: xx-large; font-weight:bold; margin-top:10px; margin-bottom:10px; text-align: center; }.H2 { font-size: larger;   font-weight:bold; margin-top:36px;                     font-variant: small-caps; }.H3 { font-size: medium;   font-weight:bold; margin-top:32px; }.H4 { font-size: small;    font-weight:bold; margin-top:26px; }.H5 { font-size: smaller;  font-weight:bold; margin-top:26px; font-style: normal; font-variant: small-caps; }.H6 { font-size: smaller;                                     font-style:italic; }UL  { margin-left: 30px; text-align: justify; list-style-position:outside; }OL  { margin-left: 30px; text-align: justify; list-style-position:outside; }LI   { padding-left: 0px; }P   { text-align: justify; line-height: 20px; }P.paragraph { font-family: helvetica; font-size: small; margin-left: 0; margin-right: 0; text-align: justify; }P.part { font-size: x-large; font-weight: bold; margin-top:36; border-bottom: solid 1px black; padding-bottom:8px; }B  { font-weight:bold; }A  { text-decoration: none; }A:visited { text-decoration: none; }HR { border:none; border-top:solid 1px #eee; }P.figure{	margin: 20px 0 20px 0;	text-align:center;}BLOCKQUOTE{	margin: 20px 0 20px 0;	padding: 10px 0px 10px 20px;	font-family: times;	font-size: 8pt;	/* background: #eee; */	border-left: solid 1px #ddd;}PRE{	background: #fff;	margin: 20px 0 20px 0;	padding: 10px 20px 10px 20px;	color: #222;	font-family: menlo;	font-size:10px;	line-height: 150%;	text-align: justify;}PRE{background-image: linear-gradient(left , rgb(247,247,247) 11%, rgb(255,255,255) 60%);background-image: -o-linear-gradient(left , rgb(247,247,247) 11%, rgb(255,255,255) 60%);background-image: -moz-linear-gradient(left , rgb(247,247,247) 11%, rgb(255,255,255) 60%);background-image: -webkit-linear-gradient(left , rgb(247,247,247) 11%, rgb(255,255,255) 60%);background-image: -ms-linear-gradient(left , rgb(247,247,247) 11%, rgb(255,255,255) 60%);background-image: -webkit-gradient(	linear,	left top,	right top,	color-stop(0.11, rgb(247,247,247)),	color-stop(0.6, rgb(255,255,255)));}P.marginnote{	width: 100;	float: right;}TD { padding: 5px; }TD.bibkey { text-align:right; padding-right: 5px; }TD.reference { }
 </style>
 </head>
 <body>
@@ -38,6 +38,7 @@ using namespace openxds::adt;
 <tr><td><b>IEntry(E)*     </b></td> <td><a href='#startsWith'>startsWith  </a></td> <td><b>const char* </b> key</td> <td>                       </td><td>NoSuchElementException*</td></tr>
 <tr><td><b>IEIterator(E)* </b></td> <td><a href='#findAll'   >findAll     </a></td> <td><b>const char* </b> key</td> <td>                       </td>                               </tr>
 <tr><td><b>IEIterator(E)* </b></td> <td><a href='#entries'   >entries     </a></td> <td>                       </td> <td>                       </td>                               </tr>
+<tr><td><b>IIterator(E)*  </b></td> <td><a href='#values'    >values      </a></td> <td>                       </td> <td>                       </td>                               </tr>
 <tr><td><b>bool           </b></td> <td><a href='#isEmpty'   >isEmpty     </a></td>                                                                                                 </tr>
 <tr><td><b>long           </b></td> <td><a href='#size'      >size        </a></td>                                                                                                 </tr>
 </tbody>
@@ -234,6 +235,20 @@ Returns
 <blockquote>
 <p class='paragraph'>
 A new <i>entry</i> iterator that iterates over all entries in the dictionary.
+</p>
+</blockquote>
+<a name='values'></a>
+<hr>
+<h4 class='h4'>			values</h4>
+<pre>
+IIterator&lt;E&gt;* values();
+</pre>
+<p class='paragraph'>
+Returns
+</p>
+<blockquote>
+<p class='paragraph'>
+A new iterator that iterates over all values in the dictionary.
 </p>
 </blockquote>
 <a name='isEmpty'></a>
