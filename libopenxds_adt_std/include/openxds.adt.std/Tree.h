@@ -108,7 +108,48 @@ public:
 		return tree;
 	}
 
+	virtual void copyChildren( ITree<E>& target, IPosition<E>& t, const ITree<E>& source, const IPosition<E>& s ) const
+	{
+		const openxds::adt::IPIterator<E>* it = source.children( s );
+		while ( it->hasNext() )
+		{
+			const openxds::adt::IPosition<E>* sc = it->next();
+			{
+				const E& element = sc->getElement();
+				E* copy = new E( element );
+				openxds::adt::IPosition<E>* tc = target.addChild( t, copy );
+				{
+					copyChildren( target, *tc, source, *sc );
+				}
+				delete tc;
+			}
+			delete sc;
+		}
+		delete it;
+	} 
 
+	virtual ITree<E>* copyAsTree( const IPosition<E>& p ) const
+	{
+		ITree<E>* tree = new Tree<E>();
+		{
+			IPosition<E>* root = tree->addRoot( new E( p.getElement() ) );
+			{
+				copyChildren( *tree, *root, *this, p );
+			}
+			delete root;
+		}
+		return tree;
+	}
+
+	virtual void swapSubtrees( IPosition<E>& p, ITree<E>& tree, IPosition<E>& p2 )
+	{
+		const openxds::core::adt::IPosition* a = dynamic_cast<Position<E>&>( p  ).getCorePosition();
+		const openxds::core::adt::IPosition* b = dynamic_cast<Position<E>&>( p2 ).getCorePosition();
+		
+		Tree<E>& _tree = dynamic_cast<Tree<E>&>( tree );
+		
+		this->t->swapSubtrees( this->t, a, _tree.t, b );
+	}
 
 	virtual IPosition<E>* root()
 	throw (openxds::exceptions::NoSuchElementException*)

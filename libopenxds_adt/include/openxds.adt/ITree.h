@@ -18,8 +18,10 @@ public:
 	virtual       IPosition<E>*     addChild(       IPosition<E>& p, E*        value ) = 0;
 	virtual       IPosition<E>*   addSubtree(       IPosition<E>& p, ITree<E>* value ) = 0;
 	virtual       E*                 replace(       IPosition<E>& p, E*        value ) = 0;
-	virtual       E*                  remove(       IPosition<E>* p )                  = 0;
-	virtual       ITree<E>*     removeAsTree(       IPosition<E>* p )                  = 0;
+	virtual       E*                  remove(       IPosition<E>* p  )                 = 0;
+	virtual       ITree<E>*     removeAsTree(       IPosition<E>* p  )                 = 0;
+	virtual       ITree<E>*       copyAsTree( const IPosition<E>& p  ) const           = 0; 
+	virtual       void          swapSubtrees(       IPosition<E>& p, ITree<E>& tree, IPosition<E>& p2 ) = 0;
 
 	virtual       IPosition<E>*         root()                                      throw (openxds::exceptions::NoSuchElementException*) = 0;
 	virtual       IPosition<E>*       parent(       IPosition<E>& p )               throw (openxds::exceptions::NoSuchElementException*) = 0;

@@ -38,8 +38,10 @@ public:
 	virtual       IPosition<E>*     addChild(       IPosition<E>& p, E*        value ) = 0;
 	virtual       IPosition<E>*   addSubtree(       IPosition<E>& p, ITree<E>* value ) = 0;
 	virtual       E*                 replace(       IPosition<E>& p, E*        value ) = 0;
-	virtual       E*                  remove(       IPosition<E>* p )                  = 0;
-	virtual       ITree<E>*     removeAsTree(       IPosition<E>* p )                  = 0;
+	virtual       E*                  remove(       IPosition<E>* p  )                 = 0;
+	virtual       ITree<E>*     removeAsTree(       IPosition<E>* p  )                 = 0;
+	virtual       ITree<E>*       copyAsTree( const IPosition<E>& p  ) const           = 0; 
+	virtual       void          swapSubtrees(       IPosition<E>& p, ITree<E>& tree, IPosition<E>& p2 ) = 0;
 
 	virtual       IPosition<E>*         root()                                      throw (openxds::exceptions::NoSuchElementException*) = 0;
 	virtual       IPosition<E>*       parent(       IPosition<E>& p )               throw (openxds::exceptions::NoSuchElementException*) = 0;
@@ -83,6 +85,7 @@ public:
 <tr><td><b>E*            </b></td><td><a href='#replace'     >replace     </a></td><td><b>IPosition(E)&</b> p       </td><td><b>E*       </b> element</td>                            </tr>
 <tr><td><b>E*            </b></td><td><a href='#remove'      >remove      </a></td><td><b>IPosition(E)*</b> p       </td>                                                             </tr>
 <tr><td><b>ITree(E)*     </b></td><td><a href='#removeAsTree'>removeAsTree</a></td><td><b>IPosition(E)*</b> p       </td>                                                             </tr>
+<tr><td><b>ITree(E)*     </b></td><td><a href='#copyAsTree'  >copyAsTree  </a></td><td><b>IPosition(E)*</b> p       </td>                                                             </tr>
 
 <tr><td><b>IPosition(E)* </b></td><td><a href='#root'        >root        </a></td><td>                           </td><td>                       </td><td>NoSuchElementException*</td></tr>
 <tr><td><b>IPosition(E)* </b></td><td><a href='#parent'      >parent      </a></td><td><b>IPosition(E)&</b> p     </td><td>                       </td><td>NoSuchElementException*</td></tr>
