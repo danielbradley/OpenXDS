@@ -45,6 +45,7 @@ public:
 
 	virtual openxds::Object* clone() const;
 	String* asString() const;
+	const String& getContent() const;
 
 	char charAt( int index ) const
 	  throw (openxds::exceptions::IndexOutOfBoundsException*);

@@ -235,23 +235,18 @@ StringBuffer::asString() const
 	return str;
 }
 
-//String&
-//StringBuffer::asString() const
-//{
-//	//Debug::entering( "StringBuffer", "asString", "" );
-//
-//	StringBuffer* thisRW = (StringBuffer*) this;
-//	if ( null != thisRW->tmp )
-//	{
-//		delete thisRW->tmp;
-//		Debug::deletedObject();
-//	}
-//	thisRW->tmp = this->toString();
-//	Debug::returnedObject();
-//
-//	//Debug::leaving();
-//	return *this->tmp;
-//}
+const String&
+StringBuffer::getContent() const
+{
+	StringBuffer* thisRW = (StringBuffer*) this;
+	if ( null != thisRW->tmp )
+	{
+		delete thisRW->tmp;
+	}
+	thisRW->tmp = this->asString();
+
+	return *this->tmp;
+}
 
 char
 StringBuffer::charAt( int index ) const

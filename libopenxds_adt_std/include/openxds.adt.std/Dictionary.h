@@ -25,15 +25,15 @@ namespace openxds {
 void* createDictionary();
 
 template <class E>
-class Dictionary : public openxds::Object, public openxds::adt::IDictionary<E>
+class NonDeletingDictionary : public openxds::Object, public openxds::adt::IDictionary<E>
 {
 public:
-	Dictionary()
+	NonDeletingDictionary()
 	{
 		this->d = openxds::core::adt::std::StdADTFactory_createDictionary();
 	}
 	
-	virtual ~Dictionary()
+	virtual ~NonDeletingDictionary()
 	{
 		//Use EIterator to remove objects.
 	
@@ -41,9 +41,10 @@ public:
 		while ( it->hasNext() )
 		{
 			IEntry<E>* entry = it->next();
-			delete this->remove( entry );
+			this->remove( entry ); // Returned objects are not being deleted here.
 		}
 		delete it;
+
 		this->d->free( this->d );
 	}
 
@@ -178,9 +179,28 @@ public:
 		return this->d->isEmpty( this->d );
 	}
 
-private:
+protected:
 	openxds::core::adt::IDictionary* d;
 }; 
+
+template <class E>
+class Dictionary : public NonDeletingDictionary<E>
+{
+public:
+	virtual ~Dictionary()
+	{
+		//Use EIterator to remove objects.
+	
+		IEIterator<E>* it = this->entries();
+		while ( it->hasNext() )
+		{
+			IEntry<E>* entry = it->next();
+			delete this->remove( entry );
+		}
+		delete it;
+	}
+};
+
 
 };};};
 

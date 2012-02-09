@@ -57,6 +57,13 @@ public:
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 		return new Position<E>( this->t->addChild( this->t, core, value ) );
 	}
+
+	virtual IPosition<E>* insertChildAt( IPosition<E>& p, E* value, long i )
+	{
+		Position<E>& posn = dynamic_cast<Position<E>&>( p );
+		const openxds::core::adt::IPosition* core = posn.getCorePosition();
+		return new Position<E>( this->t->insertChildAt( this->t, core, value, i ) );
+	}
 	
 	virtual IPosition<E>* addSubtree( IPosition<E>& p, ITree<E>* itree )
 	{
@@ -300,6 +307,14 @@ public:
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 
 		return this->t->nrChildren( this->t, core );
+	}
+
+	virtual long nrOfChild( const IPosition<E>& p ) const
+	{
+		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
+		const openxds::core::adt::IPosition* core = posn.getCorePosition();
+
+		return this->t->nrOfChild( this->t, core );
 	}
 
 	virtual long size() const
