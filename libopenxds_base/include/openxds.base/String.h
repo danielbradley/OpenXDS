@@ -66,6 +66,7 @@ namespace openxds {
 			throw (openxds::exceptions::IndexOutOfBoundsException*);
 			
 			String* removeWhitespace() const;
+			String*             trim() const;
 			
 			const byte*const getBytes() const;
 			const char* getChars() const;
@@ -91,6 +92,7 @@ namespace openxds {
 			bool endsWith( const String& suffix ) const;
 			bool matches( const String& pattern ) const;
 			bool isNumber() const;
+			bool isOnlyWhitespace() const;
 			
 		protected:
 			static void stringCopy( char* dest, const char* src, unsigned int n );

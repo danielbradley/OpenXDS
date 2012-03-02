@@ -86,6 +86,7 @@ namespace openxds {
 			throw (openxds::exceptions::IndexOutOfBoundsException*);
 			
 			String* removeWhitespace() const;
+			String*             trim() const;
 			
 			const byte*const getBytes() const;
 			const char* getChars() const;
@@ -111,6 +112,7 @@ namespace openxds {
 			bool endsWith( const String& suffix ) const;
 			bool matches( const String& pattern ) const;
 			bool isNumber() const;
+			bool isOnlyWhitespace() const;
 			
 		protected:
 			static void stringCopy( char* dest, const char* src, unsigned int n );
@@ -173,6 +175,7 @@ namespace openxds {
 <tr><td><b>bool           </b></td> <td><a href='#endsWith'                >endsWith           </a></td> <td><b>const String&</b> aString  </td>                                                                                             </tr>
 <!-- tr><td><b>bool           </b></td> <td><a href='#matches'                 >matches            </a></td> <td><b>const String&</b> aString  </td>                                                                                             </tr -->
 <!-- tr><td><b>bool           </b></td> <td><a href='#isNumber'                >isNumber           </a></td>                                                                                                                                     </tr -->
+<tr><td><b>bool           </b></td> <td><a href='#isOnlyWhitespace'        >isOnlyWhitespace   </a></td>                                                                                              </tr>
 </tbody>
 </table>
 ~
@@ -709,6 +712,43 @@ String::removeWhitespace() const
 
 
 ~html~
+<a name='trim'></a>
+<hr>
+~
+
+...			trim
+
+~
+String* trim() const;
+~
+
+Returns
+|
+a new instance of String whose contents is identical to those of the /this/ string except that all trailing whitespace characters have been removed. 
+|
+
+Implementation
+
+~source/cplusplus/String.cpp~
+String*
+String::trim() const
+{
+	String* ret = null;
+	StdString* str = StdString_trim( (StdString*) this->_data );
+	{
+		const char* chars = StdString_getChars( str );
+		ret = new String( chars );
+	}
+	free_StdString( (StdString*) str );
+	
+	return ret;
+}
+~
+
+
+
+
+~html~
 <a name='getBytes'></a>
 <hr>
 ~
@@ -922,6 +962,47 @@ bool
 String::endsWith( const String& suffix ) const
 {
 	return StdString_endsWith( (StdString*) this->_data, suffix.getChars() );
+}
+~
+
+
+
+
+...			endsWith
+
+~
+bool isOnlyWhitespace() const;
+~
+
+Returns
+|
+TRUE, if /this/ string only contains space, tab, or newline characters, e.g. (' ', '\t', '\n'); otherwise FALSE.
+|
+
+Implementation
+
+~source/cplusplus/String.cpp~
+bool
+String::isOnlyWhitespace() const
+{
+	bool only_whitespace = true;
+	long len = this->getLength();
+	
+	for ( long i=0; i < len; i++ )
+	{
+		switch ( this->chars[i] )
+		{
+		case '\t':
+		case '\n':
+		case ' ':
+			break;
+		default:
+			only_whitespace = false;
+			i = len;
+			break;
+		}
+	}
+	return only_whitespace;
 }
 ~
 
