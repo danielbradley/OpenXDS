@@ -42,6 +42,7 @@ public:
 	virtual       E*                   remove(       IPosition<E>* p  )                                  = 0;
 	virtual       ITree<E>*      removeAsTree(       IPosition<E>* p  )                                  = 0;
 	virtual       ITree<E>*        copyAsTree( const IPosition<E>& p  ) const                            = 0; 
+	virtual       ITree<E>*        copyAsTree()                         const                            = 0; 
 	virtual       void           swapSubtrees(       IPosition<E>& p, ITree<E>& tree, IPosition<E>& p2 ) = 0;
 
 	virtual       IPosition<E>*         root()                                      throw (openxds::exceptions::NoSuchElementException*) = 0;
@@ -49,6 +50,8 @@ public:
 	virtual       IPosition<E>*        child(       IPosition<E>& p, long i )       throw (openxds::exceptions::NoSuchElementException*) = 0;
 	virtual       IPIterator<E>*    children(       IPosition<E>& p )                                                                    = 0;
 
+	virtual       IPosition<E>&      getRoot()                                      throw (openxds::exceptions::NoSuchElementException*) = 0;
+	virtual const IPosition<E>&      getRoot()                                const throw (openxds::exceptions::NoSuchElementException*) = 0;
 	virtual const IPosition<E>*         root()                                const throw (openxds::exceptions::NoSuchElementException*) = 0;
 	virtual const IPosition<E>*       parent( const IPosition<E>& p )         const throw (openxds::exceptions::NoSuchElementException*) = 0;
 	virtual const IPosition<E>*        child( const IPosition<E>& p, long i ) const throw (openxds::exceptions::NoSuchElementException*) = 0;

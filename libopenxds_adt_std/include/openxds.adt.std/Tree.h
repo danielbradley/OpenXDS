@@ -31,10 +31,12 @@ public:
 	Tree()
 	{
 		this->t = openxds::core::adt::std::StdADTFactory_createTree();
+		this->r = NULL;
 	}
 	
 	virtual ~Tree()
 	{
+		delete this->r;
 		if ( this->t )
 		{
 			if ( !this->isEmpty() )
@@ -48,7 +50,9 @@ public:
 
 	virtual IPosition<E>* addRoot( E* value )
 	{
-		return new Position<E>( this->t->addRoot( this->t, value ) );
+		delete this->r;
+		       this->r = new Position<E>( this->t->addRoot( this->t, value ) );
+		return this->r->copy();
 	}
 
 	virtual IPosition<E>* addChild( IPosition<E>& p, E* value )
@@ -139,13 +143,20 @@ public:
 	{
 		ITree<E>* tree = new Tree<E>();
 		{
-			IPosition<E>* root = tree->addRoot( new E( p.getElement() ) );
+			const E& value1 = p.getElement();
+			E* value2 = new E( value1 );
+			IPosition<E>* root = tree->addRoot( value2 );
 			{
 				copyChildren( *tree, *root, *this, p );
 			}
 			delete root;
 		}
 		return tree;
+	}
+
+	virtual ITree<E>* copyAsTree() const
+	{
+		return this->copyAsTree( this->getRoot() );
 	}
 
 	virtual void swapSubtrees( IPosition<E>& p, ITree<E>& tree, IPosition<E>& p2 )
@@ -205,6 +216,26 @@ public:
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 
 		return new PIterator<E>( this->t->children( this->t, core ) );
+	}
+
+	virtual IPosition<E>& getRoot()
+	throw (openxds::exceptions::NoSuchElementException*)
+	{
+		if ( this->isEmpty() )
+		{
+			throw new openxds::exceptions::NoSuchElementException();
+		}
+		return *this->r;
+	}
+
+	virtual const IPosition<E>& getRoot() const
+	throw (openxds::exceptions::NoSuchElementException*)
+	{
+		if ( this->isEmpty() )
+		{
+			throw new openxds::exceptions::NoSuchElementException();
+		}
+		return *this->r;
 	}
 
 	virtual const IPosition<E>* root() const
@@ -336,6 +367,7 @@ private:
 	}
 
 	openxds::core::adt::ITree* t;
+	IPosition<E>* r;
 }; 
 
 };};};
