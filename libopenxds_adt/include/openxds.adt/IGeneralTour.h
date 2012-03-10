@@ -13,6 +13,7 @@ class IGeneralTour : public openxds::Interface
 public:
 	virtual ~IGeneralTour() {}
 
+	virtual openxds::Object* doGeneralTour()                  = 0;
 	virtual openxds::Object* doGeneralTour( IPosition<E>& p ) = 0;
 }; 
 

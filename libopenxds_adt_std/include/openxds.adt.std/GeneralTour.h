@@ -46,6 +46,21 @@ public:
 	virtual ~GeneralTour()
 	{}
 
+	virtual Object* doGeneralTour()
+	{
+		Object* ret = NULL;
+	
+		if ( this->tree.size() )
+		{
+			IPosition<E>* root = tree.root();
+			{
+				ret = this->doGeneralTour( *root );
+			}
+			delete root;
+		}
+		return ret;
+	}
+
 	virtual Object* doGeneralTour( IPosition<E>& p )
 	{
 		Result r;
