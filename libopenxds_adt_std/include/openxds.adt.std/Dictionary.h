@@ -168,6 +168,14 @@ public:
 	{
 		return new Iterator<E>( this->d->values( this->d ) );
 	}
+	
+	virtual bool containsKey( const char* key ) const
+	{
+		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
+		bool contains = this->d->containsKey( this->d, k );
+		k->free( k );
+		return contains;
+	}
 
 	virtual int size() const
 	{
@@ -198,6 +206,16 @@ public:
 			delete this->remove( entry );
 		}
 		delete it;
+	}
+};
+
+template <class E>
+class SortedDictionary : public Dictionary<E>
+{
+public:
+	SortedDictionary()
+	{
+		this->d = openxds::core::adt::std::StdADTFactory_createSortedDictionary();
 	}
 };
 
