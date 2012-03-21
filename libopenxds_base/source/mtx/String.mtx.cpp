@@ -33,6 +33,8 @@ namespace openxds {
 		class String : public Object, public ICloneable
 		{
 		public:
+			static const String _emptyString;
+			static const String& emptyString();
 			
 			//-------------------------------------------------------------------------
 			// Constructors
@@ -216,6 +218,16 @@ using namespace openxds::core::adt::std;
 
 const bool String::debug = false;
 static int hashCode2( const char* buf, int len );
+
+
+const String String::_emptyString;
+
+const String& String::emptyString()
+{
+	return String::_emptyString;
+}
+
+
 ~
 !
 

@@ -29,6 +29,16 @@ using namespace openxds::core::adt::std;
 const bool String::debug = false;
 static int hashCode2( const char* buf, int len );
 
+
+const String String::_emptyString;
+
+const String& String::emptyString()
+{
+	return String::_emptyString;
+}
+
+
+
 String::String() : Object()
 {
 	this->_data = new_StdString( "" );

@@ -13,6 +13,8 @@ namespace openxds {
 		class String : public Object, public ICloneable
 		{
 		public:
+			static const String _emptyString;
+			static const String& emptyString();
 			
 			//-------------------------------------------------------------------------
 			// Constructors
