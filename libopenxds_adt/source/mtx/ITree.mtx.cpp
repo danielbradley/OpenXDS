@@ -34,6 +34,7 @@ class ITree : public openxds::Interface
 public:
 	virtual       ~ITree() {}
 
+	virtual       long                  size()                                const                                                      = 0;
 	virtual       IPosition<E>*       addRoot(       E* value )                                          = 0;
 	virtual       IPosition<E>*      addChild(       IPosition<E>& p, E*        value )                  = 0;
 	virtual       IPosition<E>* insertChildAt(       IPosition<E>& p, E*        value, long i )          = 0;
@@ -64,7 +65,6 @@ public:
 	virtual       bool               isEmpty()                                const                                                      = 0;
 	virtual       long            nrChildren( const IPosition<E>& p )         const                                                      = 0;
 	virtual       long             nrOfChild( const IPosition<E>& p )         const                                                      = 0;
-	virtual       long                  size()                                const                                                      = 0;
 }; 
 
 };};

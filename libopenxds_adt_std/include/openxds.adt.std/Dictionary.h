@@ -111,6 +111,18 @@ public:
 		return it;
 	}
 
+	virtual bool has( const char* key ) const
+	{
+		bool ret = false;
+		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
+		{
+			const openxds::core::adt::IEntry* core = this->d->find( this->d, k );
+			ret = (null != core );
+		}
+		k->free( k );
+		return ret;
+	}
+
 	virtual const IEntry<E>* find( const char* key ) const
 	throw (openxds::exceptions::NoSuchElementException*)
 	{

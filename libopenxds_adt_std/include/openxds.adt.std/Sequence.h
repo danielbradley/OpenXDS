@@ -317,6 +317,11 @@ public:
 		return *e;
 	}
 
+	virtual bool has( long rank ) const
+	{
+		return (rank < this->size() );
+	}
+
 	virtual long rankOf( const IPosition<E>& p ) const
 	{
 		const Position<E>& _p = dynamic_cast<const Position<E>&>( p );

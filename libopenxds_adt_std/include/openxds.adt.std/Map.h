@@ -31,6 +31,8 @@ public:
 	Map()
 	{
 		this->m = openxds::core::adt::std::StdADTFactory_createMap();
+		this->cacheKey   = null;
+		this->cacheValue = null;
 	}
 	
 	virtual ~Map()
@@ -59,15 +61,47 @@ public:
 		return static_cast<E*>( this->m->remove( this->m, _key ) );
 	}
 
-	virtual E& get( const char* key ) throw (openxds::exceptions::NoSuchElementException*)
+	virtual bool has( const char* key ) const
 	{
 		openxds::core::adt::IKey* _key = openxds::core::adt::std::StdADTFactory_createKey( key );
 		const E* _e = static_cast<const E*>( this->m->get( this->m, _key ) );
 		E* e = const_cast<E*>( _e );
+		
+		bool ret = (null != e);
+		if ( ret )
+		{
+			const_cast<Map*>( this )->cacheKey   = key;
+			const_cast<Map*>( this )->cacheValue = e;
+		}
+		else
+		{
+			const_cast<Map*>( this )->cacheKey   = null;
+			const_cast<Map*>( this )->cacheValue = null;
+		}
+		return ret;
+	}
+	
+	virtual E& get( const char* key ) throw (openxds::exceptions::NoSuchElementException*)
+	{
+		E* e = null;
+		if ( this->cacheKey == key )
+		{
+			e = this->cacheValue;
+		}
+		else
+		{
+			this->cacheKey   = null;
+			this->cacheValue = null;
+
+			openxds::core::adt::IKey* _key = openxds::core::adt::std::StdADTFactory_createKey( key );
+			const E* _e = static_cast<const E*>( this->m->get( this->m, _key ) );
+			e = const_cast<E*>( _e );
+		}
 		if ( ! e )
 		{
 			throw new openxds::exceptions::NoSuchElementException();
 		}
+
 		return *e;
 	}
 
@@ -148,6 +182,8 @@ public:
 
 private:
 	openxds::core::adt::IMap* m;
+	const char* cacheKey;
+	E*          cacheValue;
 }; 
 
 };};};

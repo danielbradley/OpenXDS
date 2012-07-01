@@ -172,10 +172,15 @@ static bool isSimilarCharacter( char ch1, char chX )
 	{
 		switch ( ch1 )
 		{
-		case 0x0A:
+		case 0x09: // TAB
 			return false;
-		case 0x0D:
+		
+		case 0x0A: // NEWLINE
+			return false;
+
+		case 0x0D: // CARRIAGE RETURN
 			return (0x0A == chX) ? true : false;
+
 		default:
 			return ( ch1 == chX );
 		}

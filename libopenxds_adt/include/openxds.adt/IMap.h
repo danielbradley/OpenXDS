@@ -24,6 +24,7 @@ public:
 	virtual       IIterator<E>*                     elements()                                                                             = 0;
 
 
+	virtual bool                                         has( const char* key ) const                                                      = 0;
 	virtual const E&                                     get( const char* key ) const throw (openxds::exceptions::NoSuchElementException*) = 0;
 	virtual const IIterator<openxds::base::String>*     keys()                  const                                                      = 0;
 	virtual const IIterator<E>*                       values()                  const                                                      = 0;

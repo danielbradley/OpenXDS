@@ -48,6 +48,11 @@ public:
 		}
 	}
 
+	virtual long size() const
+	{
+		return this->t->size( this->t );
+	}
+
 	virtual IPosition<E>* addRoot( E* value )
 	{
 		delete this->r;
@@ -334,6 +339,8 @@ public:
 
 	virtual long nrChildren( const IPosition<E>& p ) const
 	{
+		fprintf( stdout, "Tree:nrChildren()\n" );
+	
 		const Position<E>& posn = dynamic_cast<const Position<E>&>( p );
 		const openxds::core::adt::IPosition* core = posn.getCorePosition();
 
@@ -348,10 +355,6 @@ public:
 		return this->t->nrOfChild( this->t, core );
 	}
 
-	virtual long size() const
-	{
-		return this->t->size( this->t );
-	}
 
 private:
 	void deleteObjects( IPosition<E>* p )

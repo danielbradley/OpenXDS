@@ -57,6 +57,7 @@ public:
 	virtual       E*              removeFrom(      long rank )                    throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
 	virtual       E&                     get(      long rank )                    throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
 	virtual const E&                     get(      long rank )              const throw (openxds::exceptions::IndexOutOfBoundsException*) = 0;
+	virtual bool                         has(      long rank )              const                                                         = 0;
 
 	// Bridging
 	virtual       long                rankOf( const IPosition<E>& p )       const                                                         = 0;
