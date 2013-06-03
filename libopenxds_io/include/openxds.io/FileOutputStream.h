@@ -21,13 +21,12 @@ namespace openxds {
 class FileOutputStream : public OutputStream
 {
 public:
-	         FileOutputStream( void* stream     ) throw (openxds::io::exceptions::IOException*);
-	         FileOutputStream( File& targetFile ) throw (openxds::io::exceptions::IOException*);
+	         FileOutputStream( void* stream     );
+	         FileOutputStream( File& targetFile );
 	         FileOutputStream( File* targetFile );
-	virtual ~FileOutputStream() throw (openxds::io::exceptions::IOException*);
+	virtual ~FileOutputStream();
 
-protected:
-	void open() throw (openxds::io::exceptions::IOException*);
+	bool open() throw (openxds::io::exceptions::IOException*);
 
 };
 

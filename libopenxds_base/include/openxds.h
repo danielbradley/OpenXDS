@@ -23,6 +23,8 @@ class PUBLIC Object;
 // Ancestor of all OpenXDS interfaces
 class PUBLIC Interface;
 
+
+
 };
 
 #endif

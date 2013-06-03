@@ -25,6 +25,12 @@ Character::isExtended( byte c )
 }
 
 bool
+Character::isHyphen( char c )
+{
+	return '-' == c;
+}
+
+bool
 Character::isLetter( char c )
 {
 	return (isUppercase(c) || isLowercase(c));
@@ -40,6 +46,12 @@ bool
 Character::isSymbol( char c )
 {
 	return (isInSymbolRange1(c) && isInSymbolRange2(c) && isInSymbolRange3(c) && isInSymbolRange4(c));
+}
+
+bool
+Character::isUnderscore( char c )
+{
+	return '_' == c;
 }
 
 bool

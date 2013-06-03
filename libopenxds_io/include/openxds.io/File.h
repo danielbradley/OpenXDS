@@ -77,7 +77,7 @@ public:
 //                                 IOException*,
 //                                 RaceConditionException* );
 
-	void open( const char* access )
+	bool open( const char* access )
 		throw ( openxds::security::exceptions::AccessException*,
 			    openxds::io::exceptions::FileNotFoundException*,
                 openxds::io::exceptions::IOException*,
@@ -100,7 +100,7 @@ public:
 	virtual void flush() const
 		throw (openxds::io::exceptions::IOException*);
 
-	virtual void close() throw (openxds::io::exceptions::IOException*);
+	virtual void close();
 
 	bool remove();
 

@@ -31,6 +31,7 @@ public:
 	NonDeletingDictionary()
 	{
 		this->d = openxds::core::adt::std::StdADTFactory_createDictionary();
+		this->throwExceptions = 1;
 	}
 	
 	virtual ~NonDeletingDictionary()
@@ -48,6 +49,11 @@ public:
 		this->d->free( this->d );
 	}
 
+	virtual void setThrowExceptions( bool throwExceptions )
+	{
+		this->throwExceptions = throwExceptions;
+	}
+	
 	virtual IEntry<E>* insert( const char* key, E* value )
 	{
 		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
@@ -80,10 +86,17 @@ public:
 		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
 		{
 			const openxds::core::adt::IEntry* core = this->d->find( this->d, k );
-			if ( ! core ) throw new openxds::exceptions::NoSuchElementException();
-		
-			e = new Entry<E>( core );
 			k->free( k );
+
+			if ( core )
+			{
+				e = new Entry<E>( core );
+			}
+			else
+			if ( throwExceptions )
+			{
+				throw new openxds::exceptions::NoSuchElementException();
+			}
 		}
 		return e;
 	}
@@ -95,10 +108,18 @@ public:
 		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
 		{
 			const openxds::core::adt::IEntry* core = this->d->startsWith( this->d, k );
-			if ( ! core ) throw new openxds::exceptions::NoSuchElementException();
-		
-			e = new Entry<E>( core );
 			k->free( k );
+
+			if ( core )
+			{
+				e = new Entry<E>( core );
+			}
+			else
+			if ( throwExceptions )
+			{
+				throw new openxds::exceptions::NoSuchElementException();
+			}
+		
 		}
 		return e;
 	}
@@ -130,10 +151,17 @@ public:
 		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
 		{
 			const openxds::core::adt::IEntry* core = this->d->find( this->d, k );
-			if ( ! core ) throw new openxds::exceptions::NoSuchElementException();
-		
-			e = new Entry<E>( core );
 			k->free( k );
+
+			if ( core )
+			{
+				e = new Entry<E>( core );
+			}
+			else
+			if ( throwExceptions )
+			{
+				throw new openxds::exceptions::NoSuchElementException();
+			}
 		}
 		return e;
 	}
@@ -145,10 +173,17 @@ public:
 		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
 		{
 			const openxds::core::adt::IEntry* core = this->d->startsWith( this->d, k );
-			if ( ! core ) throw new openxds::exceptions::NoSuchElementException();
-		
-			e = new Entry<E>( core );
 			k->free( k );
+
+			if ( core )
+			{
+				e = new Entry<E>( core );
+			}
+			else
+			if ( throwExceptions )
+			{
+				throw new openxds::exceptions::NoSuchElementException();
+			}
 		}
 		return e;
 	}
@@ -201,6 +236,7 @@ public:
 
 protected:
 	openxds::core::adt::IDictionary* d;
+	bool throwExceptions;
 }; 
 
 template <class E>

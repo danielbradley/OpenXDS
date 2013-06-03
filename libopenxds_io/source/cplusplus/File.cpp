@@ -220,20 +220,26 @@ File::getCanonicalName() const
 //	}
 //}
 
-void
+bool
 File::open( const char* access )
 throw ( AccessException*,
         FileNotFoundException*,
         IOException*,
         RaceConditionException* )
 {
+	bool status = false;
+
 	if ( this->native->open( this->native, access ) )
 	{
 		delete this->openState;
 		this->openState = new String( access );
+		status = true;
 	} else {
-		throw new IOException();
+		//IO::err().printf( "Could not open: %s for mode: %s\n", this->getCanonicalName().getChars(), access );
+		//throw new IOException();
 	}
+	
+	return status;
 }
 
 //void
@@ -255,7 +261,7 @@ throw (IOException*)
 }
 
 void
-File::close() throw (IOException*)
+File::close()
 {
 	if ( this->native )
 	{
@@ -263,8 +269,11 @@ File::close() throw (IOException*)
 		{
 			delete this->openState;
 			this->openState = null;
-		} else {
-			throw new IOException( "could not close file" );
+		}
+		else
+		{
+			//	Removed throwing of exception, what can the user code do about a file not closing?
+			//	Is this a user code issue?
 		}
 	}
 }

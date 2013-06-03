@@ -44,7 +44,7 @@ public:
 //  seek( unsigned int offset, unsigned int whence ) = 0;
 
 	virtual void flush() const throw (openxds::io::exceptions::IOException*) = 0;
-	virtual void close() throw (openxds::io::exceptions::IOException*) = 0;
+	virtual void close() = 0;
 
 //  virtual IEndPoint* duplicate() const
 //      throw (openxds::io::exceptions::IOException*) = 0;

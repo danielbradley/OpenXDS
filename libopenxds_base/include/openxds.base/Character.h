@@ -28,9 +28,11 @@ public:
 
 	static bool      isDigit( char c );
 	static bool   isExtended( byte c );
+	static bool     isHyphen( char c );
 	static bool     isLetter( char c );
 	static bool  isLowercase( char c );
 	static bool     isSymbol( char c );
+	static bool isUnderscore( char c );
 	static bool  isUppercase( char c );
 	static bool isWhitespace( char c );
 

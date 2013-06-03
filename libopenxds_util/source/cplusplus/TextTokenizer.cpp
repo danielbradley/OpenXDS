@@ -162,7 +162,11 @@ static bool isSimilarCharacter( char ch1, char chX )
 {
 	if ( Character::isLetter( ch1 ) )
 	{
-		return ( Character::isLetter( chX ) );
+		return ( Character::isLetter( chX ) || Character::isLetter( chX ) || Character::isUnderscore( chX ) );
+	}
+	else if ( Character::isUnderscore( ch1 ) )
+	{
+		return ( Character::isLetter( chX ) || Character::isLetter( chX ) || Character::isUnderscore( chX ) );
 	}
 	else if ( Character::isDigit( ch1 ) )
 	{

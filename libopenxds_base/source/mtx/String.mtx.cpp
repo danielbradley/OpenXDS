@@ -16,111 +16,69 @@ To use the class:
 using namespace openxds::base;
 ~
 
-!
-~!include/openxds.base/String.h~
-#ifndef OPENXDS_BASE_STRING_H
-#define OPENXDS_BASE_STRING_H
+~!spec/openxds.base/String.spec~
+namespace openxds.base;
 
-#include <openxds/Object.h>
+spec String extends Object implements Clonable
+{
+	public #emptyString : String;
+	
+	public new ();
+	public new (  number : int );
+	public new ( aString : const string& );
+	
+	//---------------------------------------------------------------------------
+	// Virtual Methods from Object
+	//---------------------------------------------------------------------------
+			
+	public const    clone() : Object*;
+	public const asString() : String*;
 
-#include <openxds.base.h>
-#include <openxds/ICloneable.h>
-#include <openxds.base_exceptions.h>
-
-namespace openxds {
-	namespace base {
+	public const is(     obj : const Object& );
+	public const is( aString : const string& );
+	
+	public const equals(     obj : const Object& );
+	public const equals( aString : const string& );
 		
-		class String : public Object, public ICloneable
-		{
-		public:
-			static const String _emptyString;
-			static const String& emptyString();
+	//-------------------------------------------------------------------------
+	// Public Methods
+	//-------------------------------------------------------------------------
 			
-			//-------------------------------------------------------------------------
-			// Constructors
-			//-------------------------------------------------------------------------
-			
-			String();
-			String( int number );
-			String( const char* chars, long offset, long length );
-			String( const char* chars );
-			explicit String( const String& aString );
-			virtual ~String();
-			
-			//---------------------------------------------------------------------------
-			// Virtual Methods from Object
-			//---------------------------------------------------------------------------
-			
-			virtual Object* clone() const;
-			virtual String* asString() const; 
-			
-			/**
-			 *  @deprecated
-			 */
-			virtual bool equals( const Object* obj ) const;
-			
-			virtual bool equals( const Object& obj ) const;
-			virtual bool equals( const String& aString ) const;
-			
-			//-------------------------------------------------------------------------
-			// Public Methods
-			//-------------------------------------------------------------------------
-			
-			/**
-			 *  Returns the character at the specified position. <p>
-			 *
-			 *  @param index, the index of the character to return.
-			 *  @param bogus, a bogus parameter that doesn't exist.
-			 *  @returns the character at index.
-			 */
-			char charAt( long index ) const throw (openxds::exceptions::IndexOutOfBoundsException*);
-			
-			/**
-			 *  @deprecated
-			 */
-			int  compareTo( const String *anotherString ) const;
-			
-			int compareTo( const String& anotherString ) const;
-			
-			//int  compareTo( const char charString[] ) const;
-			
-			String* substring( long start, long end ) const
-			throw (openxds::exceptions::IndexOutOfBoundsException*);
-			
-			String* removeWhitespace() const;
-			String*             trim() const;
-			
-			const byte*const getBytes() const;
-			const char* getChars() const;
-			
-			/**
-			 *  Returns the length of the string (not counting '\0'). <p>
-			 */
-			long getLength() const;
-			long getSize() const;
-			
-			
-			double getValue() const throw (Exception*);
-			int getValueAsInt() const throw (Exception*);
-			long getValueAsLong() const throw (Exception*);
-			long long getValueAsLongLong() const throw (Exception*);
-			
-			static char *copy( const char* src );
-			static char *copy( const char* src, unsigned int count );
-			
-			bool contentEquals( const String& str ) const;
-			bool contains( const String& token ) const;
-			bool startsWith( const String& prefix ) const;
-			bool endsWith( const String& suffix ) const;
-			bool matches( const String& pattern ) const;
-			bool isNumber() const;
-			bool isOnlyWhitespace() const;
-			
-		protected:
-			static void stringCopy( char* dest, const char* src, unsigned int n );
-			
-			void initialize( const char* chars );
-			
+	/**
+	 *  Returns the character at the specified position. <p>
+	 *
+	 *  @param index, the index of the character to return.
+	 *  @param bogus, a bogus parameter that doesn't exist.
+	 *  @returns the character at index.
+	 */
+	public const    charAt( index : long ) : char;
+
+	public const compareTo( anotherString : const string& ) : int;
+	
+	public const substring( start : long, end : long ) : string*;
+
+	public const removeWhitespace() : string*;
+	public const             trim() : string*;
+
+	public const         getBytes() : const byte[];
+	public const         getChars() : const char[];
+
+	public const        getLength() : long;
+	public const          getSize() : long;
+
+	public const   getValueAsDouble() : double;
+	public const      getValueAsInt() : int;
+	public const     getValueAsLong() : long;
+
+	public const contentEquals(     str : const string& ) : bool;
+	public const      contains(   token : const string& ) : bool;
+	public const    startsWith(  prefix : const string& ) : bool;
+	public const      endsWith(  prefix : const string& ) : bool;
+	public const       matches( pattern : const string& ) : bool;
+
+	public const         isNumber() : bool;
+	public const isOnlyWhitespace() : bool;
+
 			const char* chars;
 			void*       _data;
 			
@@ -183,7 +141,7 @@ namespace openxds {
 ~
 
 !
-~!source/cplusplus/String.cpp~
+~!spec/cplusplus/String.cpp~
 /*
  *  Copyright (C) 1997-2009 Daniel Robert Bradley. All rights reserved.
  *
@@ -196,7 +154,7 @@ namespace openxds {
 !
 
 !
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 #include "openxds.base/String.h"
 #include "openxds.exceptions/IndexOutOfBoundsException.h"
 
@@ -251,7 +209,7 @@ a new instance of an empty string.
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String::String() : Object()
 {
 	this->_data = new_StdString( "" );
@@ -285,7 +243,7 @@ a new instance of String whose contents represents at most /length/ number of ch
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String::String( const char* chars, long offset, long length )
 {
 	this->_data = new_StdString_start_length( chars, offset, length );
@@ -314,7 +272,7 @@ a new instance of String whose contents is identicial to the passed /chars/.
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String::String( const char* string ) : Object()
 {
 	this->_data = new_StdString( string );
@@ -344,7 +302,7 @@ a new instance of String whose content is identical to the passed /string/.
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String::String( const String& aString ) : Object()
 {
 	this->_data = StdString_copy( (StdString*) aString._data ); 
@@ -373,7 +331,7 @@ a new instance of String whose contents represents the /number/ passed in string
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String::String( int number ) : Object()
 {
 	char *value = new char[ 128 ];
@@ -399,7 +357,7 @@ String::String( int number ) : Object()
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String::~String()
 {
 	free_StdString( (StdString*) this->_data );
@@ -426,7 +384,7 @@ A new instance of String typed as an Object that is a clone (copy) of this Strin
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 Object* String::clone() const
 {
 	return new String( *this );
@@ -454,7 +412,7 @@ A new instance of String that is a copy of /this/ String.
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String* String::asString() const
 {
 	String* str = new String( *this );
@@ -483,7 +441,7 @@ TRUE, if the content of /this/ object is identical to the content of the passed 
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 bool String::equals( const Object& obj ) const
 {
 	const String& cast = dynamic_cast<const String&>( obj );
@@ -498,7 +456,7 @@ bool String::equals( const Object& obj ) const
 
 !
 This method is deprecated.
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 /*
  *	Deprecated
  */
@@ -525,7 +483,7 @@ TRUE, if the content of /this/ string is identical to the content of the passed 
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 bool String::equals( const String& string ) const
 {
 	return ( 0 == this->compareTo( string ) );
@@ -535,7 +493,7 @@ bool String::equals( const String& string ) const
 
 
 !
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 //----------------------------------------------------------------------------- 
 // Public Methods Implemented For Objects
 //-----------------------------------------------------------------------------
@@ -568,7 +526,7 @@ Throws
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 char String::charAt( long index ) const
 throw (IndexOutOfBoundsException*)
 {
@@ -607,7 +565,7 @@ Returns
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 int
 String::compareTo( const String& anotherString ) const
 {
@@ -617,7 +575,7 @@ String::compareTo( const String& anotherString ) const
 
 !
 Deprecated
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 int String::compareTo( const String* anotherString ) const
 {
 	return compareTo( *anotherString );
@@ -663,7 +621,7 @@ This differs from the Java implementation of substring, which returns the charac
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String*
 String::substring( long start, long end ) const
 throw (IndexOutOfBoundsException*)
@@ -704,7 +662,7 @@ a new instance of String whose contents is identical to those of the /this/ stri
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String*
 String::removeWhitespace() const
 {
@@ -741,7 +699,7 @@ a new instance of String whose contents is identical to those of the /this/ stri
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 String*
 String::trim() const
 {
@@ -778,7 +736,7 @@ the underlying C charstring representation typecast to bytes.
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 const byte*const String::getBytes() const
 {
 	return (const byte*const) StdString_getChars( (StdString*) this->_data );
@@ -806,7 +764,7 @@ the underlying C charstring representation.
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 const char* String::getChars() const
 {
 	return StdString_getChars( (StdString*) this->_data );
@@ -834,7 +792,7 @@ the number of characters stored in the string.
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 long String::getLength() const
 {
 	return StdString_getLength( (StdString*) this->_data );
@@ -867,7 +825,7 @@ TRUE, if the content of /this/ string is identical to the content of the other /
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 bool
 String::contentEquals( const String& str ) const
 {
@@ -901,7 +859,7 @@ TRUE, if /this/ string contains the passed /token/ as a substring; otherwise FAL
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 bool
 String::contains( const String& token ) const
 {
@@ -935,7 +893,7 @@ TRUE, if /this/ string begins with the passed /prefix/.
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 bool
 String::startsWith( const String& prefix ) const
 {
@@ -969,7 +927,7 @@ TRUE, if /this/ string ends with the passed /suffix/.
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 bool
 String::endsWith( const String& suffix ) const
 {
@@ -993,7 +951,7 @@ TRUE, if /this/ string only contains space, tab, or newline characters, e.g. (' 
 
 Implementation
 
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 bool
 String::isOnlyWhitespace() const
 {
@@ -1020,7 +978,7 @@ String::isOnlyWhitespace() const
 
 
 !
-~source/cplusplus/String.cpp~
+~spec/cplusplus/String.cpp~
 //bool
 //String::matches( const String& pattern ) const
 //{

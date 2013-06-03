@@ -18,35 +18,29 @@ using namespace openxds::base;
 using namespace openxds::io;
 using namespace openxds::io::exceptions;
 
-FileOutputStream::FileOutputStream( void* stream )
-throw (IOException*) : OutputStream( new File( stream ) )
+FileOutputStream::FileOutputStream( void* stream ) : OutputStream( new File( stream ) )
 {}
 
-FileOutputStream::FileOutputStream( File& targetFile )
-throw (openxds::io::exceptions::IOException*)
-: OutputStream( targetFile )
-{
-	this->open();
-}
+FileOutputStream::FileOutputStream( File& targetFile ) : OutputStream( targetFile )
+{}
 
-FileOutputStream::FileOutputStream( File* targetFile )
-: OutputStream( targetFile )
-{
-  this->open();
-}
+FileOutputStream::FileOutputStream( File* targetFile ) : OutputStream( targetFile )
+{}
 
-FileOutputStream::~FileOutputStream() throw (IOException*)
-{
-}
+FileOutputStream::~FileOutputStream()
+{}
 
-void
+bool
 FileOutputStream::open()
 throw (IOException*)
 {
+	bool status = false;
+
 	const File* f = dynamic_cast<const File*>( &this->getIOEndPoint() );
-	if ( null == f )
+	if ( f )
 	{
-		throw new IOException( "invalid IOEndPoint" );
+		status = ((File*) f)->open( "w" );
 	}
-	((File*) f)->open( "wb" );
+
+	return status;
 }

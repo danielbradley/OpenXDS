@@ -5,6 +5,7 @@
 #include <openxds.adt/IGeneralTour.h>
 #include <openxds.adt/IPIterator.h>
 #include <openxds.adt/IPosition.h>
+#include <openxds.adt/ITree.h>
 #include <openxds/Object.h>
 
 namespace openxds {
