@@ -8,6 +8,7 @@
  */
 
 #include "openxds.base/String.h"
+#include "openxds.base/StringBuffer.h"
 #include "openxds.exceptions/IndexOutOfBoundsException.h"
 
 #include <openxds.core.adt.std/StdString.h>
@@ -246,6 +247,41 @@ String::isOnlyWhitespace() const
 		}
 	}
 	return only_whitespace;
+}
+
+bool
+String::isEmpty() const
+{
+	return (0 == this->getLength());
+}
+
+String*
+String::htmlEncode( const String& unencoded )
+{
+	StringBuffer sb;
+	{
+		long len = unencoded.getLength();
+		
+		for ( int i=0; i < len; i++ )
+		{
+			char ch = unencoded.charAt( i );
+			
+			switch ( ch )
+			{
+			case '>':
+				sb.append( "&gt;" );
+				break;
+				
+			case '<':
+				sb.append( "&lt;" );
+				break;
+				
+			default:
+				sb.append( ch );
+			}
+		}
+	}
+	return sb.asString();
 }
 
 //bool

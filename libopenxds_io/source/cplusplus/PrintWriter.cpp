@@ -207,7 +207,7 @@ PrintWriter::write( const String* str, long offset, long count ) const
 throw (IOException*)
 {
   const char* cbuf = str->getChars();
-  this->os.write( (const byte*) cbuf, offset, count );
+  this->write( cbuf, offset, count );
 }
 
 OutputStream&

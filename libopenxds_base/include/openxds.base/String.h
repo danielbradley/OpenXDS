@@ -15,6 +15,7 @@ namespace openxds {
 		public:
 			static const String _emptyString;
 			static const String& emptyString();
+			static       String* htmlEncode( const String& unencoded );
 			
 			//-------------------------------------------------------------------------
 			// Constructors
@@ -95,6 +96,7 @@ namespace openxds {
 			bool matches( const String& pattern ) const;
 			bool isNumber() const;
 			bool isOnlyWhitespace() const;
+			bool isEmpty() const;
 			
 		protected:
 			static void stringCopy( char* dest, const char* src, unsigned int n );
