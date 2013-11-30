@@ -258,6 +258,16 @@ public:
 };
 
 template <class E>
+class NTDictionary : public Dictionary<E>
+{
+public:
+	NTDictionary()
+	{
+		this->setThrowExceptions( false );
+	}
+};
+
+template <class E>
 class SortedDictionary : public Dictionary<E>
 {
 public:

@@ -9,6 +9,7 @@ namespace openxds {
 		namespace std {
 
 template<class E> class PUBLIC Dictionary;	
+template<class E> class PUBLIC NTDictionary;
 template<class E> class PUBLIC EIterator;
 template<class E> class PUBLIC Entry;
 template<class E> class PUBLIC Iterator;
