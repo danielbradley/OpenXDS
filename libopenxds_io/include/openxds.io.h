@@ -25,6 +25,7 @@ class PUBLIC IEndPoint;
 class PUBLIC InputStream;
 class PUBLIC InputStreamReader;
 class PUBLIC File;
+class PUBLIC FileOutputStream;
 class PUBLIC LineParser;
 class PUBLIC OutputStream;
 class PUBLIC Path;

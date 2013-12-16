@@ -32,14 +32,20 @@ FileOutputStream::~FileOutputStream()
 
 bool
 FileOutputStream::open()
-throw (IOException*)
 {
 	bool status = false;
 
-	const File* f = dynamic_cast<const File*>( &this->getIOEndPoint() );
-	if ( f )
+	try
 	{
-		status = ((File*) f)->open( "w" );
+		const File* f = dynamic_cast<const File*>( &this->getIOEndPoint() );
+		if ( f )
+		{
+			status = ((File*) f)->open( "w" );
+		}
+	}
+	catch ( IOException* ex )
+	{
+		delete ex;
 	}
 
 	return status;

@@ -26,7 +26,7 @@ public:
 	         FileOutputStream( File* targetFile );
 	virtual ~FileOutputStream();
 
-	bool open() throw (openxds::io::exceptions::IOException*);
+	virtual bool open();
 
 };
 

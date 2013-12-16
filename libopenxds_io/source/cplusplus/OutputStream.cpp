@@ -74,6 +74,12 @@ OutputStream::~OutputStream()
 	}
 }
 
+bool
+OutputStream::open()
+{
+	return true;
+}
+
 void
 OutputStream::write( const byte value ) const
 throw (IOException*)

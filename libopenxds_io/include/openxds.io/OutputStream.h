@@ -26,6 +26,7 @@ public:
 
   virtual ~OutputStream();
 
+  virtual bool open();
   virtual void close() const;
   virtual void flush() const throw (openxds::io::exceptions::IOException*);
 

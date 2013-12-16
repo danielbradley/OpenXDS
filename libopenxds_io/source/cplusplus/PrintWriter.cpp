@@ -26,12 +26,16 @@ using namespace openxds::io::exceptions;
 
 PrintWriter::PrintWriter( OutputStream& ostream ) : os( ostream )
 {
-  this->isReference = true;
+	this->isReference = true;
+	
+	this->os.open();
 }
 
 PrintWriter::PrintWriter( OutputStream* ostream ) : os( *ostream )
 {
-  this->isReference = false;
+	this->isReference = false;
+
+	this->os.open();
 }
 
 PrintWriter::~PrintWriter() throw (IOException*)
