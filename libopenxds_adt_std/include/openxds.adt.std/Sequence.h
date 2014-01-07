@@ -148,11 +148,9 @@ public:
 
 	virtual IPosition<E>* first() throw (openxds::exceptions::NoSuchElementException*)
 	{
-		return const_cast<IPosition<E>* >( this->first() );
-	
 		if ( this->isEmpty() ) throw new openxds::exceptions::NoSuchElementException();
 
-		const openxds::core::adt::IPosition* p = this->_seq->first( this->_seq );
+		openxds::core::adt::IPosition* p = const_cast<openxds::core::adt::IPosition*>( this->_seq->first( this->_seq ) );
 		return new Position<E>( p );
 	}
 
