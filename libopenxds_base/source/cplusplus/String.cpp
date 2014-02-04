@@ -46,6 +46,16 @@ String::String() : Object()
 	this->chars = this->getChars();
 }
 
+String::String( char ch )
+{
+	char chars[2];
+	chars[0] = ch;
+	chars[1] = '\0';
+
+	this->_data = new_StdString( chars );
+	this->chars = this->getChars();
+}
+
 String::String( const char* chars, long offset, long length )
 {
 	this->_data = new_StdString_start_length( chars, offset, length );

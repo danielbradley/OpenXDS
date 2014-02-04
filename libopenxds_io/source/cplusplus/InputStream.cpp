@@ -114,7 +114,7 @@ throw (IOException*)
 {
 	long nrRead = this->endPoint->read( buf, nrToRead );
 
-	if ( IEndPoint::EOF == nrRead )
+	if ( IEndPoint::XEOF == nrRead )
 	{
 		return OPENXDS_IO_EOS;
 	} else {

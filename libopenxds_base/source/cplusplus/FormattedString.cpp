@@ -28,26 +28,31 @@ using namespace openxds::core::base;
 
 FormattedString::FormattedString( const char* format, ... ) : String()
 {
-	va_list ap;
-	va_start( ap, format );
-	{
-		int written;
-		int size = 10;
-		char* tmp = (char*) Runtime::calloc( size, sizeof( char ) );
+	int written;
+	int size = 10;
 
-		written = vsnprintf( tmp, size, format, ap );
+	char* tmp;
+
+	va_list ap;
+	{
+		va_start( ap, format );
+		{
+			tmp     = (char*) Runtime::calloc( size, sizeof( char ) );
+			written = vsnprintf( tmp, size, format, ap );
+		}
 		va_end(ap);
 
 		if ( written >= size )
 		{
 			va_start(ap,format);
-
-			Runtime::free( tmp );
-			tmp = (char*) Runtime::calloc( written + 1, sizeof( char ) );
-			written = vsnprintf( tmp, written + 1, format, ap );
-			
+			{
+				Runtime::free( tmp );
+				tmp = (char*) Runtime::calloc( written + 1, sizeof( char ) );
+				written = vsnprintf( tmp, written + 1, format, ap );
+			}
 			va_end(ap);
 		}
+
 		free_StdString( (StdString*) this->_data );
 		this->_data = new_StdString( tmp );
 		Runtime::free( tmp );

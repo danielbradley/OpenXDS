@@ -33,6 +33,7 @@ public:
 	virtual const  IIterator<E>*     values() const                                                                       = 0;
 
 	virtual bool                containsKey( const char* key ) const                                                      = 0;
+	virtual bool          containsKeyPrefix( const char* key ) const                                                      = 0;
 
 	virtual bool                    isEmpty() const                                                                       = 0;
 	virtual int                        size() const                                                                       = 0;

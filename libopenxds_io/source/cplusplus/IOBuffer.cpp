@@ -53,7 +53,7 @@ IOBuffer::read( byte* buffer, long bufferSize ) const
 throw (IOException*)
 {
 	if ( this->closed && this->buffer->isEmpty() ) {
-		return EOF;
+		return XEOF;
 	}
 
 	long i;

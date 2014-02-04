@@ -22,6 +22,7 @@ namespace openxds {
 			//-------------------------------------------------------------------------
 			
 			String();
+			String( char ch );
 			String( int number );
 			String( const char* chars, long offset, long length );
 			String( const char* chars );

@@ -14,7 +14,7 @@
 #include <openxds/Interface.h>
 #include <openxds.base.h>
 
-#undef EOF
+//#undef EOF
 
 namespace openxds {
 	namespace io {
@@ -22,7 +22,7 @@ namespace openxds {
 class IEndPoint : public openxds::Interface
 {
 public:
-	static const unsigned int EOF = OPENXDS_IO_EOF;
+	static const unsigned int XEOF = OPENXDS_IO_EOF;
 
 	virtual ~IEndPoint() {};
 

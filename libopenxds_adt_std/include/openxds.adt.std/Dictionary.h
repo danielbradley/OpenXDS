@@ -224,6 +224,14 @@ public:
 		return contains;
 	}
 
+	virtual bool containsKeyPrefix( const char* key ) const
+	{
+		openxds::core::adt::IKey* k = openxds::core::adt::std::StdADTFactory_createKey( key );
+		bool contains = this->d->containsKeyPrefix( this->d, k );
+		k->free( k );
+		return contains;
+	}
+
 	virtual int size() const
 	{
 		return this->d->size( this->d );
