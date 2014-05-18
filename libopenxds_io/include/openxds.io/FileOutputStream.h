@@ -24,9 +24,13 @@ public:
 	         FileOutputStream( void* stream     );
 	         FileOutputStream( File& targetFile );
 	         FileOutputStream( File* targetFile );
+	         FileOutputStream( File* targetFile, const char* flags );
 	virtual ~FileOutputStream();
 
 	virtual bool open();
+
+private:
+	openxds::base::String* flags;
 
 };
 

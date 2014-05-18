@@ -19,16 +19,29 @@ using namespace openxds::io;
 using namespace openxds::io::exceptions;
 
 FileOutputStream::FileOutputStream( void* stream ) : OutputStream( new File( stream ) )
-{}
+{
+	this->flags = new String( "w" );
+}
 
 FileOutputStream::FileOutputStream( File& targetFile ) : OutputStream( targetFile )
-{}
+{
+	this->flags = new String( "w" );
+}
 
 FileOutputStream::FileOutputStream( File* targetFile ) : OutputStream( targetFile )
-{}
+{
+	this->flags = new String( "w" );
+}
+
+FileOutputStream::FileOutputStream( File* targetFile, const char* flags ) : OutputStream( targetFile )
+{
+	this->flags = new String( flags );
+}
 
 FileOutputStream::~FileOutputStream()
-{}
+{
+	delete this->flags;
+}
 
 bool
 FileOutputStream::open()
@@ -40,7 +53,7 @@ FileOutputStream::open()
 		const File* f = dynamic_cast<const File*>( &this->getIOEndPoint() );
 		if ( f )
 		{
-			status = ((File*) f)->open( "w" );
+			status = ((File*) f)->open( this->flags->getChars() );
 		}
 	}
 	catch ( IOException* ex )
