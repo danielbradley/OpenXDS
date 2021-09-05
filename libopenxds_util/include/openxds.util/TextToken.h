@@ -33,6 +33,7 @@ public:
 	virtual const openxds::base::String& getEscapedValue() const;
 	
 private:
+	static const openxds::base::String* Unexpected;
 	static const openxds::base::String* Escaped;
 	static const openxds::base::String* Number;
 	static const openxds::base::String* Space;
