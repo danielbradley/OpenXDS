@@ -25,6 +25,18 @@ Character::isExtended( byte c )
 }
 
 bool
+Character::isHex( char c )
+{
+	return isDigit( c ) || isHexLetter( c );
+}
+
+bool
+Character::isHexLetter( char c )
+{
+	return ((65 <= c) && (c <= 90)) || ((97 <= c) && (c <= 122));
+}
+
+bool
 Character::isHyphen( char c )
 {
 	return '-' == c;

@@ -25,6 +25,7 @@ class PUBLIC ProcessInfo;
 class PUBLIC Runtime;
 class PUBLIC String;
 class PUBLIC StringBuffer;
+class PUBLIC TypeTokenizer;
 
 //class PUBLIC Buffer;
 //class PUBLIC ByteBuffer;

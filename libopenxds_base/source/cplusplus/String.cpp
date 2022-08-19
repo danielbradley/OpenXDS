@@ -81,7 +81,7 @@ String::String( int number ) : Object()
 	
 	this->_data = new_StdString( value );
 	
-	delete value;
+	delete[] value;
 	this->chars = this->getChars();
 }
 
@@ -103,12 +103,14 @@ String* String::asString() const
 
 bool String::equals( const Object& obj ) const
 {
-	const String& cast = dynamic_cast<const String&>( obj );
-	if ( null == &cast )
+    const Object* tmp = &obj;
+
+	const String* cast = dynamic_cast<const String*>( tmp );
+	if ( null == cast )
 	{
 		return false;
 	} else {
-		return ( 0 == this->compareTo( cast ) );
+		return ( 0 == this->compareTo( *cast ) );
 	}
 } 
 

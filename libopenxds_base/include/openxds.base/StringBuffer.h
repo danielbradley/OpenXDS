@@ -43,6 +43,9 @@ public:
 	  throw (openxds::exceptions::IndexOutOfBoundsException*);
 	void removeLast();
 
+	int remove( char ch );
+	int replace( char ch, char chx );
+
 	virtual openxds::Object* clone() const;
 	String* asString() const;
 	const String& getContent() const;

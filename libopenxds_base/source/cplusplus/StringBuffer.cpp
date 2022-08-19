@@ -217,6 +217,39 @@ StringBuffer::removeLast()
 	}
 }
 
+int
+StringBuffer::remove( char ch )
+{
+	int c = 0;
+	int n = this->getLength();
+				
+	for ( int i=n-1; i >= 0; i-- )
+	{
+		if ( ch == this->data[i] )
+		{
+			this->removeCharAt( i );
+			c++;
+		}
+	}
+	return c;
+}
+
+int
+StringBuffer::replace( char ch, char chx )
+{
+	int c = 0;
+	int n = this->getLength();
+				
+	for ( int i=0; i < n; i++ )
+	{
+		if ( ch == this->data[i] )
+		{
+			this->data[i] = chx;
+			c++;
+		}
+	}
+	return c;
+}
 
 Object*
 StringBuffer::clone() const
