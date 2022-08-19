@@ -16,6 +16,7 @@
 using namespace openxds::base;
 using namespace openxds::util;
 
+const String* TextToken::Unexpected = new String( "UNEXPECTED" );
 const String* TextToken::Escaped    = new String( "ESCAPED" );
 const String* TextToken::Number     = new String( "NUMBER" );
 const String* TextToken::Space      = new String( "SPACE" );
@@ -103,6 +104,8 @@ TextToken::getTokenString() const
 		return *Whitespace;
 	case ITextToken::WORD:
 		return *Word;
+	default:
+		return *Unexpected;
 	}
 }
 
