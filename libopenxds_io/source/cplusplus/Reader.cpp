@@ -39,7 +39,7 @@ Reader::skip( long n ) throw (IOException*)
 {
 	char* cbuf = new char[n];
 	long read = this->readInto( cbuf, 0, n );
-	delete cbuf;
+	delete[] cbuf;
 	return read;
 }
  
