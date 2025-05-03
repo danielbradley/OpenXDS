@@ -77,7 +77,7 @@ String::String( const String& aString ) : Object()
 String::String( int number ) : Object()
 {
 	char *value = new char[ 128 ];
-	sprintf( value, "%i", number);
+	snprintf( value, 128, "%i", number);
 	
 	this->_data = new_StdString( value );
 	
