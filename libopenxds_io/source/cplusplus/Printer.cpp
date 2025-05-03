@@ -13,6 +13,6 @@
 
 using namespace openxds::io;
 
-Printer::~Printer() throw (openxds::io::exceptions::IOException*)
+Printer::~Printer()
 {
 }

@@ -42,7 +42,7 @@ public:
 	 File( Path* path );
 	 File( flags standardStream );
 	 File( void* ioStream ) throw (openxds::io::exceptions::IOException*);
-	~File() throw (openxds::io::exceptions::IOException*);
+	~File();
 
 	void initialize();
 

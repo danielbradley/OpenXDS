@@ -21,7 +21,7 @@ namespace openxds {
 class Printer : public openxds::Interface
 {
 public:
-  virtual ~Printer() throw (openxds::io::exceptions::IOException*);
+  virtual ~Printer();
 
   /*
    *  @deprecated.

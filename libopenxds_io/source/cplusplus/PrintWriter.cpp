@@ -38,7 +38,7 @@ PrintWriter::PrintWriter( OutputStream* ostream ) : os( *ostream )
 	this->os.open();
 }
 
-PrintWriter::~PrintWriter() throw (IOException*)
+PrintWriter::~PrintWriter()
 {
 	this->flush();
 	this->close();

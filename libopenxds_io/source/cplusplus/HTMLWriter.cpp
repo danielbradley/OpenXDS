@@ -26,7 +26,7 @@ HTMLWriter::HTMLWriter( OutputStream& ostream ) : PrintWriter( ostream )
 HTMLWriter::HTMLWriter( OutputStream* ostream ) : PrintWriter( ostream )
 {}
 
-HTMLWriter::~HTMLWriter() throw (IOException*)
+HTMLWriter::~HTMLWriter()
 {}
 
 void

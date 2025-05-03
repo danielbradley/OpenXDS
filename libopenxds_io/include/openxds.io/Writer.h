@@ -24,7 +24,7 @@ class Writer : public openxds::Interface
 public:
 	static const int EOL;
 
-	virtual ~Writer() throw (openxds::io::exceptions::IOException*);
+	virtual ~Writer();
 
 	virtual void close() = 0;
 	virtual void flush() const = 0;

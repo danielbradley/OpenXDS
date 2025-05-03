@@ -22,7 +22,7 @@ public:
 	HTMLWriter( openxds::io::OutputStream& ostream );
 	HTMLWriter( openxds::io::OutputStream* ostream );
 
-	virtual ~HTMLWriter() throw (openxds::io::exceptions::IOException*);
+	virtual ~HTMLWriter();
 
 	virtual void write( const char* characters, long offset, long count ) const throw (openxds::io::exceptions::IOException*);
 };

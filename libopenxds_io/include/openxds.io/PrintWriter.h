@@ -29,7 +29,7 @@ public:
 
   PrintWriter( OutputStream& ostream );
   PrintWriter( OutputStream* ostream );
-  virtual ~PrintWriter() throw (openxds::io::exceptions::IOException*);
+  virtual ~PrintWriter();
 
   // Printer Implementations
 

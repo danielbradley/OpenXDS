@@ -15,6 +15,6 @@ using namespace openxds::io::exceptions;
 
 const int Writer::EOL = '\n';
 
-Writer::~Writer() throw (IOException*)
+Writer::~Writer()
 {
 }

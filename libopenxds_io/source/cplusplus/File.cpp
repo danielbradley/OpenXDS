@@ -122,7 +122,7 @@ throw (IOException*)
 	}
 }
 
-File::~File() throw (IOException*)
+File::~File()
 {
   //  This shouldn't be needed as it is handled by the
   //  deletion of the file descriptor itself.
